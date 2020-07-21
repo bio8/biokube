@@ -1,8 +1,421 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "biokube-web": {
+      "root": "apps/biokube-web",
+      "sourceRoot": "apps/biokube-web",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/next:build",
+          "options": {
+            "root": "apps/biokube-web",
+            "outputPath": "dist/apps/biokube-web"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "biokube-web:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "biokube-web:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "builder": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "biokube-web:build:production"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/biokube-web/tsconfig.json",
+              "apps/biokube-web/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/biokube-web/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/biokube-web/jest.config.js",
+            "tsConfig": "apps/biokube-web/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "biokube-web-e2e": {
+      "root": "apps/biokube-web-e2e",
+      "sourceRoot": "apps/biokube-web-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/biokube-web-e2e/cypress.json",
+            "tsConfig": "apps/biokube-web-e2e/tsconfig.e2e.json",
+            "devServerTarget": "biokube-web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "biokube-web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/biokube-web-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/biokube-web-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "biokube-api": {
+      "root": "apps/biokube-api",
+      "sourceRoot": "apps/biokube-api/src",
+      "projectType": "application",
+      "prefix": "biokube-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/biokube-api",
+            "main": "apps/biokube-api/src/main.ts",
+            "tsConfig": "apps/biokube-api/tsconfig.app.json",
+            "assets": [
+              "apps/biokube-api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/biokube-api/src/environments/environment.ts",
+                  "with": "apps/biokube-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "biokube-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/biokube-api/tsconfig.app.json",
+              "apps/biokube-api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/biokube-api/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/biokube-api/jest.config.js",
+            "tsConfig": "apps/biokube-api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "biokube-data": {
+      "root": "apps/biokube-data",
+      "sourceRoot": "apps/biokube-data/src",
+      "projectType": "application",
+      "prefix": "biokube-data",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/biokube-data",
+            "main": "apps/biokube-data/src/main.ts",
+            "tsConfig": "apps/biokube-data/tsconfig.app.json",
+            "assets": [
+              "apps/biokube-data/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/biokube-data/src/environments/environment.ts",
+                  "with": "apps/biokube-data/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "biokube-data:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/biokube-data/tsconfig.app.json",
+              "apps/biokube-data/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/biokube-data/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/biokube-data/jest.config.js",
+            "tsConfig": "apps/biokube-data/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "types": {
+      "root": "libs/types",
+      "sourceRoot": "libs/types/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/types/tsconfig.lib.json",
+              "libs/types/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/types/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/types/jest.config.js",
+            "tsConfig": "libs/types/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "cloud": {
+      "root": "libs/cloud",
+      "sourceRoot": "libs/cloud/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/cloud/tsconfig.lib.json",
+              "libs/cloud/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/cloud/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cloud/jest.config.js",
+            "tsConfig": "libs/cloud/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "container": {
+      "root": "libs/container",
+      "sourceRoot": "libs/container/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/container/tsconfig.lib.json",
+              "libs/container/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/container/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/container/jest.config.js",
+            "tsConfig": "libs/container/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data": {
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/data/tsconfig.lib.json",
+              "libs/data/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/data/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data/jest.config.js",
+            "tsConfig": "libs/data/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "integration": {
+      "root": "libs/integration",
+      "sourceRoot": "libs/integration/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/integration/tsconfig.lib.json",
+              "libs/integration/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/integration/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/integration/jest.config.js",
+            "tsConfig": "libs/integration/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "service": {
+      "root": "libs/service",
+      "sourceRoot": "libs/service/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/service/tsconfig.lib.json",
+              "libs/service/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/service/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/service/jest.config.js",
+            "tsConfig": "libs/service/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "biokube-app": {
+      "root": "apps/biokube-app",
+      "sourceRoot": "apps/biokube-app/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@jbuijgers/nx-react-native:build",
+          "options": {},
+          "configurations": {}
+        },
+        "serve": {
+          "builder": "@jbuijgers/nx-react-native:dev-server",
+          "options": {},
+          "configurations": {}
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/next"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -17,7 +430,8 @@
     },
     "@nrwl/react": {
       "application": {
-        "linter": "eslint"
+        "linter": "eslint",
+        "babel": true
       },
       "library": {
         "linter": "eslint"
@@ -28,6 +442,7 @@
     },
     "@nrwl/next": {
       "application": {
+        "style": "styled-components",
         "linter": "eslint"
       }
     },
@@ -62,5 +477,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "biokube-web"
 }

@@ -17,9 +17,51 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "biokube-web": {
+      "tags": []
+    },
+    "biokube-web-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "biokube-web"
+      ]
+    },
+    "biokube-api": {
+      "tags": []
+    },
+    "biokube-data": {
+      "tags": []
+    },
+    "types": {
+      "tags": []
+    },
+    "cloud": {
+      "tags": []
+    },
+    "container": {
+      "tags": []
+    },
+    "data": {
+      "tags": []
+    },
+    "integration": {
+      "tags": []
+    },
+    "service": {
+      "tags": []
+    },
+    "biokube-app": {
+      "tags": []
+    }
+  }
 }
