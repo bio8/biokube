@@ -17,12 +17,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -32,14 +27,18 @@
     },
     "biokube-web-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "biokube-web"
-      ]
+      "implicitDependencies": ["biokube-web"]
     },
     "biokube-api": {
       "tags": []
     },
     "biokube-data": {
+      "tags": []
+    },
+    "biokube-native": {
+      "tags": []
+    },
+    "biokube-docs": {
       "tags": []
     },
     "types": {
@@ -58,9 +57,6 @@
       "tags": []
     },
     "service": {
-      "tags": []
-    },
-    "biokube-app": {
       "tags": []
     }
   }

@@ -1,0 +1,6 @@
+{
+  "name": "biokube-native",
+  "dependencies": {
+    "react-native": "*"
+  }
+}
