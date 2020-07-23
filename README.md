@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Biokube
 
 This project was generated using [Nx](https://nx.dev).
@@ -88,7 +87,4 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
-=======
-# biokube
->>>>>>> 4f0c1383b65ffe9de3357adceacd09a6a84beea1
+Visit [Nx Cloud](https://nx.app/) to learn more
