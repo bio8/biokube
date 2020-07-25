@@ -31,5 +31,4 @@ RUN gem install bundler \
     && find $BUNDLE_PATH/gems/ -name "*.c" -delete \
     && find $BUNDLE_PATH/gems/ -name "*.o" -delete  
 
-
 CMD ["bundle", "exec", "middleman", "server", "--watcher-force-polling"]
