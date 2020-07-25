@@ -238,8 +238,13 @@
         "build-web": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "docker exec -it biokube-docs /bin/sh -c 'bundle exec middleman build'",
-            "cwd": "apps/biokube-docs"
+            "commands": [
+              "docker rm -f biokube-docs",
+              "docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/../biokube-web/public/docs:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs",
+              "docker exec -it biokube-docs /bin/sh -c 'bundle exec middleman build'"
+            ],
+            "cwd": "apps/biokube-docs",
+            "parallel": false
           }
         }
       }
