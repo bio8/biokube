@@ -1130,6 +1130,124 @@ nx g @jbuijgers/nx-react-native:remove biokube-native</p>
 <p>kubectl config view --minify --raw
 cat \$HOME/.kube/config</p>
 
+<p>1.1 Setup kubectl autocompletion:</p>
+
+<p>sudo apt-get install bash-completion</p>
+
+<p>Add the following lines to the beginning of ~/.zshrc
+autoload -Uz compinit
+compinit</p>
+
+<p>Then run the following commands:
+echo &#39;source &lt;(kubectl completion zsh)&#39; &gt;&gt;~/.zshrc
+echo &#39;alias k=kubectl&#39; &gt;&gt;~/.zshrc
+echo &#39;complete -F __start_kubectl k&#39; &gt;&gt;~/.zshrc</p>
+
+<p>source ~/.zshrc</p>
+
+<p>1.2 Common kubectl commands:</p>
+
+<p>1.2.1 Kubernetes Cluster Context
+k config get-contexts (show current context)
+k config use-context <CONTEXT_NAME> (switch context)
+k cluster-info (show current cluster info)
+k api-resources (show list of existing API resources)
+k api-resources --api-group=apps (show list of existing API resources within a specific api group)
+k api-resources --namespaced=true (show list of existing API resources that are namespacable)
+k api-resources --api-version=apps/v1beta2 (follow API object version in deprecation warning)
+k api-versions (show available API object versions)</p>
+
+<p>1.2.1 Kubernetes API</p>
+
+<p>k explain pods (explain Pod manifest fields)
+k explain pods.spec (explain Pod.spec manifest fields)</p>
+
+<p>1.2.2 Kubernetes API Debugging
+k proxy &amp; (start a local Proxy server at http://localhost:8001 for debugging)
+curl http://localhost:8001/api/v1/namespaces/kube-system/pods (Interact with kubernetes REST Api for debugging, this outputs raw JSON in stead of formatted tables)</p>
+
+<p>k get pods --watch &amp; (Watch for state changes on a specific request)
+netstat -plant | grep kubectl (check for an ESTABLISHED TCP connection)
+fg (bring back background processvto foreground, now you can CTRL + C this process)</p>
+
+<p>k get pod <POD_NAME> -v 6 (kubectl command with increased verbosity level to disclose all REST API requests executed for this command)</p>
+
+<p>k label pod <POD_NAME>-<pod-template-hash/replicaset-id>-<pod-id> &#39;pod-template-hash=DEBUG,app=DEBUG&#39; --overwrite (put Pod outside of the selectorscope of the ReplicaSet AND out of the selectorscope of the Service so that the ReplicaSet does not recreate it and so that the Service removes it from its Endpoints list)
+k get pods --show-labels</p>
+
+<p>k get events --watch &amp;</p>
+
+<p>k get nodes --watch (watch node status)</p>
+
+<p>k exec -v 6 -it <POD_NAME> -- /bin/sh
+ps
+exit
+k exec -it <POD_NAME> -- /usr/bin/killall <PROCESS_NAME> (Use the process COMMAND you got from running ps inside the container)</p>
+
+<p>Show Environment Variables inside Container</p>
+
+<p>k exec -it <POD_NAME> -- /bin/sh -c &quot;printenv | sort&quot;</p>
+
+<p>1.2.2 Kubernetes Resources</p>
+
+<p>k get namespaces
+k describe namespaces
+k describe pod <POD_NAME>
+k describe endpoint <SERVICE_NAME> (show endpoints associated with this service)</p>
+
+<p>k get pods all --all-namespaces -o wide (get all resources across all namespaces)
+k get pods all --namespace=default (get all resources inside the default namespace)
+k get pods --all-namespaces (get pods across all namespaces)
+k get pods --namespace kube-system (get pods inside kube-system namespace, alias -n)
+k get pods (get all pods inside the default namespace)</p>
+
+<p>k get pods --show-labels (show pods and the labels associated with these pods)
+k get pods --selector tier=prod (select pods with label tier=prod, alias -l)
+k get pods -l &#39;tier=prod,app!=MyWebApp&#39; (eq AND neq)
+k get pods -l &#39;tier in (prod, qa)&#39;
+k get pods -l &#39;tier notin (prod, qa)&#39;
+k get pods -L tier,app (show TIER and APP label columns)
+k get node -L disk,hardware (show TIER and HARDWARE label columns)</p>
+
+<p>k label pod --all tier=non-prod --overwrite (update label value for label key tier to &#39;non-prod&#39; on all pods in the default namespace)
+k label node c1-node1 disk=local_ssd (label a node)</p>
+
+<p>k delete pods --all --namespace default (delete all pods inside default namespace, be aware that this command is rather useless since kubernetes will try to bring them back because of the deployment definition which contains a replicaset)
+k delete delete namespace <NAMESPACE> (delete all resources inside <NAMESPACE>)
+k delete pod -l tier=non-prod (delete selection of pods)</p>
+
+<p>k exec -v 6 -it <POD_NAME> -- /bin/sh
+k logs <POD_NAME>
+k port-forward <POD_NAME>-<pod-template-hash/replicaset-id>-<pod-id> <LOCAL_PORT>:<CONTAINER_PORT> (make sure you use linux non-priviledge port (&gt;1024) as <LOCAL_PORT>)
+curl http://localhost:<LOCAL_PORT></p>
+
+<p>k scale deployment <DEPLOYMENT_NAME> --replicas=2</p>
+
+<p>1.2.3 Kubernetes Helpers</p>
+
+<p>GetServiceIpByServiceName:</p>
+
+<p>SERVICEIP=$(kubectl get service | grep <SERVICE_NAME> | awk &#39;{ print $3 }&#39;)</p>
+
+<p>GetFirstPodNameFromDeployment</p>
+
+<p>PODNAME=$(kubectl get pods | grep <DEPLOYMENT_NAME> | awk &#39;{ print $1 }&#39; | head -n 1)</p>
+
+<p>GetSecretValue</p>
+
+<p>echo \$(kubectl get secret <SECRET_NAME> --template={{.data.<KEY_NAME>}} | base64 --decode)</p>
+
+<p>1.2.4 docker-registry secret</p>
+
+<p>sudo chown $(id -u):$(id -g) ~/.docker/
+sudo chown $(id -u):$(id -g) ~/.docker/config.json</p>
+
+<p>k create secret docker-registry docker-hub-login
+--docker-server=https://index.docker.io/v1/
+--docker-username=<USERNAME>
+--docker-password=<PASSWORD>
+--docker-email=<EMAIL></p>
+
 <ol>
 <li>Install K3D</li>
 </ol>

@@ -7,7 +7,6 @@ RUN apk add --no-cache \
     tzdata \
     && rm -rf /var/cache/apk/* 
 
-
 ENV RAILS_ENV=development
 ENV RACK_ENV=development
 ENV RAILS_LOG_TO_STDOUT=true
@@ -18,8 +17,6 @@ ENV BUNDLE_PATH=$GEM_HOME
 ENV BUNDLE_APP_CONFIG=$BUNDLE_PATH
 ENV BUNDLE_BIN=$BUNDLE_PATH/bin
 ENV PATH=/srv/docs/bin:$BUNDLE_BIN:$PATH
-
-
 
 WORKDIR /srv/docs
 
