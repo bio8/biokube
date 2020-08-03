@@ -1,0 +1,1364 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="images/favicon-44931ed5.ico" rel="icon" type="image/ico" />
+    <title>Biokube Docs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-88159502.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-767cf3cb.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-3b7299e3.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-935cf4c7.png" class="logo" alt="" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#setup-aws-account" class="toc-h2 toc-link" data-title="Setup AWS Account">Setup AWS Account</a>
+                  </li>
+                  <li>
+                    <a href="#setup-hetzner-account" class="toc-h2 toc-link" data-title="Setup HETZNER Account">Setup HETZNER Account</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cloud" class="toc-h1 toc-link" data-title="Cloud">Cloud</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#amazon" class="toc-h2 toc-link" data-title="Amazon">Amazon</a>
+                  </li>
+                  <li>
+                    <a href="#google" class="toc-h2 toc-link" data-title="Google">Google</a>
+                  </li>
+                  <li>
+                    <a href="#hetzner" class="toc-h2 toc-link" data-title="Hetzner">Hetzner</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#container" class="toc-h1 toc-link" data-title="Container">Container</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#docker" class="toc-h2 toc-link" data-title="Docker">Docker</a>
+                  </li>
+                  <li>
+                    <a href="#kubernetes" class="toc-h2 toc-link" data-title="Kubernetes">Kubernetes</a>
+                  </li>
+                  <li>
+                    <a href="#rancher" class="toc-h2 toc-link" data-title="Rancher">Rancher</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ci-cd" class="toc-h1 toc-link" data-title="CI / CD">CI / CD</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#github-gitflow" class="toc-h2 toc-link" data-title="Github GitFlow">Github GitFlow</a>
+                  </li>
+                  <li>
+                    <a href="#github-actions" class="toc-h2 toc-link" data-title="GitHub Actions">GitHub Actions</a>
+                  </li>
+                  <li>
+                    <a href="#sentry" class="toc-h2 toc-link" data-title="Sentry">Sentry</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#data" class="toc-h1 toc-link" data-title="Data">Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#neo4j" class="toc-h2 toc-link" data-title="Neo4J">Neo4J</a>
+                  </li>
+                  <li>
+                    <a href="#dgraph" class="toc-h2 toc-link" data-title="DGraph">DGraph</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#integration" class="toc-h1 toc-link" data-title="Integration">Integration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#facebook" class="toc-h2 toc-link" data-title="Facebook">Facebook</a>
+                  </li>
+                  <li>
+                    <a href="#slack" class="toc-h2 toc-link" data-title="Slack">Slack</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#service" class="toc-h1 toc-link" data-title="Service">Service</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#core-cms" class="toc-h2 toc-link" data-title="Core CMS">Core CMS</a>
+                  </li>
+                  <li>
+                    <a href="#core-security" class="toc-h2 toc-link" data-title="Core Security">Core Security</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api" class="toc-h1 toc-link" data-title="API">API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#function-api" class="toc-h2 toc-link" data-title="Function API">Function API</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#web" class="toc-h1 toc-link" data-title="Web">Web</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#next-js" class="toc-h2 toc-link" data-title="Next.js">Next.js</a>
+                  </li>
+                  <li>
+                    <a href="#react-js" class="toc-h2 toc-link" data-title="React.js">React.js</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#native" class="toc-h1 toc-link" data-title="Native">Native</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#react-native" class="toc-h2 toc-link" data-title="React-Native">React-Native</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#prototype" class="toc-h1 toc-link" data-title="Prototype">Prototype</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#framer" class="toc-h2 toc-link" data-title="Framer">Framer</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#biokube-developer-docs" class="toc-h1 toc-link" data-title="Biokube Developer Docs">Biokube Developer Docs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#setup-docker" class="toc-h2 toc-link" data-title="Setup Docker">Setup Docker</a>
+                  </li>
+                  <li>
+                    <a href="#setup-nodejs" class="toc-h2 toc-link" data-title="Setup Nodejs">Setup Nodejs</a>
+                  </li>
+                  <li>
+                    <a href="#setup-yarn" class="toc-h2 toc-link" data-title="Setup Yarn">Setup Yarn</a>
+                  </li>
+                  <li>
+                    <a href="#setup-github" class="toc-h2 toc-link" data-title="Setup GitHub">Setup GitHub</a>
+                  </li>
+                  <li>
+                    <a href="#setup-visual-studio-code" class="toc-h2 toc-link" data-title="Setup Visual Studio Code">Setup Visual Studio Code</a>
+                  </li>
+                  <li>
+                    <a href="#setup-document-container" class="toc-h2 toc-link" data-title="Setup Document container">Setup Document container</a>
+                  </li>
+                  <li>
+                    <a href="#setup-nx-workspace" class="toc-h2 toc-link" data-title="Setup Nx Workspace">Setup Nx Workspace</a>
+                  </li>
+                  <li>
+                    <a href="#setup-api-container" class="toc-h2 toc-link" data-title="Setup API container">Setup API container</a>
+                  </li>
+                  <li>
+                    <a href="#setup-react-native" class="toc-h2 toc-link" data-title="Setup React Native">Setup React Native</a>
+                  </li>
+                  <li>
+                    <a href="#nx-setup-for-react-native" class="toc-h2 toc-link" data-title="NX Setup for React-Native:">NX Setup for React-Native:</a>
+                  </li>
+                  <li>
+                    <a href="#setup-k3d" class="toc-h2 toc-link" data-title="Setup K3D">Setup K3D</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to <b>Biokube</b>. <br></p>
+
+<p><b>Biokube</b> is a Full stack open source Rapid Application Design &amp; Prototype &amp; Development Factory for scalable cloud agnostic application Deployments in Production. <br>
+This project brings together best of breed and production ready open source tools and technologies into an opiniated sweet spot ecosystem that enables rapid deployments of any web application platform. <br>
+To achieve this goal, <b>Biokube</b> embodies a two dimensional approach for application design, development and delivery: <br>
+In its Vertical dimension <b>Biokube</b> provides all the components and apis needed for each stack layer of the vertical slices that builds up a full stack production ready application. <br>
+From a Horizontal dimension, <b>Biokube</b> supports a complete lifecycle workflow from the initial design &amp; prototype stage up to the production deployment phase and beyond (maintenance &amp; decommissioning).</p>
+
+<p><b>Motivation.</b> Today designing, developing, deploying and maintaining the complete lifecycle of web applications and platforms still require an enormous amount of planning, building and configuring boilerplate code for common services and features, <br>
+that every modern web application needs over all vertical stack layers and horizontal lifecycle stages of scalable production ready application deployments.<br>
+Many efforts and initiatives to standardize best practises and eliminating repetitive tasks into smart code have already been undertaken by the open source community in different areas of the vertical layers or horizontal lifecycle stages of modern web applications and web platforms.<br>
+Great examples of such initiatives are <a href="https://nextjs.org/">Next.js</a> by Vercel, an opiniated Frontend React framework, or the wonderful <a href="https://nestjs.com/">NestJS</a> project, an opiniated Backend NodeJS framework, <a href="https://nx.dev/react">Nx</a> by Nrwl, an opiniated Monorepo Toolkit, and <a href="https://rancher.com/docs/k3s/latest/en/">K3S</a>, also an opiniated kubernetes distribution created by Rancher (now acquired by one of the biggest open source consortia <a href="https://www.suse.com/">SuSE Linux</a>. All these projects have one thing in common:</p>
+
+<ul>
+<li>Express strong opinions without sacrificing best practises</li>
+<li>Produce sensible defaults without sacrificing controlability</li>
+<li>Reduce complexity without sacrificing flexibility</li>
+<li>Improve DX (Developer eXperience)</li>
+</ul>
+
+<p><b>Biokube</b> builds upon these efforts and focuses on bringing all vertical stack layers and horizontal lifecycle stages together into one extensible full stack web application Factory platform.
+Using <b>Biokube</b> must alleviate the pain of writing and configuring tedious and repetitive application features that are foundational components and features of any full stack web application platform. <br>
+<b>Biokube</b> sets the stage for designers to directly start designing and prototyping the end-user application and for developers to directly start implementing the crucial business domain features as Pluggable services on top of <b>Biokube</b> application Factory platform.</p>
+
+<p><b>Status:</b> <b style="color: red;">in early development</b></p>
+
+<p><b>Technologies:</b></p>
+<h4 id='cloud'>CLOUD</h4>
+<ul>
+<li>JBOM (Just a Bunch Of Machines)</li>
+<li>Amazon</li>
+<li>Google</li>
+<li>Azure</li>
+<li>Hetzner</li>
+<li>DigitalOcean</li>
+</ul>
+<h4 id='container'>CONTAINER</h4>
+<ul>
+<li>Docker</li>
+<li>Kubernetes / K3S</li>
+<li>Helm</li>
+<li>Rancher</li>
+</ul>
+<h4 id='ci-cd'>CI / CD</h4>
+<ul>
+<li>GitHub GitFlow</li>
+<li>GitHub Actions</li>
+<li>Sentry</li>
+<li>Jest</li>
+<li>TestCafe</li>
+</ul>
+<h4 id='data'>DATA</h4>
+<ul>
+<li>Redis</li>
+<li>Minio</li>
+<li>Elasticsearch</li>
+<li>Neo4j</li>
+<li>DGraph</li>
+</ul>
+<h4 id='integration'>INTEGRATION</h4>
+<ul>
+<li>Slack</li>
+<li>SendGrid</li>
+<li>AWS S3</li>
+<li>Google GTM</li>
+</ul>
+<h4 id='service'>SERVICE</h4>
+<ul>
+<li>Core CMS</li>
+<li>Core Commerce</li>
+<li>Core ERP</li>
+<li>Core Dashboard</li>
+<li>Core Security</li>
+<li>Plug Automotive</li>
+<li>Plug IoT</li>
+</ul>
+<h4 id='api'>API</h4>
+<ul>
+<li>GraphQL</li>
+<li>Nest.js</li>
+<li>Fastify.js</li>
+<li>TypeScript</li>
+</ul>
+<h4 id='web'>WEB</h4>
+<ul>
+<li>Next.js</li>
+<li>React.js</li>
+<li>React-Query.js</li>
+<li>Recoil.js</li>
+<li>Styled-Components.js</li>
+<li>Framer-Motion.js</li>
+</ul>
+<h4 id='mobile'>MOBILE</h4>
+<ul>
+<li>React-Native</li>
+</ul>
+<h4 id='prototype'>PROTOTYPE</h4>
+<ul>
+<li>Framer</li>
+</ul>
+<h1 id='getting-started'>Getting Started</h1><h2 id='setup-aws-account'>Setup AWS Account</h2><h2 id='setup-hetzner-account'>Setup HETZNER Account</h2><h1 id='cloud'>Cloud</h1><h2 id='amazon'>Amazon</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all kittens.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/api/kittens</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_cats</td>
+<td>false</td>
+<td>If set to true, the result will also include cats.</td>
+</tr>
+<tr>
+<td>available</td>
+<td>true</td>
+<td>If set to false, the result will include kittens that have already been adopted.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+<h2 id='google'>Google</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a specific kitten.</p>
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='hetzner'>Hetzner</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+  <span class="nt">-X</span> DELETE
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint deletes a specific kitten.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to delete</td>
+</tr>
+</tbody></table>
+<h1 id='container'>Container</h1><h2 id='docker'>Docker</h2><h2 id='kubernetes'>Kubernetes</h2><h2 id='rancher'>Rancher</h2><h1 id='ci-cd'>CI / CD</h1><h2 id='github-gitflow'>Github GitFlow</h2><h2 id='github-actions'>GitHub Actions</h2><h2 id='sentry'>Sentry</h2><h1 id='data'>Data</h1><h2 id='neo4j'>Neo4J</h2><h2 id='dgraph'>DGraph</h2><h1 id='integration'>Integration</h1><h2 id='facebook'>Facebook</h2><h2 id='slack'>Slack</h2><h1 id='service'>Service</h1><h2 id='core-cms'>Core CMS</h2><h2 id='core-security'>Core Security</h2><h1 id='api'>API</h1><h2 id='function-api'>Function API</h2><h1 id='web'>Web</h1><h2 id='next-js'>Next.js</h2><h2 id='react-js'>React.js</h2><h1 id='native'>Native</h1><h2 id='react-native'>React-Native</h2><h1 id='prototype'>Prototype</h1><h2 id='framer'>Framer</h2><h1 id='biokube-developer-docs'>Biokube Developer Docs</h1><h2 id='setup-docker'>Setup Docker</h2><h3 id='1-install-docker'>1. Install Docker</h3>
+<blockquote>
+<p>1. Install Docker</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>apt-transport-https ca-certificates curl software-properties-common
+curl <span class="nt">-fsSL</span> https://download.docker.com/linux/ubuntu/gpg | <span class="nb">sudo </span>apt-key add -
+<span class="nb">sudo </span>add-apt-repository <span class="s2">"deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"</span>
+<span class="nb">sudo </span>apt update
+apt-cache policy docker-ce
+<span class="nb">sudo </span>apt <span class="nb">install </span>docker-ce
+<span class="nb">sudo </span>systemctl status docker
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="k">${</span><span class="nv">USER</span><span class="k">}</span>
+docker ps
+</code></pre></div><h3 id='2-re-login-current-user-and-show-group-membership-for-current-user'>2. Re-login current user and show group membership for current user</h3>
+<blockquote>
+<p>2. Re-login current user and show group membership for current user</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>su - <span class="k">${</span><span class="nv">USER</span><span class="k">}</span>
+<span class="nb">id</span> <span class="nt">-nG</span>
+</code></pre></div><h3 id='3-install-portainer'>3. Install Portainer</h3>
+<p>Portainer is a Visual Docker container management tool. <a href="https://www.portainer.io/">more info</a></p>
+
+<blockquote>
+<p>3. Install Portainer</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>docker volume create portainer_data
+docker run <span class="nt">-d</span> <span class="nt">-p</span> 8000:8000 <span class="nt">-p</span> 9000:9000 <span class="nt">--name</span><span class="o">=</span>portainer <span class="nt">--restart</span><span class="o">=</span>always <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="nt">-v</span> portainer_data:/data portainer/portainer
+</code></pre></div>
+<p>After successful installation Portainer is served as a docker container at <a href="http://localhost:9000">http://localhost:9000</a></p>
+
+<p>login = <code>admin</code><br>
+password = <code>the password set on first use</code></p>
+<h2 id='setup-nodejs'>Setup Nodejs</h2><h3 id='1-install-nvm'>1. Install NVM</h3>
+<blockquote>
+<p>1. Install NVM</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+</code></pre></div><h3 id='2-edit-zshrc'>2. Edit ~/.zshrc</h3>
+<blockquote>
+<p>2. Edit ~/.zshrc</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nano ~/.zshrc
+<span class="nb">export </span><span class="nv">NVM_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.nvm"</span>
+<span class="o">[</span> <span class="nt">-s</span> <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/nvm.sh"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">NVM_DIR/nvm.sh"</span> <span class="c"># This loads nvm</span>
+</code></pre></div><h3 id='3-find-available-node-js-versions'>3. Find Available Node.js Versions</h3>
+<blockquote>
+<p>3. Find Available Node.js Versions</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm ls-remote
+</code></pre></div><h3 id='4-install-selected-node-js-versions-with-nvm'>4. Install selected Node.js versions with NVM</h3>
+<blockquote>
+<p>4. Installing selected Node.js versions with NVM</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm <span class="nb">install </span>v12.18.2
+nvm <span class="nb">install </span>v14.5.0
+</code></pre></div><h3 id='5-set-node-js-default-version'>5. Set Node.js Default version</h3>
+<blockquote>
+<p>5. Set Node.js Default version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm list
+nvm use v12.18.2
+node <span class="nt">--version</span>
+</code></pre></div><h3 id='6-run-application-with-specific-version'>6. Run Application with Specific Version</h3>
+<blockquote>
+<p>6. Run Application with Specific Version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm run v12.18.2 app.js
+</code></pre></div><h3 id='7-remove-unused-node-js-version'>7. Remove Unused Node.js Version</h3>
+<blockquote>
+<p>7. Remove Unused Node.js Version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm list
+nvm uninstall v4.9.1
+</code></pre></div><h2 id='setup-yarn'>Setup Yarn</h2><h3 id='1-install-or-update-yarn'>1. Install or update Yarn</h3>
+<blockquote>
+<p>1. Install or update Yarn</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--compressed</span> <span class="nt">-o-</span> <span class="nt">-L</span> https://yarnpkg.com/install.sh | bash
+</code></pre></div><h2 id='setup-github'>Setup GitHub</h2><h3 id='1-create-a-public-private-rsa-keypair'>1. Create a Public/Private RSA keypair</h3>
+<p>If you created a Public/Private RSA Keypair before it should be located here:<br>
+Your personal Private key is stored in a file <code>~/.ssh/id_rsa</code> and should have restricted filesystem permissions <code>chmod 400</code>.<br>
+Your personal Public key is stored in a file <code>~/.ssh/id_rsa.pub</code>
+Restrict filesystem permissions on your <b>Private</b> key<br></p>
+
+<p>If you don&#39;t have a Public/Private RSA Keypair you can create one using OpenSSH</p>
+
+<blockquote>
+<p>1. Create a Public/Private RSA keypair</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 2048
+<span class="nb">chmod </span>400 ~/.ssh/id_rsa
+</code></pre></div><h3 id='2-copy-your-public-key-to-github'>2. Copy your public key to GitHub</h3>
+<p>Login to GitHub and in your GitHub account profile menu click on <b>Settings</b> and then in the left menu on <b>SSH and GPG keys</b></p>
+
+<p><a href="images/github-add-ssh-key-403624ec.png" title="Click to enlarge"><img src="images/github-add-ssh-key-403624ec.png" width="550"/></a></p>
+
+<p>Paste the contents of your <b>Public</b> key and give your SSH key a title.</p>
+
+<p><a href="images/github-add-ssh-key-new-c01bd6a9.png" title="Click to enlarge"><img src="images/github-add-ssh-key-new-c01bd6a9.png" width="550"/></a></p>
+
+<p>Click on <code>Add SSH key</code></p>
+<h3 id='3-create-remote-git-repository-on-github'>3. Create Remote GIT repository on Github</h3>
+<p>Login to GitHub</p>
+
+<p><a href="images/github-create-new-repository-33d80da8.png" title="Click to enlarge"><img src="images/github-create-new-repository-33d80da8.png" width="550"/></a></p>
+
+<p>Click on the <code>New</code> button</p>
+
+<p><a href="images/github-create-new-public-repository-68b57e7c.png" title="Click to enlarge"><img src="images/github-create-new-public-repository-68b57e7c.png" width="550"/></a></p>
+
+<p>Click on <code>Create repository</code> button</p>
+<h3 id='4-link-local-existing-git-repository-to-remote-existing-github-repository'>4. Link local existing GIT repository to remote existing GitHub repository</h3><h4 id='4-1-github-invite-collaborator'>4.1. GitHub invite Collaborator</h4>
+<p>In order to be able to commit to a remote GitHub repository, you need to be the creator/owner or a valid collaborator for this repository.
+If you manage multiple Github accounts you can still commit and collaborate with one and the same GitHub user account to multiple repositories over multiple GitHub accounts, by inviting the GitHub user account as a collaborator for that repository.<br>
+Just login to the GitHub account that hosts the repository you like to collaborate to and invite your own Github user account to collaborate to that repository.
+Click on <b>Settings</b> tab.
+Click on <b>Manage access</b> menu item.
+Click on <code>Invite a collaborator</code> button</p>
+
+<p><a href="images/github-manage-access-79d58cbd.png" title="Click to enlarge"><img src="images/github-manage-access-79d58cbd.png" width="550"/></a></p>
+
+<p>An Email will be sent to the mailbox associated with your own GitHub account. Clicking on the <b>accept</b> link in the email will open a consent screen in GitHub where you can accept the invite.</p>
+
+<p><a href="images/github-invite-collaborator-email-ecbf1f64.png" title="Click to enlarge"><img src="images/github-invite-collaborator-email-ecbf1f64.png" width="550"/></a></p>
+
+<p><a href="images/github-invite-collaborator-accept-770858c4.png" title="Click to enlarge"><img src="images/github-invite-collaborator-accept-770858c4.png" width="550"/></a></p>
+<h4 id='4-2-change-origin-of-your-git-repository'>4.2. Change <code>origin</code> of your GIT repository</h4>
+<p>In case you want to commit to another remote repository than the one you originally cloned from, you need to change the origin of your local GIT repository.
+You can do this with this set of <code>git</code> commands. <br>
+If <code>origin</code> is not set in the local repo you may skip the command <code>git remote rm origin</code>.</p>
+
+<blockquote>
+<p>4.2. Change <code>origin</code> of your GIT repository</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git remote show origin
+git remote <span class="nb">rm </span>origin
+git remote add origin git@github.com:bio8/biokube.git
+git config master.remote origin
+git config master.merge refs/heads/master
+git fetch
+git branch <span class="nt">--set-upstream-to</span><span class="o">=</span>origin/master master
+git pull origin master <span class="nt">--allow-unrelated-histories</span>
+git push <span class="nt">-u</span> origin master
+</code></pre></div><h2 id='setup-visual-studio-code'>Setup Visual Studio Code</h2><h3 id='1-install-visual-studio-code'>1. Install Visual Studio Code</h3>
+<p>Download and install Visual Studio Code or Visual Studio Code Insiders (Canary)</p>
+
+<p><a href="https://code.visualstudio.com/insiders/">Download Visual Studio Code</a><br>
+<a href="https://code.visualstudio.com/insiders/">Download Visual Studio Code Insiders</a></p>
+<h3 id='2-install-visual-studio-code-fonts'>2. Install Visual Studio Code Fonts</h3><h4 id='2-1-install-terminal-nerd-font'>2.1. Install Terminal Nerd Font</h4>
+<p>Download and install (by double clicking) Nerd Font:</p>
+
+<p><a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf">MesloLGS NF Regular.ttf</a><br>
+<a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf">MesloLGS NF Bold.ttf</a><br>
+<a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf">MesloLGS NF Italic.ttf</a><br>
+<a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf">MesloLGS NF Bold Italic.ttf</a></p>
+<h4 id='2-2-install-fira-code-font'>2.2. Install Fira Code Font</h4>
+<p><code><code>sudo apt update &amp;&amp; sudo apt install fonts-firacode</code></code></p>
+
+<blockquote>
+<p>2.2. Install Fira Code Font</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install </span>fonts-firacode
+</code></pre></div><h4 id='2-3-configure-fonts-in-settings-json'>2.3. Configure Fonts in settings.json</h4>
+<p>Open File → Preferences → Settings and click on the icon <img src="images/vscode-open-settings-json-icon-333df788.png" width="30" style="margin:0"/> to toggle <code>settings.json</code> in code view.</p>
+
+<p><a href="images/vscode-settings-json-a11172eb.png" title="Click to enlarge"><img src="images/vscode-settings-json-a11172eb.png" width="550"/></a></p>
+
+<blockquote>
+<p>2.3. Configure Fonts in settings.json</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"terminal.integrated.fontFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MesloLGS NF"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"editor.fontFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'Fira Code', 'Operator Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Set <code>&quot;terminal.integrated.fontFamily&quot;: &quot;MesloLGS NF&quot;</code><br>
+Set <code>&quot;editor.fontFamily&quot;: &quot;&#39;Fira Code&#39;, &#39;Operator Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace, &#39;Droid Sans Fallback&#39;&quot;</code></p>
+<h3 id='3-install-visual-studio-code-extensions'>3. Install Visual Studio Code Extensions</h3>
+<p>Install Your favorite Extensions:</p>
+
+<p><a href="images/vscode-extensions-f12f3d7a.png" title="Click to enlarge"><img src="images/vscode-extensions-f12f3d7a.png" width="550"/></a></p>
+<h3 id='4-install-oh-my-zsh'>4. Install Oh My zsh</h3><h4 id='4-1-install-oh-my-zsh'>4.1. Install Oh My Zsh</h4>
+<blockquote>
+<p>4.1. Install Oh My Zsh</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>apt <span class="nb">install </span>zsh
+sh <span class="nt">-c</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
+</code></pre></div><h4 id='4-2-install-oh-my-zsh-powerlevel10k-theme'>4.2. Install Oh My Zsh powerlevel10k theme</h4>
+<blockquote>
+<p>4.2. Install Oh My Zsh powerlevel10k theme</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 https://github.com/romkatv/powerlevel10k.git <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="k">}</span>/themes/powerlevel10k
+</code></pre></div><h4 id='4-3-install-zsh-autosuggestions'>4.3. Install zsh autosuggestions</h4>
+<blockquote>
+<p>4.3. Install zsh autosuggestions</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git clone https://github.com/zsh-users/zsh-autosuggestions <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="k">}</span>/plugins/zsh-autosuggestions
+</code></pre></div><h4 id='4-4-edit-zshrc'>4.4. Edit ~/.zshrc</h4>
+<blockquote>
+<p>4.4. Edit ~/.zshrc</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nano ~/.zshrc
+<span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">"powerlevel10k/powerlevel10k"</span>
+<span class="nv">plugins</span><span class="o">=(</span>git zsh-autosuggestions<span class="o">)</span>
+</code></pre></div>
+<p>Now Reboot to load the Fonts we installed.<br>
+Now when you open a new terminal session the Oh My Zsh configuration wizard will be launched</p>
+<h4 id='4-5-run-the-configuration-wizard'>4.5. Run the configuration wizard</h4>
+<p>You can always re-run the configuration wizard later with the following command:
+<code><code>p10k configure</code></code></p>
+
+<blockquote>
+<p>4.5. Run the configuration wizard</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>p10k configure
+</code></pre></div><h4 id='4-6-how-to-update-powerlevel10k-to-the-latest-version'>4.6. How to Update powerlevel10k to the latest version</h4>
+<blockquote>
+<p>4.6. How to Update powerlevel10k to the latest version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git <span class="nt">-C</span> <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="k">}</span>/themes/powerlevel10k pull
+</code></pre></div><h4 id='4-7-how-to-uninstall-powerlevel10k'>4.7. How to Uninstall powerlevel10k</h4>
+<blockquote>
+<p>4.7. How to Uninstall powerlevel10k</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">rm</span> <span class="nt">-rf</span> <span class="nt">--</span> <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="k">}</span>/themes/powerlevel10k
+</code></pre></div><h3 id='5-visual-studio-code-shortcuts'>5. Visual Studio Code shortcuts</h3>
+<p>Delete line: <code><code>CTRL + SHIFT + K</code></code><br>
+Move line up/down: <code><code>ALT + UP/DOWN</code></code><br>
+Multicursor: Search a substring and then click on 1 instance and press <code><code>CTRL + SHIFT + L</code></code><br>
+Open Command Panel: <code><code>CTRL + SHIFT + P</code></code><br></p>
+<h2 id='setup-document-container'>Setup Document container</h2><h3 id='1-login-to-your-github-account-where-you-want-to-host-the-repository-for-your-documentation'>1. Login to your <a href="https://github.com/">GitHub</a> account where you want to host the repository for your documentation.</h3><h3 id='2-open-https-github-com-slatedocs-slate-repository-in-that-github-account'>2. Open <a href="https://github.com/slatedocs/slate">https://github.com/slatedocs/slate</a> repository in that GitHub account.</h3><h3 id='3-fork-the-repository-to-that-github-account'>3. Fork the repository to that GitHub account.</h3>
+<p>Click on <b>Use this template</b> button.
+Click on <b>Create repository from template</b> button.</p>
+
+<p><a href="images/biokube-docs-github-create-new-repo-from-slate-d98dbb2e.png" title="Click to enlarge"><img src="images/biokube-docs-github-create-new-repo-from-slate-d98dbb2e.png" width="550"/></a></p>
+<h3 id='4-github-invite-collaborator'>4. GitHub invite Collaborator</h3>
+<p>In order to be able to commit to a remote GitHub repository, you need to be the creator/owner or a valid collaborator for this repository.
+If you manage multiple Github accounts you can still commit and collaborate with one and the same GitHub user account to multiple repositories over multiple GitHub accounts, by inviting the GitHub user account as a collaborator for that repository.<br>
+Just login to the GitHub account that hosts the repository you like to collaborate to and invite your own Github user account to collaborate to that repository.
+Click on <b>Settings</b> tab.
+Click on <b>Manage access</b> menu item.</p>
+
+<p><a href="images/github-invite-collaborator-29afd26f.png" title="Click to enlarge"><img src="images/github-invite-collaborator-29afd26f.png" width="550"/></a></p>
+
+<p>An Email will be sent to the mailbox associated with your own GitHub account. Clicking on the <b>accept</b> link in the email will open a consent screen in GitHub where you can accept the invite.</p>
+
+<p><a href="images/github-invite-collaborator-consent-261452d8.png" title="Click to enlarge"><img src="images/github-invite-collaborator-consent-261452d8.png" width="550"/></a></p>
+<h3 id='5-clone-the-newly-created-repo-to-your-local-ide'>5. Clone the newly created repo to your local IDE</h3>
+<blockquote>
+<p>5. Clone the newly created repo to your local IDE</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git clone git@github.com:&lt;YOUR_GITHUB_ACCOUNT&gt;/biokube-docs.git
+</code></pre></div><h3 id='6-change-origin-of-your-git-repository-optional'>6. Change <code>origin</code> of your GIT repository (optional)</h3>
+<p>In case you want to commit to another remote repository than the one you originally cloned from, you need to change the origin of your local GIT repository.
+You can do this with this set of <code>git</code> commands.</p>
+
+<blockquote>
+<p>6. Change <code>origin</code> of your GIT repository (optional)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git remote <span class="nb">rm </span>origin
+git remote add origin git@github.com:&lt;YOUR_GITHUB_ACCOUNT&gt;/biokube-docs.git
+git config master.remote origin
+git config master.merge refs/heads/master
+git branch <span class="nt">--set-upstream-to</span><span class="o">=</span>origin/main main
+git pull origin main <span class="nt">--allow-unrelated-histories</span>
+</code></pre></div><h3 id='7-create-docker-container-image'>7. Create docker container image</h3>
+<p>Make sure to run <code>docker build</code> command in the root directory of the project in your IDE where your <code><code>Dockerfile</code></code> is located. The image will be created on the local docker host.</p>
+
+<blockquote>
+<p>7. Create docker container image</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>docker build <span class="nb">.</span> <span class="nt">-t</span> biokube-docs:latest
+docker image list
+</code></pre></div><h3 id='8-run-docker-container'>8. Run docker container</h3>
+<p>Once the <code>biokube-docs</code> Docker image is created, you can launch a container from it using <code><code>docker run</code></code>. <br>
+An existing empty build folder is also mounted as hostmount directory <code><code>-v $(pwd)/../biokube-web/public/docs:/srv/docs/build</code></code>. The empty build directory will later be used as output directory for static site generation. (see step 9.)</p>
+
+<blockquote>
+<p>8. Run docker container</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>docker run <span class="nt">-d</span> <span class="nt">--rm</span> <span class="nt">--name</span> biokube-docs <span class="nt">-p</span> 4567:4567 <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/../biokube-web/public/docs:/srv/docs/build <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/src:/srv/docs/src biokube-docs
+docker ps
+</code></pre></div>
+<p>Now you can make changes to your documentation content and styles.</p>
+
+<p>Documentation pages are stored as Markdown files located at:</p>
+
+<p>&emsp;&emsp;<b>src/index.html.md</b> <br>
+&emsp;&emsp;<b>src/includes/_&lt;YOUR_DOCUMENTATION_PAGES&gt;.md</b></p>
+
+<p>Images for your Documentation pages are stored in:</p>
+
+<p>&emsp;&emsp;<b>src/images</b></p>
+
+<p>You can edit styling in the following SASS stylesheets:</p>
+
+<p>&emsp;&emsp;<b>src/stylesheets/_variables.scss</b> <br>
+&emsp;&emsp;<b>src/stylesheets/screen.css.scss</b></p>
+
+<p>Navigate to <a href="http://localhost:4567/">http://localhost:4567/</a> and Refresh your browser to see the changes.</p>
+<h3 id='9-production-build'>9. Production Build</h3>
+<p>You can run a <code>bundle exec</code> command (from within the Docker container), that will generate a production deployable static site version of your documentation. <br>
+This command will output the static assets to the <code>build</code> folder that is mounted on the running container.
+<code><code>-v $(pwd)/../biokube-web/public/docs:/srv/docs/build</code></code>
+The static assets can be hosted on your favorite cloud provider.</p>
+
+<blockquote>
+<p>9. Production Build</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> biokube-docs /bin/sh <span class="nt">-c</span> <span class="s2">"bundle exec middleman build"</span>
+</code></pre></div><h2 id='setup-nx-workspace'>Setup Nx Workspace</h2>
+<p>sudo npm i -g @nrwl/cli</p>
+
+<p>npx create-nx-workspace@latest biokube --preset=empty --cli=nx --skipGit=false --npm-scope=scope --nx-cloud=false</p>
+
+<p>yarn add -D @nrwl/nest @nrwl/next</p>
+
+<p>nx g @nrwl/next:app biokube-web --style=&quot;styled-components&quot;</p>
+
+<p>nx g @nrwl/nest:app biokube-api</p>
+
+<p>nx g @nrwl/node:lib types
+nx g @nrwl/node:lib cloud
+nx g @nrwl/node:lib container
+nx g @nrwl/node:lib data
+nx g @nrwl/node:lib integration
+nx g @nrwl/node:lib service</p>
+
+<p>nx g @nrwl/next:lib blocks -d ui/web --pascalCaseFiles
+nx g @nrwl/next:lib blocks -d ui/native --pascalCaseFiles</p>
+
+<p>nx g @nrwl/next:lib elements -d ui/web --pascalCaseFiles
+nx g @nrwl/next:lib elements -d ui/native --pascalCaseFiles
+nx g @nrwl/next:component Button -p ui-web-elements -e
+nx g @nrwl/next:component Button -p ui-native-elements -e</p>
+
+<p>How to Delete a library:</p>
+
+<p>nx g @nrwl/node:remove service --forceRemove</p>
+
+<p>How to Display Dependency Graph</p>
+
+<p>nx dep-graph</p>
+<h3 id='nx-commands'>NX Commands</h3>
+<ul>
+<li>biokube-docs
+build-docker : create a docker image for biokube-docs
+serve : run a docker container for biokube-docs served at http://localhost:4567
+build-web : publish static site to biokube-web in plublic/docs folder</li>
+</ul>
+<h2 id='setup-api-container'>Setup API container</h2>
+<p>Biokube is setup as a Nest.js Monorepo</p>
+<h2 id='setup-react-native'>Setup React Native</h2>
+<p>Android Studio Setup</p>
+
+<p>Make sure VT or SVM CPU Virtualization is Enabled in BIOS
+check KVM support (An outcome greater than 0 implies that virtualization is supported)</p>
+
+<p>egrep -c &#39;(vmx|svm)&#39; /proc/cpuinfo</p>
+
+<p>sudo apt install cpu-checker
+sudo kvm-ok</p>
+
+<p>sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+sudo systemctl status libvirtd</p>
+
+<p>Install JAVA 8 JDK</p>
+
+<p>sudo apt update
+sudo apt install openjdk-8-jdk openjdk-8-jre
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</p>
+
+<ol>
+<li>Install Android Studio</li>
+</ol>
+
+<p><a href="https://reactnative.dev/docs/environment-setup">install Android Studio</a></p>
+
+<p>Unpack the contents of the zip archive to ~/Applications/android-studio</p>
+
+<p>To install Open a console and cd into &quot;~/Applications/android-studio/bin&quot; and type:
+./studio.sh</p>
+
+<p>Choose a &quot;Custom&quot; setup when prompted to select an installation type. Make sure the boxes next to all of the following are checked:</p>
+
+<p>Android SDK
+Android SDK Platform
+Android Virtual Device
+Then, click &quot;Next&quot; to install all of these components.</p>
+
+<ol>
+<li>Install the Android SDK
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the Android 10 (Q) SDK in particular.</li>
+</ol>
+
+<p>The SDK Manager can be found within the Android Studio &quot;Preferences&quot; dialog, under Appearance &amp; Behavior → System Settings → Android SDK.</p>
+
+<p>Select the &quot;SDK Platforms&quot; tab from within the SDK Manager, then check the box next to &quot;Show Package Details&quot; in the bottom right corner. Look for and expand the Android 10 (Q) entry, then make sure the following items are checked:</p>
+
+<p>Android SDK Platform 29
+Intel x86 Atom_64 System Image AND Google APIs Intel x86 Atom System Image
+Next, select the &quot;SDK Tools&quot; tab and check the box next to &quot;Show Package Details&quot; here as well. Look for and expand the &quot;Android SDK Build-Tools&quot; entry, then make sure that 29.0.2 is selected.</p>
+
+<p>Finally, click &quot;Apply&quot; to download and install the Android SDK and related build tools.</p>
+
+<ol>
+<li>Configure the ANDROID_HOME environment variable</li>
+</ol>
+
+<p>nano ~/.zhsrc</p>
+
+<p><code>export ANDROID_HOME=$HOME/Android/Sdk</code>
+<code>export PATH=$PATH:$ANDROID_HOME/emulator</code>
+<code>export PATH=$PATH:$ANDROID_HOME/tools</code>
+<code>export PATH=$PATH:$ANDROID_HOME/tools/bin</code>
+<code>export PATH=$PATH:$ANDROID_HOME/platform-tools</code></p>
+
+<p><code>source $HOME/.zhsrc</code></p>
+
+<p>Verify that ANDROID_HOME has been added to your path by running</p>
+
+<p><code>echo $PATH</code></p>
+
+<p>Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio &quot;Preferences&quot; dialog, under Appearance &amp; Behavior → System Settings → Android SDK.</p>
+
+<ol>
+<li>Install Watchman</li>
+</ol>
+
+<p><a href="https://github.com/facebook/watchman/releases/latest">Watchman</a></p>
+
+<p>unzip and navigate into the folder</p>
+
+<p>sudo mkdir -p /usr/local/{bin,lib} /usr/local/var/run/watchman
+sudo cp bin/_ /usr/local/bin
+sudo cp lib/_ /usr/local/lib
+sudo chmod 755 /usr/local/bin/watchman
+sudo chmod 2777 /usr/local/var/run/watchman</p>
+
+<ol>
+<li>Run Android Studio:</li>
+</ol>
+
+<p>cd ~/Applications/android-studio/bin &amp;&amp; ./studio.sh</p>
+<h2 id='nx-setup-for-react-native'>NX Setup for React-Native:</h2>
+<p>sudo npm i -g @react-native-community/cli@next</p>
+
+<p>yarn add --dev @jbuijgers/nx-react-native
+nx g @jbuijgers/nx-react-native:app biokube-native io.biokube.app
+chmod a+x apps/biokube-native/android/gradlew</p>
+
+<p>nx serve biokube-native
+nx build biokube-native</p>
+
+<p>Open AVD Manager from Android Studio (AVD Manager icon)
+Open and Run (Run icon) Android Project (apps/biokube-app/android folder) from Android Studio</p>
+
+<p>How to delete Nx React-Native project:
+nx g @jbuijgers/nx-react-native:remove biokube-native</p>
+<h2 id='setup-k3d'>Setup K3D</h2>
+<ol>
+<li>Install kubectl</li>
+</ol>
+
+<p>curl -LO https://storage.googleapis.com/kubernetes-release/release/<code>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt</code>/bin/linux/amd64/kubectl</p>
+
+<p>chmod +x ./kubectl</p>
+
+<p>sudo mv ./kubectl /usr/local/bin/kubectl</p>
+
+<p>kubectl version --client</p>
+
+<p>kubectl config view --minify --raw
+<code>cat $HOME/.kube/config</code></p>
+
+<p>1.1 Setup kubectl autocompletion:</p>
+
+<p>sudo apt-get install bash-completion</p>
+
+<p>Add the following lines to the beginning of ~/.zshrc
+autoload -Uz compinit
+compinit</p>
+
+<p>Then run the following commands:
+echo &#39;source &lt;(kubectl completion zsh)&#39; &gt;&gt;~/.zshrc
+echo &#39;alias k=kubectl&#39; &gt;&gt;~/.zshrc
+echo &#39;complete -F __start_kubectl k&#39; &gt;&gt;~/.zshrc</p>
+
+<p>source ~/.zshrc</p>
+
+<p>1.2 Common kubectl commands:</p>
+
+<p>1.2.1 Kubernetes Cluster Context
+k config get-contexts (show current context)
+k config use-context <CONTEXT_NAME> (switch context)
+k cluster-info (show current cluster info)
+k api-resources (show list of existing API resources)
+k api-resources --api-group=apps (show list of existing API resources within a specific api group)
+k api-resources --namespaced=true (show list of existing API resources that are namespacable)
+k api-resources --api-version=apps/v1beta2 (follow API object version in deprecation warning)
+k api-versions (show available API object versions)</p>
+
+<p>1.2.1 Kubernetes API</p>
+
+<p>k explain pods (explain Pod manifest fields)
+k explain pods.spec (explain Pod.spec manifest fields)</p>
+
+<p>1.2.2 Kubernetes API Debugging
+k proxy &amp; (start a local Proxy server at http://localhost:8001 for debugging)
+curl http://localhost:8001/api/v1/namespaces/kube-system/pods (Interact with kubernetes REST Api for debugging, this outputs raw JSON in stead of formatted tables)</p>
+
+<p>k get pods --watch &amp; (Watch for state changes on a specific request)
+netstat -plant | grep kubectl (check for an ESTABLISHED TCP connection)
+fg (bring back background processvto foreground, now you can CTRL + C this process)</p>
+
+<p>k get pod <POD_NAME> -v 6 (kubectl command with increased verbosity level to disclose all REST API requests executed for this command)</p>
+
+<p>k label pod <POD_NAME>-<pod-template-hash/replicaset-id>-<pod-id> &#39;pod-template-hash=DEBUG,app=DEBUG&#39; --overwrite (put Pod outside of the selectorscope of the ReplicaSet AND out of the selectorscope of the Service so that the ReplicaSet does not recreate it and so that the Service removes it from its Endpoints list)
+k get pods --show-labels</p>
+
+<p>k get events --watch &amp;</p>
+
+<p>k get nodes --watch (watch node status)</p>
+
+<p>k exec -v 6 -it <POD_NAME> -- /bin/sh
+ps
+exit
+k exec -it <POD_NAME> -- /usr/bin/killall <PROCESS_NAME> (Use the process COMMAND you got from running ps inside the container)</p>
+
+<p>Show Environment Variables inside Container</p>
+
+<p>k exec -it <POD_NAME> -- /bin/sh -c &quot;printenv | sort&quot;
+k exec -it <POD_NAME> -- env | sort&quot;</p>
+
+<p>Hit Ingress</p>
+
+<p>curl http://<INGRESS_IP>/<PATH> --header &#39;Host: <HOST.example.com>&#39;
+curl https://<INGRESS_HOST>:443 --resolve <INGRESS_HOST>:443:<INGRESS_IP> --insecure --verbose (use --insecure for selfsigned certs)</p>
+
+<p>k run -it --rm curl --restart=Never --image=nbrown/curl -- <SERVICE_NAME or SERVICE_IP>:<SERVICE_PORT></p>
+
+<p>1.2.2 Kubernetes Resources</p>
+
+<p>k get namespaces
+k describe namespaces
+k describe pod <POD_NAME>
+k describe endpoint <SERVICE_NAME> (show endpoints associated with this service)</p>
+
+<p>k get pods all --all-namespaces -o wide (get all resources across all namespaces)
+k get pods all --namespace=default (get all resources inside the default namespace)
+k get pods --all-namespaces (get pods across all namespaces)
+k get pods --namespace kube-system (get pods inside kube-system namespace, alias -n)
+k get pods (get all pods inside the default namespace)</p>
+
+<p>k get pods --show-labels (show pods and the labels associated with these pods)
+k get pods --selector tier=prod (select pods with label tier=prod, alias -l)
+k get pods -l &#39;tier=prod,app!=MyWebApp&#39; (eq AND neq)
+k get pods -l &#39;tier in (prod, qa)&#39;
+k get pods -l &#39;tier notin (prod, qa)&#39;
+k get pods -L tier,app (show TIER and APP label columns)
+k get node -L disk,hardware (show TIER and HARDWARE label columns)</p>
+
+<p>k label pod --all tier=non-prod --overwrite (update label value for label key tier to &#39;non-prod&#39; on all pods in the default namespace)
+k label node c1-node1 disk=local_ssd (label a node)</p>
+
+<p>k delete pods --all --namespace default (delete all pods inside default namespace, be aware that this command is rather useless since kubernetes will try to bring them back because of the deployment definition which contains a replicaset)
+k delete delete namespace <NAMESPACE> (delete all resources inside <NAMESPACE>)
+k delete pod -l tier=non-prod (delete selection of pods)</p>
+
+<p>k exec -v 6 -it <POD_NAME> -- /bin/sh
+k logs <POD_NAME>
+k port-forward <POD_NAME>-<pod-template-hash/replicaset-id>-<pod-id> <LOCAL_PORT>:<CONTAINER_PORT> (make sure you use linux non-priviledge port (&gt;1024) as <LOCAL_PORT>)
+curl http://localhost:<LOCAL_PORT></p>
+
+<p>k scale deployment <DEPLOYMENT_NAME> --replicas=2</p>
+
+<p>k get endpoints <SERVICE_NAME>
+<code>PODIP=$(kubectl get endpoints &lt;SERVICE_NAME&gt; -o jsonpath=&#39;{.subsets[].addresses[].ip }&#39;)</code></p>
+
+<p>Kubernetes Cluster DNS Service</p>
+
+<p><SERVICE_NAME>.<NAMESPACE>.svc.cluster.local
+nslookup <SERVICE_NAME>.<NAMESPACE>.svc.cluster.local <kube-dns_CLUSTER-IP></p>
+
+<p>k delete -f ./<INGRESS_CONTROLLER.yaml></p>
+
+<p>1.2.3 Kubernetes Helpers</p>
+
+<p>GetServiceIpByServiceName:</p>
+
+<p>SERVICEIP=$(kubectl get service | grep <SERVICE_NAME> | awk &#39;{ print $3 }&#39;)
+<code>SERVICEIP=$(kubectl get service &lt;SERVICE_NAME&gt; -o jsonpath=&#39;{ .spec.clusterIP }&#39;)</code></p>
+
+<p>GetFirstPodNameFromDeployment</p>
+
+<p>PODNAME=$(kubectl get pods | grep <DEPLOYMENT_NAME> | awk &#39;{ print $1 }&#39; | head -n 1)</p>
+
+<p>GetSecretValue</p>
+
+<p><code>echo $(kubectl get secret &lt;SECRET_NAME&gt; --template={{.data.&lt;KEY_NAME&gt;}} | base64 --decode)</code></p>
+
+<p>GetIngressIP</p>
+
+<p><code>INGRESSIP=$(kubectl get ingress -o jsonpath=&#39;{ .items[].status.loadBalancer.ingress[].ip }&#39;)</code></p>
+
+<p>k create secret tls tls-secret --key tls.key --cert tls.crt</p>
+
+<p>1.2.4 docker-registry secret</p>
+
+<p>sudo chown $(id -u):$(id -g) ~/.docker/
+sudo chown $(id -u):$(id -g) ~/.docker/config.json</p>
+
+<p>k create secret docker-registry docker-hub-login
+--docker-server=https://index.docker.io/v1/
+--docker-username=<USERNAME>
+--docker-password=<PASSWORD>
+--docker-email=<EMAIL></p>
+
+<ol>
+<li>Install K3D</li>
+</ol>
+
+<p>curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash</p>
+
+<p>k3d version
+k3d cluster list
+k3d cluster create biokube --api-port 6550 -s 1 -a 3 -p 8080:80@loadbalancer -v /home/pmualaba/Development/bio8/biokube:/src@all
+k3d kubeconfig merge biokube --switch-context
+kubectl cluster-info
+kubectl get nodes</p>
+
+<p>Import Docker image from local Docker host to K3D containerd (In order to make the Container Runtime Images available for helm, this command imports a specified Docker image to every node in the specified K3D cluster(s) and is executed behind the scenes using a special purpose k3d-tools container)</p>
+
+<p>k3d image import biokube-docs:latest -c biokube</p>
+
+<p>helm upgrade --install biokube-docs libs/container/helm/charts/biokube-docs --namespace biokube --set app.image=biokube-docs:latest</p>
+
+<p>k3d cluster delete biokube</p>
+
+<ol>
+<li>Install K3X</li>
+</ol>
+
+<p>flatpak install flathub com.github.inercia.k3x
+flatpak run com.github.inercia.k3x</p>
+
+<ol>
+<li>Install helm</li>
+</ol>
+
+<p>curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+rm get_helm.sh</p>
+
+<p>helm version
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo update
+helm search repo stable</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

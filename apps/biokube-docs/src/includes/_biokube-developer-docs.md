@@ -221,7 +221,7 @@ Download and install (by double clicking) Nerd Font:
 
 #### 2.2\. Install Fira Code Font
 
-<code>sudo apt update && sudo apt install fonts-firacode</code>
+<code>`sudo apt update && sudo apt install fonts-firacode`</code>
 
 > 2.2\. Install Fira Code Font
 
@@ -229,11 +229,20 @@ Download and install (by double clicking) Nerd Font:
 sudo apt update && sudo apt install fonts-firacode
 ```
 
-#### 2.3\. Configure Fonts
+#### 2.3\. Configure Fonts in settings.json
 
 Open File → Preferences → Settings and click on the icon <img src="../images/vscode-open-settings-json-icon.png" width="30" style="margin:0"/> to toggle <code>settings.json</code> in code view.
 
 [<img src="../images/vscode-settings-json.png" width="550"/>](../images/vscode-settings-json.png 'Click to enlarge')
+
+> 2.3\. Configure Fonts in settings.json
+
+```json
+{
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "editor.fontFamily": "'Fira Code', 'Operator Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
+}
+```
 
 Set <code>"terminal.integrated.fontFamily": "MesloLGS NF"</code><br>
 Set <code>"editor.fontFamily": "'Fira Code', 'Operator Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"</code>
@@ -287,7 +296,7 @@ Now when you open a new terminal session the Oh My Zsh configuration wizard will
 #### 4.5\. Run the configuration wizard
 
 You can always re-run the configuration wizard later with the following command:
-<code>p10k configure</code>
+<code>`p10k configure`</code>
 
 > 4.5\. Run the configuration wizard
 
@@ -313,10 +322,10 @@ rm -rf -- ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 ### 5\. Visual Studio Code shortcuts
 
-Delete line: <code>CTRL + SHIFT + K</code><br>
-Move line up/down: <code>ALT + UP/DOWN</code><br>
-Multicursor: Search a substring and then click on 1 instance and press <code>CTRL + SHIFT + L</code><br>
-Open Command Panel: <code>CTRL + SHIFT + P</code><br>
+Delete line: <code>`CTRL + SHIFT + K`</code><br>
+Move line up/down: <code>`ALT + UP/DOWN`</code><br>
+Multicursor: Search a substring and then click on 1 instance and press <code>`CTRL + SHIFT + L`</code><br>
+Open Command Panel: <code>`CTRL + SHIFT + P`</code><br>
 
 ## Setup Document container
 
@@ -350,19 +359,19 @@ An Email will be sent to the mailbox associated with your own GitHub account. Cl
 > 5\. Clone the newly created repo to your local IDE
 
 ```shell
-git clone git@github.com:YOUR-GITHUB-ACCOUNT/biokube-docs.git
+git clone git@github.com:<YOUR_GITHUB_ACCOUNT>/biokube-docs.git
 ```
 
 ### 6\. Change <code>origin</code> of your GIT repository (optional)
 
 In case you want to commit to another remote repository than the one you originally cloned from, you need to change the origin of your local GIT repository.
-You can do this with this set of <code>git</code> commands. (replace <b>bio8</b> with your own GitHub account)
+You can do this with this set of <code>git</code> commands.
 
 > 6\. Change <code>origin</code> of your GIT repository (optional)
 
 ```shell
 git remote rm origin
-git remote add origin git@github.com:bio8/biokube-docs.git
+git remote add origin git@github.com:<YOUR_GITHUB_ACCOUNT>/biokube-docs.git
 git config master.remote origin
 git config master.merge refs/heads/master
 git branch --set-upstream-to=origin/main main
@@ -371,24 +380,24 @@ git pull origin main --allow-unrelated-histories
 
 ### 7\. Create docker container image
 
-Make sure to run <code>docker build</code> command in the root directory of the project in your IDE where your <code>Dockerfile</code> is located.
+Make sure to run <code>docker build</code> command in the root directory of the project in your IDE where your <code>`Dockerfile`</code> is located. The image will be created on the local docker host.
 
 > 7\. Create docker container image
 
 ```shell
 docker build . -t biokube-docs:latest
-docker images
+docker image list
 ```
 
 ### 8\. Run docker container
 
-Once the <code>biokube-docs</code> Docker image is created, you can launch a container from it using <code>docker run</code>. <br>
-An empty build folder will also be created in the root of your project directory in your IDE. The build directory will be used for static site generation. (see step 9.)
+Once the <code>biokube-docs</code> Docker image is created, you can launch a container from it using <code>`docker run`</code>. <br>
+An existing empty build folder is also mounted as hostmount directory <code>`-v $(pwd)/../biokube-web/public/docs:/srv/docs/build`</code>. The empty build directory will later be used as output directory for static site generation. (see step 9.)
 
 > 8\. Run docker container
 
 ```shell
-docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/build:/srv/slate/build -v $(pwd)/source:/srv/slate/source biokube-docs
+docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/../biokube-web/public/docs:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs
 docker ps
 ```
 
@@ -396,29 +405,31 @@ Now you can make changes to your documentation content and styles.
 
 Documentation pages are stored as Markdown files located at:
 
-&emsp;&emsp;<b>source/index.html.md</b> <br>
-&emsp;&emsp;<b>source/includes/\_YOUR-DOCUMENTATION-PAGES.md</b>
+&emsp;&emsp;<b>src/index.html.md</b> <br>
+&emsp;&emsp;<b>src/includes/\_\<YOUR_DOCUMENTATION_PAGES>.md</b>
 
 Images for your Documentation pages are stored in:
 
-&emsp;&emsp;<b>source/images</b>
+&emsp;&emsp;<b>src/images</b>
 
 You can edit styling in the following SASS stylesheets:
 
-&emsp;&emsp;<b>source/stylesheets/\_variables.scss</b> <br>
-&emsp;&emsp;<b>source/stylesheets/screen.css.scss</b>
+&emsp;&emsp;<b>src/stylesheets/\_variables.scss</b> <br>
+&emsp;&emsp;<b>src/stylesheets/screen.css.scss</b>
 
 Navigate to [http://localhost:4567/](http://localhost:4567/) and Refresh your browser to see the changes.
 
 ### 9\. Production Build
 
 You can run a <code>bundle exec</code> command (from within the Docker container), that will generate a production deployable static site version of your documentation. <br>
-This command will output the static assets to this <code>build</code> folder. The static assets can be hosted on your favorite cloud provider.
+This command will output the static assets to the <code>build</code> folder that is mounted on the running container.
+<code>`-v $(pwd)/../biokube-web/public/docs:/srv/docs/build`</code>
+The static assets can be hosted on your favorite cloud provider.
 
 > 9\. Production Build
 
 ```shell
-docker exec -it biokube-docs /bin/bash -c "bundle exec middleman build"
+docker exec -it biokube-docs /bin/sh -c "bundle exec middleman build"
 ```
 
 ## Setup Nx Workspace
@@ -521,17 +532,17 @@ Finally, click "Apply" to download and install the Android SDK and related build
 
 nano ~/.zhsrc
 
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:\$ANDROID_HOME/platform-tools
+`export ANDROID_HOME=$HOME/Android/Sdk`
+`export PATH=$PATH:$ANDROID_HOME/emulator`
+`export PATH=$PATH:$ANDROID_HOME/tools`
+`export PATH=$PATH:$ANDROID_HOME/tools/bin`
+`export PATH=$PATH:$ANDROID_HOME/platform-tools`
 
-source \$HOME/.zhsrc
+`source $HOME/.zhsrc`
 
 Verify that ANDROID_HOME has been added to your path by running
 
-echo \$PATH.
+`echo $PATH`
 
 Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under Appearance & Behavior → System Settings → Android SDK.
 
@@ -581,7 +592,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 kubectl config view --minify --raw
-cat \$HOME/.kube/config
+`cat $HOME/.kube/config`
 
 1.1 Setup kubectl autocompletion:
 
@@ -685,7 +696,7 @@ curl http://localhost:<LOCAL_PORT>
 k scale deployment <DEPLOYMENT_NAME> --replicas=2
 
 k get endpoints <SERVICE_NAME>
-PODIP=\$(kubectl get endpoints <SERVICE_NAME> -o jsonpath='{.subsets[].addresses[].ip }')
+`PODIP=$(kubectl get endpoints <SERVICE_NAME> -o jsonpath='{.subsets[].addresses[].ip }')`
 
 Kubernetes Cluster DNS Service
 
@@ -699,7 +710,7 @@ k delete -f ./<INGRESS_CONTROLLER.yaml>
 GetServiceIpByServiceName:
 
 SERVICEIP=$(kubectl get service | grep <SERVICE_NAME> | awk '{ print $3 }')
-SERVICEIP=\$(kubectl get service <SERVICE_NAME> -o jsonpath='{ .spec.clusterIP }')
+`SERVICEIP=$(kubectl get service <SERVICE_NAME> -o jsonpath='{ .spec.clusterIP }')`
 
 GetFirstPodNameFromDeployment
 
@@ -707,11 +718,11 @@ PODNAME=$(kubectl get pods | grep <DEPLOYMENT_NAME> | awk '{ print $1 }' | head 
 
 GetSecretValue
 
-echo \$(kubectl get secret <SECRET_NAME> --template={{.data.<KEY_NAME>}} | base64 --decode)
+`echo $(kubectl get secret <SECRET_NAME> --template={{.data.<KEY_NAME>}} | base64 --decode)`
 
 GetIngressIP
 
-INGRESSIP=\$(kubectl get ingress -o jsonpath='{ .items[].status.loadBalancer.ingress[].ip }')
+`INGRESSIP=$(kubectl get ingress -o jsonpath='{ .items[].status.loadBalancer.ingress[].ip }')`
 
 k create secret tls tls-secret --key tls.key --cert tls.crt
 
