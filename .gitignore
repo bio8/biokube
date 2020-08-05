@@ -40,4 +40,5 @@ Thumbs.db
 
 # Biokube
 /apps/biokube-data/storage
+/apps/biokube-docs/container/docker/build
 

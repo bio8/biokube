@@ -8,7 +8,7 @@ To achieve this goal, <b>Biokube</b> embodies a two dimensional approach for app
 In its Vertical dimension <b>Biokube</b> provides all the components and apis needed for each stack layer of the vertical slices that builds up a full stack production ready application. <br>
 From a Horizontal dimension, <b>Biokube</b> supports a complete lifecycle workflow from the initial design & prototype stage up to the production deployment phase and beyond (maintenance & decommissioning).
 
-<b>Motivation.</b> Today designing, developing, deploying and maintaining the complete lifecycle of web applications and platforms still require an enormous amount of planning, building and configuring boilerplate code for common services and features, <br>
+<b>Motivation.</b> Today designing, developing, deploying and maintaining the complete lifecycle of web applications and platforms still require an enormous amount of planning, building and configuring boilerplate code for common services and features,
 that every modern web application needs over all vertical stack layers and horizontal lifecycle stages of scalable production ready application deployments.<br>
 Many efforts and initiatives to standardize best practises and eliminating repetitive tasks into smart code have already been undertaken by the open source community in different areas of the vertical layers or horizontal lifecycle stages of modern web applications and web platforms.<br>
 Great examples of such initiatives are [Next.js](https://nextjs.org/) by Vercel, an opiniated Frontend React framework, or the wonderful [NestJS](https://nestjs.com/) project, an opiniated Backend NodeJS framework, [Nx](https://nx.dev/react) by Nrwl, an opiniated Monorepo Toolkit, and [K3S](https://rancher.com/docs/k3s/latest/en/), also an opiniated kubernetes distribution created by Rancher (now acquired by one of the biggest open source consortia [SuSE Linux](https://www.suse.com/). All these projects have one thing in common:
@@ -48,7 +48,8 @@ Using <b>Biokube</b> must alleviate the pain of writing and configuring tedious 
 - GitHub Actions
 - Sentry
 - Jest
-- TestCafe
+- Cypress
+- Nx Monorepo
 
 #### DATA
 

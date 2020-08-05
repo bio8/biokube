@@ -447,10 +447,10 @@
                     <a href="#setup-visual-studio-code" class="toc-h2 toc-link" data-title="Setup Visual Studio Code">Setup Visual Studio Code</a>
                   </li>
                   <li>
-                    <a href="#setup-document-container" class="toc-h2 toc-link" data-title="Setup Document container">Setup Document container</a>
+                    <a href="#setup-nx-monorepo-workspace" class="toc-h2 toc-link" data-title="Setup Nx Monorepo Workspace">Setup Nx Monorepo Workspace</a>
                   </li>
                   <li>
-                    <a href="#setup-nx-workspace" class="toc-h2 toc-link" data-title="Setup Nx Workspace">Setup Nx Workspace</a>
+                    <a href="#setup-documentation-container" class="toc-h2 toc-link" data-title="Setup Documentation container">Setup Documentation container</a>
                   </li>
                   <li>
                     <a href="#setup-api-container" class="toc-h2 toc-link" data-title="Setup API container">Setup API container</a>
@@ -926,7 +926,103 @@ Now when you open a new terminal session the Oh My Zsh configuration wizard will
 Move line up/down: <code><code>ALT + UP/DOWN</code></code><br>
 Multicursor: Search a substring and then click on 1 instance and press <code><code>CTRL + SHIFT + L</code></code><br>
 Open Command Panel: <code><code>CTRL + SHIFT + P</code></code><br></p>
-<h2 id='setup-document-container'>Setup Document container</h2><h3 id='1-login-to-your-github-account-where-you-want-to-host-the-repository-for-your-documentation'>1. Login to your <a href="https://github.com/">GitHub</a> account where you want to host the repository for your documentation.</h3><h3 id='2-open-https-github-com-slatedocs-slate-repository-in-that-github-account'>2. Open <a href="https://github.com/slatedocs/slate">https://github.com/slatedocs/slate</a> repository in that GitHub account.</h3><h3 id='3-fork-the-repository-to-that-github-account'>3. Fork the repository to that GitHub account.</h3>
+<h2 id='setup-nx-monorepo-workspace'>Setup Nx Monorepo Workspace</h2><h3 id='1-install-nx-cli'>1. Install Nx CLI</h3>
+<blockquote>
+<p>1. Install Nx CLI</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>npm i <span class="nt">-g</span> @nrwl/cli
+</code></pre></div><h3 id='2-create-nx-biokube-monorepo-workspace'>2. Create Nx Biokube Monorepo Workspace</h3>
+<p>First create an empty Nx Monorepo Workspace named <code><code>biokube</code></code>. Then we add support for Next.js and Nest.js applications</p>
+
+<blockquote>
+<p>2. Create Nx Biokube Monorepo Workspace</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>npx create-nx-workspace@latest biokube <span class="nt">--preset</span><span class="o">=</span>empty <span class="nt">--cli</span><span class="o">=</span>nx <span class="nt">--skipGit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--npm-scope</span><span class="o">=</span>scope <span class="nt">--nx-cloud</span><span class="o">=</span><span class="nb">false
+</span>yarn add <span class="nt">-D</span> @nrwl/nest @nrwl/next
+</code></pre></div><h3 id='3-create-nx-biokube-applications-and-libraries'>3. Create Nx Biokube Applications and Libraries</h3>
+<p>Nx can manage multiple projects in a single git repository. This is called a monorepo. <br>
+The Biokube monorepo consists of multiple projects divided between apps and libs.</p>
+
+<p>apps:</p>
+
+<ul>
+<li>biokube-api</li>
+<li>biokube-data</li>
+<li>biokube-docs</li>
+<li>biokube-native</li>
+<li>biokube-web</li>
+</ul>
+
+<p>libs:</p>
+
+<ul>
+<li>cloud</li>
+<li>container</li>
+<li>data</li>
+<li>integration</li>
+<li>service</li>
+<li>types</li>
+</ul>
+
+<p>libs UI:</p>
+
+<ul>
+<li>web</li>
+<li>native</li>
+</ul>
+
+<blockquote>
+<p>3. Create Nx Biokube Applications and Libraries</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nx g @nrwl/nest:app biokube-api
+nx g @nrwl/nest:app biokube-data
+nx g @nrwl/next:app biokube-web <span class="nt">--style</span><span class="o">=</span><span class="s2">"styled-components"</span>
+
+nx g @nrwl/node:lib types
+nx g @nrwl/node:lib cloud
+nx g @nrwl/node:lib container
+nx g @nrwl/node:lib data
+nx g @nrwl/node:lib integration
+nx g @nrwl/node:lib service
+
+nx g @nrwl/next:lib blocks <span class="nt">-d</span> ui/web <span class="nt">--pascalCaseFiles</span>
+nx g @nrwl/next:lib blocks <span class="nt">-d</span> ui/native <span class="nt">--pascalCaseFiles</span>
+
+nx g @nrwl/next:lib elements <span class="nt">-d</span> ui/web <span class="nt">--pascalCaseFiles</span>
+nx g @nrwl/next:lib elements <span class="nt">-d</span> ui/native <span class="nt">--pascalCaseFiles</span>
+
+nx g @nrwl/next:component Button <span class="nt">-p</span> ui-web-elements <span class="nt">-e</span>
+nx g @nrwl/next:component Button <span class="nt">-p</span> ui-native-elements <span class="nt">-e</span>
+</code></pre></div><h3 id='4-deleting-a-library'>4. Deleting a library</h3>
+<blockquote>
+<p>4. Deleting a library</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nx g @nrwl/node:remove service <span class="nt">--forceRemove</span>
+</code></pre></div><h3 id='5-display-dependency-graph'>5. Display Dependency Graph</h3>
+<blockquote>
+<p>5. Display Dependency Graph</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nx dep-graph
+</code></pre></div><h3 id='6-nx-commands'>6. NX Commands</h3>
+<p>You can run Nx workspace commands from the Nx Console VS Code extension or from the command line. <br>
+These commands are managed, configured and customized under <code><code>project.&lt;PROJECT_NAME&gt;.architect</code></code> key in <code><code>workspace.json</code></code> file located in the root of your Nx monorepo workspace.</p>
+
+<p><a href="images/vscode-nx-commands-d4059130.png" title="Click to enlarge"><img src="images/vscode-nx-commands-d4059130.png" width="550"/></a></p>
+
+<blockquote>
+<p>6. NX Commands</p>
+</blockquote>
+<h4 id='6-1-biokube-docs'>6.1. biokube-docs</h4>
+<p><code><code>develop-docker-image</code></code> : create a docker image named <code><code>biokube-docs:v1.0.0-develop</code></code> for local development<br></p>
+
+<p><code><code>develop-docker-run</code></code> : run a docker container from image <code><code>biokube-docs:v1.0.0-develop</code></code> and serve it at <a href="http://localhost:4567">http://localhost:4567</a><br></p>
+
+<p><code><code>production-docker-image</code></code> : create a docker image named <code><code>biokube-docs:v1.0.0-production</code></code> for production with static content stored inside the docker image.<br></p>
+
+<p><code><code>production-docker-run</code></code> : run a docker container from image <code><code>biokube-docs:v1.0.0-production</code></code> for production with static content stored inside the docker image and serve it at <a href="http://localhost:3003">http://localhost:3003</a>.<br></p>
+
+<p><code><code>production-build-inject</code></code> : From a running <code><code>biokube-docs:latest</code></code> development container build static site from src and inject the static site in <code><code>biokube-web</code></code> inside <code><code>/public/docs</code></code> folder.<br></p>
+<h2 id='setup-documentation-container'>Setup Documentation container</h2><h3 id='1-login-to-your-github-account-where-you-want-to-host-the-repository-for-your-documentation'>1. Login to your <a href="https://github.com/">GitHub</a> account where you want to host the repository for your documentation.</h3><h3 id='2-open-https-github-com-slatedocs-slate-repository-in-that-github-account'>2. Open <a href="https://github.com/slatedocs/slate">https://github.com/slatedocs/slate</a> repository in that GitHub account.</h3><h3 id='3-fork-the-repository-to-that-github-account'>3. Fork the repository to that GitHub account.</h3>
 <p>Click on <b>Use this template</b> button.
 Click on <b>Create repository from template</b> button.</p>
 
@@ -1006,47 +1102,7 @@ The static assets can be hosted on your favorite cloud provider.</p>
 <p>9. Production Build</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> biokube-docs /bin/sh <span class="nt">-c</span> <span class="s2">"bundle exec middleman build"</span>
-</code></pre></div><h2 id='setup-nx-workspace'>Setup Nx Workspace</h2>
-<p>sudo npm i -g @nrwl/cli</p>
-
-<p>npx create-nx-workspace@latest biokube --preset=empty --cli=nx --skipGit=false --npm-scope=scope --nx-cloud=false</p>
-
-<p>yarn add -D @nrwl/nest @nrwl/next</p>
-
-<p>nx g @nrwl/next:app biokube-web --style=&quot;styled-components&quot;</p>
-
-<p>nx g @nrwl/nest:app biokube-api</p>
-
-<p>nx g @nrwl/node:lib types
-nx g @nrwl/node:lib cloud
-nx g @nrwl/node:lib container
-nx g @nrwl/node:lib data
-nx g @nrwl/node:lib integration
-nx g @nrwl/node:lib service</p>
-
-<p>nx g @nrwl/next:lib blocks -d ui/web --pascalCaseFiles
-nx g @nrwl/next:lib blocks -d ui/native --pascalCaseFiles</p>
-
-<p>nx g @nrwl/next:lib elements -d ui/web --pascalCaseFiles
-nx g @nrwl/next:lib elements -d ui/native --pascalCaseFiles
-nx g @nrwl/next:component Button -p ui-web-elements -e
-nx g @nrwl/next:component Button -p ui-native-elements -e</p>
-
-<p>How to Delete a library:</p>
-
-<p>nx g @nrwl/node:remove service --forceRemove</p>
-
-<p>How to Display Dependency Graph</p>
-
-<p>nx dep-graph</p>
-<h3 id='nx-commands'>NX Commands</h3>
-<ul>
-<li>biokube-docs
-build-docker : create a docker image for biokube-docs
-serve : run a docker container for biokube-docs served at http://localhost:4567
-build-web : publish static site to biokube-web in plublic/docs folder</li>
-</ul>
-<h2 id='setup-api-container'>Setup API container</h2>
+</code></pre></div><h2 id='setup-api-container'>Setup API container</h2>
 <p>Biokube is setup as a Nest.js Monorepo</p>
 <h2 id='setup-react-native'>Setup React Native</h2>
 <p>Android Studio Setup</p>

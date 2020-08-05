@@ -441,16 +441,16 @@
                     <a href="#setup-yarn" class="toc-h2 toc-link" data-title="Setup Yarn">Setup Yarn</a>
                   </li>
                   <li>
-                    <a href="#setup-git" class="toc-h2 toc-link" data-title="Setup Git">Setup Git</a>
+                    <a href="#setup-github" class="toc-h2 toc-link" data-title="Setup GitHub">Setup GitHub</a>
                   </li>
                   <li>
                     <a href="#setup-visual-studio-code" class="toc-h2 toc-link" data-title="Setup Visual Studio Code">Setup Visual Studio Code</a>
                   </li>
                   <li>
-                    <a href="#setup-document-container" class="toc-h2 toc-link" data-title="Setup Document container">Setup Document container</a>
+                    <a href="#setup-nx-monorepo-workspace" class="toc-h2 toc-link" data-title="Setup Nx Monorepo Workspace">Setup Nx Monorepo Workspace</a>
                   </li>
                   <li>
-                    <a href="#setup-nx-workspace" class="toc-h2 toc-link" data-title="Setup Nx Workspace">Setup Nx Workspace</a>
+                    <a href="#setup-documentation-container" class="toc-h2 toc-link" data-title="Setup Documentation container">Setup Documentation container</a>
                   </li>
                   <li>
                     <a href="#setup-api-container" class="toc-h2 toc-link" data-title="Setup API container">Setup API container</a>
@@ -480,17 +480,17 @@
 
 <p><b>Biokube</b> is a Full stack open source Rapid Application Design &amp; Prototype &amp; Development Factory for scalable cloud agnostic application Deployments in Production. <br>
 This project brings together best of breed and production ready open source tools and technologies into an opiniated sweet spot ecosystem that enables rapid deployments of any web application platform. <br>
-To achieve this goal, <b>Biokube</b> embodies a two dimensional approach for application design, development and delivery: <br> 
+To achieve this goal, <b>Biokube</b> embodies a two dimensional approach for application design, development and delivery: <br>
 In its Vertical dimension <b>Biokube</b> provides all the components and apis needed for each stack layer of the vertical slices that builds up a full stack production ready application. <br>
 From a Horizontal dimension, <b>Biokube</b> supports a complete lifecycle workflow from the initial design &amp; prototype stage up to the production deployment phase and beyond (maintenance &amp; decommissioning).</p>
 
 <p><b>Motivation.</b> Today designing, developing, deploying and maintaining the complete lifecycle of web applications and platforms still require an enormous amount of planning, building and configuring boilerplate code for common services and features, <br>
 that every modern web application needs over all vertical stack layers and horizontal lifecycle stages of scalable production ready application deployments.<br>
 Many efforts and initiatives to standardize best practises and eliminating repetitive tasks into smart code have already been undertaken by the open source community in different areas of the vertical layers or horizontal lifecycle stages of modern web applications and web platforms.<br>
-Great examples of such initiatives are <a href="https://nextjs.org/">Next.js</a> by Vercel, an opiniated Frontend React framework, or the wonderful <a href="https://nestjs.com/">NestJS</a> project, an opiniated Backend NodeJS framework, <a href="https://nx.dev/react">Nx</a> by Nrwl, an opiniated Monorepo Toolkit, and <a href="https://rancher.com/docs/k3s/latest/en/">K3S</a>, also an opiniated kubernetes distribution created by Rancher (now acquired by one of the biggest open source consortia <a href="https://www.suse.com/">SuSE Linux</a>. All these projects have one thing in common:  </p>
+Great examples of such initiatives are <a href="https://nextjs.org/">Next.js</a> by Vercel, an opiniated Frontend React framework, or the wonderful <a href="https://nestjs.com/">NestJS</a> project, an opiniated Backend NodeJS framework, <a href="https://nx.dev/react">Nx</a> by Nrwl, an opiniated Monorepo Toolkit, and <a href="https://rancher.com/docs/k3s/latest/en/">K3S</a>, also an opiniated kubernetes distribution created by Rancher (now acquired by one of the biggest open source consortia <a href="https://www.suse.com/">SuSE Linux</a>. All these projects have one thing in common:</p>
 
 <ul>
-<li>Express strong opinions without sacrificing best practises </li>
+<li>Express strong opinions without sacrificing best practises</li>
 <li>Produce sensible defaults without sacrificing controlability</li>
 <li>Reduce complexity without sacrificing flexibility</li>
 <li>Improve DX (Developer eXperience)</li>
@@ -498,14 +498,14 @@ Great examples of such initiatives are <a href="https://nextjs.org/">Next.js</a>
 
 <p><b>Biokube</b> builds upon these efforts and focuses on bringing all vertical stack layers and horizontal lifecycle stages together into one extensible full stack web application Factory platform.
 Using <b>Biokube</b> must alleviate the pain of writing and configuring tedious and repetitive application features that are foundational components and features of any full stack web application platform. <br>
-<b>Biokube</b> sets the stage for designers to directly start designing and prototyping the end-user application and for developers to directly start implementing the crucial business domain features as Pluggable services on top of <b>Biokube</b> application Factory platform. </p>
+<b>Biokube</b> sets the stage for designers to directly start designing and prototyping the end-user application and for developers to directly start implementing the crucial business domain features as Pluggable services on top of <b>Biokube</b> application Factory platform.</p>
 
 <p><b>Status:</b> <b style="color: red;">in early development</b></p>
 
 <p><b>Technologies:</b></p>
 <h4 id='cloud'>CLOUD</h4>
 <ul>
-<li>JBOM (Just a Bunch Of Servers)</li>
+<li>JBOM (Just a Bunch Of Machines)</li>
 <li>Amazon</li>
 <li>Google</li>
 <li>Azure</li>
@@ -555,7 +555,7 @@ Using <b>Biokube</b> must alleviate the pain of writing and configuring tedious 
 <h4 id='api'>API</h4>
 <ul>
 <li>GraphQL</li>
-<li>Nest.js </li>
+<li>Nest.js</li>
 <li>Fastify.js</li>
 <li>TypeScript</li>
 </ul>
@@ -695,98 +695,109 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to delete</td>
 </tr>
 </tbody></table>
-<h1 id='container'>Container</h1><h2 id='docker'>Docker</h2><h2 id='kubernetes'>Kubernetes</h2><h2 id='rancher'>Rancher</h2><h1 id='ci-cd'>CI / CD</h1><h2 id='github-gitflow'>Github GitFlow</h2><h2 id='github-actions'>GitHub Actions</h2><h2 id='sentry'>Sentry</h2><h1 id='data'>Data</h1><h2 id='neo4j'>Neo4J</h2><h2 id='dgraph'>DGraph</h2><h1 id='integration'>Integration</h1><h2 id='facebook'>Facebook</h2><h2 id='slack'>Slack</h2><h1 id='service'>Service</h1><h2 id='core-cms'>Core CMS</h2><h2 id='core-security'>Core Security</h2><h1 id='api'>API</h1><h2 id='function-api'>Function API</h2><h1 id='web'>Web</h1><h2 id='next-js'>Next.js</h2><h2 id='react-js'>React.js</h2><h1 id='native'>Native</h1><h2 id='react-native'>React-Native</h2><h1 id='prototype'>Prototype</h1><h2 id='framer'>Framer</h2><h1 id='biokube-developer-docs'>Biokube Developer Docs</h1><h2 id='setup-docker'>Setup Docker</h2>
-<p>sudo apt update</p>
+<h1 id='container'>Container</h1><h2 id='docker'>Docker</h2><h2 id='kubernetes'>Kubernetes</h2><h2 id='rancher'>Rancher</h2><h1 id='ci-cd'>CI / CD</h1><h2 id='github-gitflow'>Github GitFlow</h2><h2 id='github-actions'>GitHub Actions</h2><h2 id='sentry'>Sentry</h2><h1 id='data'>Data</h1><h2 id='neo4j'>Neo4J</h2><h2 id='dgraph'>DGraph</h2><h1 id='integration'>Integration</h1><h2 id='facebook'>Facebook</h2><h2 id='slack'>Slack</h2><h1 id='service'>Service</h1><h2 id='core-cms'>Core CMS</h2><h2 id='core-security'>Core Security</h2><h1 id='api'>API</h1><h2 id='function-api'>Function API</h2><h1 id='web'>Web</h1><h2 id='next-js'>Next.js</h2><h2 id='react-js'>React.js</h2><h1 id='native'>Native</h1><h2 id='react-native'>React-Native</h2><h1 id='prototype'>Prototype</h1><h2 id='framer'>Framer</h2><h1 id='biokube-developer-docs'>Biokube Developer Docs</h1><h2 id='setup-docker'>Setup Docker</h2><h3 id='1-install-docker'>1. Install Docker</h3>
+<blockquote>
+<p>1. Install Docker</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>apt-transport-https ca-certificates curl software-properties-common
+curl <span class="nt">-fsSL</span> https://download.docker.com/linux/ubuntu/gpg | <span class="nb">sudo </span>apt-key add -
+<span class="nb">sudo </span>add-apt-repository <span class="s2">"deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"</span>
+<span class="nb">sudo </span>apt update
+apt-cache policy docker-ce
+<span class="nb">sudo </span>apt <span class="nb">install </span>docker-ce
+<span class="nb">sudo </span>systemctl status docker
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="k">${</span><span class="nv">USER</span><span class="k">}</span>
+docker ps
+</code></pre></div><h3 id='2-re-login-current-user-and-show-group-membership-for-current-user'>2. Re-login current user and show group membership for current user</h3>
+<blockquote>
+<p>2. Re-login current user and show group membership for current user</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>su - <span class="k">${</span><span class="nv">USER</span><span class="k">}</span>
+<span class="nb">id</span> <span class="nt">-nG</span>
+</code></pre></div><h3 id='3-install-portainer'>3. Install Portainer</h3>
+<p>Portainer is a Visual Docker container management tool. <a href="https://www.portainer.io/">more info</a></p>
 
-<p>sudo apt install apt-transport-https ca-certificates curl software-properties-common</p>
+<blockquote>
+<p>3. Install Portainer</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>docker volume create portainer_data
+docker run <span class="nt">-d</span> <span class="nt">-p</span> 8000:8000 <span class="nt">-p</span> 9000:9000 <span class="nt">--name</span><span class="o">=</span>portainer <span class="nt">--restart</span><span class="o">=</span>always <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="nt">-v</span> portainer_data:/data portainer/portainer
+</code></pre></div>
+<p>After successful installation Portainer is served as a docker container at <a href="http://localhost:9000">http://localhost:9000</a></p>
 
-<p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</p>
-
-<p>sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&quot;</p>
-
-<p>sudo apt update</p>
-
-<p>apt-cache policy docker-ce</p>
-
-<p>sudo apt install docker-ce</p>
-
-<p>sudo systemctl status docker</p>
-
-<p>sudo usermod -aG docker \${USER}</p>
-
-<p>su - \${USER}</p>
-
-<p>id -nG</p>
-
-<p>docker ps</p>
-
-<p>Install Portainer:
-https://www.portainer.io/</p>
-
-<p>docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer</p>
-
-<p>http://localhost:9000</p>
-<h2 id='setup-nodejs'>Setup Nodejs</h2>
-<p>Step 1 – Install NVM</p>
-
-<p>curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash</p>
-
-<p>append the following lines to ~/.zshrc</p>
-
-<p>nano ~/.zshrc
-export NVM_DIR=&quot;$HOME/.nvm&quot;
-[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;\$NVM_DIR/nvm.sh&quot; # This loads nvm</p>
-
-<p>Step 2 – Find Available Node.js Version</p>
-
-<p>nvm ls-remote</p>
-
-<p>Step 3 – Installing selected Node.js versions with NVM</p>
-
-<p>nvm install v12.18.2
-nvm install v14.5.0</p>
-
-<p>Step 4 – Set Node.js Default Version</p>
-
-<p>nvm list
+<p>login = <code>admin</code><br>
+password = <code>the password set on first use</code></p>
+<h2 id='setup-nodejs'>Setup Nodejs</h2><h3 id='1-install-nvm'>1. Install NVM</h3>
+<blockquote>
+<p>1. Install NVM</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+</code></pre></div><h3 id='2-edit-zshrc'>2. Edit ~/.zshrc</h3>
+<blockquote>
+<p>2. Edit ~/.zshrc</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nano ~/.zshrc
+<span class="nb">export </span><span class="nv">NVM_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.nvm"</span>
+<span class="o">[</span> <span class="nt">-s</span> <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/nvm.sh"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">NVM_DIR/nvm.sh"</span> <span class="c"># This loads nvm</span>
+</code></pre></div><h3 id='3-find-available-node-js-versions'>3. Find Available Node.js Versions</h3>
+<blockquote>
+<p>3. Find Available Node.js Versions</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm ls-remote
+</code></pre></div><h3 id='4-install-selected-node-js-versions-with-nvm'>4. Install selected Node.js versions with NVM</h3>
+<blockquote>
+<p>4. Installing selected Node.js versions with NVM</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm <span class="nb">install </span>v12.18.2
+nvm <span class="nb">install </span>v14.5.0
+</code></pre></div><h3 id='5-set-node-js-default-version'>5. Set Node.js Default version</h3>
+<blockquote>
+<p>5. Set Node.js Default version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm list
 nvm use v12.18.2
-node --version</p>
+node <span class="nt">--version</span>
+</code></pre></div><h3 id='6-run-application-with-specific-version'>6. Run Application with Specific Version</h3>
+<blockquote>
+<p>6. Run Application with Specific Version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm run v12.18.2 app.js
+</code></pre></div><h3 id='7-remove-unused-node-js-version'>7. Remove Unused Node.js Version</h3>
+<blockquote>
+<p>7. Remove Unused Node.js Version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nvm list
+nvm uninstall v4.9.1
+</code></pre></div><h2 id='setup-yarn'>Setup Yarn</h2><h3 id='1-install-or-update-yarn'>1. Install or update Yarn</h3>
+<blockquote>
+<p>1. Install or update Yarn</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--compressed</span> <span class="nt">-o-</span> <span class="nt">-L</span> https://yarnpkg.com/install.sh | bash
+</code></pre></div><h2 id='setup-github'>Setup GitHub</h2><h3 id='1-create-a-public-private-rsa-keypair'>1. Create a Public/Private RSA keypair</h3>
+<p>If you created a Public/Private RSA Keypair before it should be located here:<br>
+Your personal Private key is stored in a file <code>~/.ssh/id_rsa</code> and should have restricted filesystem permissions <code>chmod 400</code>.<br>
+Your personal Public key is stored in a file <code>~/.ssh/id_rsa.pub</code>
+Restrict filesystem permissions on your <b>Private</b> key<br></p>
 
-<p>Step 5 – Run Application with Specific Version</p>
+<p>If you don&#39;t have a Public/Private RSA Keypair you can create one using OpenSSH</p>
 
-<p>nvm run v12.18.2 app.js</p>
-
-<p>Step 6 – Remove Unused Node.js Version</p>
-
-<p>nvm list
-nvm uninstall v4.9.1</p>
-<h2 id='setup-yarn'>Setup Yarn</h2>
-<p>Run this command to install or update Yarn</p>
-
-<p>curl --compressed -o- -L https://yarnpkg.com/install.sh | bash</p>
-<h2 id='setup-git'>Setup Git</h2>
-<ol>
-<li>Add SSH Key</li>
-</ol>
-
-<p>Create or locate your Public/Private RSA Keypair:
-Your personal Private key is stored in file ~/.ssh/id_rsa<br>
-Your personal Public key is stored in file ~/.ssh/id_rsa.pub</p>
-
-<p>Restrict filesystem permissions on your <b>Private</b> key<br>
-chmod 400 ~/.ssh/id_rsa</p>
-
-<p>Copy your public key to GitHub</p>
-
-<p>In your GitHub account profile menu click on <b>Settings</b> and then in the left menu on <b>SSH and GPG keys</b></p>
+<blockquote>
+<p>1. Create a Public/Private RSA keypair</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 2048
+<span class="nb">chmod </span>400 ~/.ssh/id_rsa
+</code></pre></div><h3 id='2-copy-your-public-key-to-github'>2. Copy your public key to GitHub</h3>
+<p>Login to GitHub and in your GitHub account profile menu click on <b>Settings</b> and then in the left menu on <b>SSH and GPG keys</b></p>
 
 <p><a href="images/github-add-ssh-key-403624ec.png" title="Click to enlarge"><img src="images/github-add-ssh-key-403624ec.png" width="550"/></a></p>
 
-<ol>
-<li>Create Remote GIT repository on Github</li>
-</ol>
+<p>Paste the contents of your <b>Public</b> key and give your SSH key a title.</p>
 
+<p><a href="images/github-add-ssh-key-new-c01bd6a9.png" title="Click to enlarge"><img src="images/github-add-ssh-key-new-c01bd6a9.png" width="550"/></a></p>
+
+<p>Click on <code>Add SSH key</code></p>
+<h3 id='3-create-remote-git-repository-on-github'>3. Create Remote GIT repository on Github</h3>
 <p>Login to GitHub</p>
 
 <p><a href="images/github-create-new-repository-33d80da8.png" title="Click to enlarge"><img src="images/github-create-new-repository-33d80da8.png" width="550"/></a></p>
@@ -796,11 +807,7 @@ chmod 400 ~/.ssh/id_rsa</p>
 <p><a href="images/github-create-new-public-repository-68b57e7c.png" title="Click to enlarge"><img src="images/github-create-new-public-repository-68b57e7c.png" width="550"/></a></p>
 
 <p>Click on <code>Create repository</code> button</p>
-
-<ol>
-<li>Link local existing GIT repository to remote existing GitHub repository</li>
-</ol>
-<h3 id='3-1-github-invite-collaborator'>3.1. GitHub invite Collaborator</h3>
+<h3 id='4-link-local-existing-git-repository-to-remote-existing-github-repository'>4. Link local existing GIT repository to remote existing GitHub repository</h3><h4 id='4-1-github-invite-collaborator'>4.1. GitHub invite Collaborator</h4>
 <p>In order to be able to commit to a remote GitHub repository, you need to be the creator/owner or a valid collaborator for this repository.
 If you manage multiple Github accounts you can still commit and collaborate with one and the same GitHub user account to multiple repositories over multiple GitHub accounts, by inviting the GitHub user account as a collaborator for that repository.<br>
 Just login to the GitHub account that hosts the repository you like to collaborate to and invite your own Github user account to collaborate to that repository.
@@ -815,14 +822,16 @@ Click on <code>Invite a collaborator</code> button</p>
 <p><a href="images/github-invite-collaborator-email-ecbf1f64.png" title="Click to enlarge"><img src="images/github-invite-collaborator-email-ecbf1f64.png" width="550"/></a></p>
 
 <p><a href="images/github-invite-collaborator-accept-770858c4.png" title="Click to enlarge"><img src="images/github-invite-collaborator-accept-770858c4.png" width="550"/></a></p>
-<h3 id='3-2-change-origin-of-your-git-repository'>3.2. Change <code>origin</code> of your GIT repository</h3>
+<h4 id='4-2-change-origin-of-your-git-repository'>4.2. Change <code>origin</code> of your GIT repository</h4>
 <p>In case you want to commit to another remote repository than the one you originally cloned from, you need to change the origin of your local GIT repository.
-You can do this with this set of <code>git</code> commands. If <code>origin</code> is not set on the local repo you may skip the first command <code>git remote rm origin</code>.</p>
+You can do this with this set of <code>git</code> commands. <br>
+If <code>origin</code> is not set in the local repo you may skip the command <code>git remote rm origin</code>.</p>
 
 <blockquote>
-<p>3.2. Change <code>origin</code> of your GIT repository</p>
+<p>4.2. Change <code>origin</code> of your GIT repository</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>git remote <span class="nb">rm </span>origin
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git remote show origin
+git remote <span class="nb">rm </span>origin
 git remote add origin git@github.com:bio8/biokube.git
 git config master.remote origin
 git config master.merge refs/heads/master
@@ -835,66 +844,185 @@ git push <span class="nt">-u</span> origin master
 
 <p><a href="https://code.visualstudio.com/insiders/">Download Visual Studio Code</a><br>
 <a href="https://code.visualstudio.com/insiders/">Download Visual Studio Code Insiders</a></p>
-<h3 id='2-install-visual-studio-code-fonts'>2. Install Visual Studio Code Fonts</h3><h4 id='install-terminal-nerd-font'>Install Terminal Nerd Font:</h4>
+<h3 id='2-install-visual-studio-code-fonts'>2. Install Visual Studio Code Fonts</h3><h4 id='2-1-install-terminal-nerd-font'>2.1. Install Terminal Nerd Font</h4>
 <p>Download and install (by double clicking) Nerd Font:</p>
 
 <p><a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf">MesloLGS NF Regular.ttf</a><br>
 <a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf">MesloLGS NF Bold.ttf</a><br>
 <a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf">MesloLGS NF Italic.ttf</a><br>
 <a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf">MesloLGS NF Bold Italic.ttf</a></p>
-<h4 id='install-fira-code-font'>Install Fira Code Font:</h4>
-<p>sudo apt update &amp;&amp; sudo apt install fonts-firacode</p>
-<h4 id='configure-fonts'>Configure Fonts</h4>
-<p>Open File → Preferences → Settings and click on the icon <img src="images/vscode-open-settings-json-icon-333df788.png" width="30" style="margin:0"/> to toggle settings.json in code view.</p>
+<h4 id='2-2-install-fira-code-font'>2.2. Install Fira Code Font</h4>
+<p><code><code>sudo apt update &amp;&amp; sudo apt install fonts-firacode</code></code></p>
+
+<blockquote>
+<p>2.2. Install Fira Code Font</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install </span>fonts-firacode
+</code></pre></div><h4 id='2-3-configure-fonts-in-settings-json'>2.3. Configure Fonts in settings.json</h4>
+<p>Open File → Preferences → Settings and click on the icon <img src="images/vscode-open-settings-json-icon-333df788.png" width="30" style="margin:0"/> to toggle <code>settings.json</code> in code view.</p>
 
 <p><a href="images/vscode-settings-json-a11172eb.png" title="Click to enlarge"><img src="images/vscode-settings-json-a11172eb.png" width="550"/></a></p>
 
-<p>Set &quot;terminal.integrated.fontFamily&quot;: &quot;MesloLGS NF&quot;<br>
-Set &quot;editor.fontFamily&quot;: &quot;&#39;Fira Code&#39;, &#39;Operator Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace, &#39;Droid Sans Fallback&#39;&quot;</p>
+<blockquote>
+<p>2.3. Configure Fonts in settings.json</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"terminal.integrated.fontFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MesloLGS NF"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"editor.fontFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'Fira Code', 'Operator Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Set <code>&quot;terminal.integrated.fontFamily&quot;: &quot;MesloLGS NF&quot;</code><br>
+Set <code>&quot;editor.fontFamily&quot;: &quot;&#39;Fira Code&#39;, &#39;Operator Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace, &#39;Droid Sans Fallback&#39;&quot;</code></p>
 <h3 id='3-install-visual-studio-code-extensions'>3. Install Visual Studio Code Extensions</h3>
 <p>Install Your favorite Extensions:</p>
 
 <p><a href="images/vscode-extensions-f12f3d7a.png" title="Click to enlarge"><img src="images/vscode-extensions-f12f3d7a.png" width="550"/></a></p>
-<h3 id='4-install-oh-my-zsh'>4. Install Oh My zsh</h3>
-<p>Install Oh My Zsh
-sudo apt install zsh
-sh -c &quot;\$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</p>
+<h3 id='4-install-oh-my-zsh'>4. Install Oh My zsh</h3><h4 id='4-1-install-oh-my-zsh'>4.1. Install Oh My Zsh</h4>
+<blockquote>
+<p>4.1. Install Oh My Zsh</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>apt <span class="nb">install </span>zsh
+sh <span class="nt">-c</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
+</code></pre></div><h4 id='4-2-install-oh-my-zsh-powerlevel10k-theme'>4.2. Install Oh My Zsh powerlevel10k theme</h4>
+<blockquote>
+<p>4.2. Install Oh My Zsh powerlevel10k theme</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 https://github.com/romkatv/powerlevel10k.git <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="k">}</span>/themes/powerlevel10k
+</code></pre></div><h4 id='4-3-install-zsh-autosuggestions'>4.3. Install zsh autosuggestions</h4>
+<blockquote>
+<p>4.3. Install zsh autosuggestions</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git clone https://github.com/zsh-users/zsh-autosuggestions <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="k">}</span>/plugins/zsh-autosuggestions
+</code></pre></div><h4 id='4-4-edit-zshrc'>4.4. Edit ~/.zshrc</h4>
+<blockquote>
+<p>4.4. Edit ~/.zshrc</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nano ~/.zshrc
+<span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">"powerlevel10k/powerlevel10k"</span>
+<span class="nv">plugins</span><span class="o">=(</span>git zsh-autosuggestions<span class="o">)</span>
+</code></pre></div>
+<p>Now Reboot to load the Fonts we installed.<br>
+Now when you open a new terminal session the Oh My Zsh configuration wizard will be launched</p>
+<h4 id='4-5-run-the-configuration-wizard'>4.5. Run the configuration wizard</h4>
+<p>You can always re-run the configuration wizard later with the following command:
+<code><code>p10k configure</code></code></p>
 
-<p>Install Oh My Zsh powerlevel10k theme</p>
+<blockquote>
+<p>4.5. Run the configuration wizard</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>p10k configure
+</code></pre></div><h4 id='4-6-how-to-update-powerlevel10k-to-the-latest-version'>4.6. How to Update powerlevel10k to the latest version</h4>
+<blockquote>
+<p>4.6. How to Update powerlevel10k to the latest version</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git <span class="nt">-C</span> <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="k">}</span>/themes/powerlevel10k pull
+</code></pre></div><h4 id='4-7-how-to-uninstall-powerlevel10k'>4.7. How to Uninstall powerlevel10k</h4>
+<blockquote>
+<p>4.7. How to Uninstall powerlevel10k</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">rm</span> <span class="nt">-rf</span> <span class="nt">--</span> <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="k">}</span>/themes/powerlevel10k
+</code></pre></div><h3 id='5-visual-studio-code-shortcuts'>5. Visual Studio Code shortcuts</h3>
+<p>Delete line: <code><code>CTRL + SHIFT + K</code></code><br>
+Move line up/down: <code><code>ALT + UP/DOWN</code></code><br>
+Multicursor: Search a substring and then click on 1 instance and press <code><code>CTRL + SHIFT + L</code></code><br>
+Open Command Panel: <code><code>CTRL + SHIFT + P</code></code><br></p>
+<h2 id='setup-nx-monorepo-workspace'>Setup Nx Monorepo Workspace</h2><h3 id='1-install-nx-cli'>1. Install Nx CLI</h3>
+<blockquote>
+<p>1. Install Nx CLI</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">sudo </span>npm i <span class="nt">-g</span> @nrwl/cli
+</code></pre></div><h3 id='2-create-nx-biokube-monorepo-workspace'>2. Create Nx Biokube Monorepo Workspace</h3>
+<p>First create an empty Nx Monorepo Workspace named <code><code>biokube</code></code>. Then we add support for Next.js and Nest.js applications</p>
 
-<p>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</p>
+<blockquote>
+<p>2. Create Nx Biokube Monorepo Workspace</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>npx create-nx-workspace@latest biokube <span class="nt">--preset</span><span class="o">=</span>empty <span class="nt">--cli</span><span class="o">=</span>nx <span class="nt">--skipGit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--npm-scope</span><span class="o">=</span>scope <span class="nt">--nx-cloud</span><span class="o">=</span><span class="nb">false
+</span>yarn add <span class="nt">-D</span> @nrwl/nest @nrwl/next
+</code></pre></div><h3 id='3-create-nx-biokube-applications-and-libraries'>3. Create Nx Biokube Applications and Libraries</h3>
+<p>Nx can manage multiple projects in a single git repository. This is called a monorepo. <br>
+The Biokube monorepo consists of multiple projects divided between apps and libs.</p>
 
-<p>Install zsh autosuggestions:</p>
+<p>apps:</p>
 
-<p>git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</p>
+<ul>
+<li>biokube-api</li>
+<li>biokube-data</li>
+<li>biokube-docs</li>
+<li>biokube-native</li>
+<li>biokube-web</li>
+</ul>
 
-<p>Update ~/.zshrc :</p>
+<p>libs:</p>
 
-<p>nano ~/.zshrc
-ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;
-plugins=(git zsh-autosuggestions)</p>
+<ul>
+<li>cloud</li>
+<li>container</li>
+<li>data</li>
+<li>integration</li>
+<li>service</li>
+<li>types</li>
+</ul>
 
-<p>reboot to load the Fonts we installed.</p>
+<p>libs UI:</p>
 
-<p>Now when you open a new terminal session the Oh My Zsh configuration wizard will be launched</p>
+<ul>
+<li>web</li>
+<li>native</li>
+</ul>
 
-<p>You can always re-run the configuration wizard later with the following command:</p>
+<blockquote>
+<p>3. Create Nx Biokube Applications and Libraries</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nx g @nrwl/nest:app biokube-api
+nx g @nrwl/nest:app biokube-data
+nx g @nrwl/next:app biokube-web <span class="nt">--style</span><span class="o">=</span><span class="s2">"styled-components"</span>
 
-<p>p10k configure</p>
+nx g @nrwl/node:lib types
+nx g @nrwl/node:lib cloud
+nx g @nrwl/node:lib container
+nx g @nrwl/node:lib data
+nx g @nrwl/node:lib integration
+nx g @nrwl/node:lib service
 
-<p>How to Update powerlevel10k to the latest version:</p>
+nx g @nrwl/next:lib blocks <span class="nt">-d</span> ui/web <span class="nt">--pascalCaseFiles</span>
+nx g @nrwl/next:lib blocks <span class="nt">-d</span> ui/native <span class="nt">--pascalCaseFiles</span>
 
-<p>git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull</p>
+nx g @nrwl/next:lib elements <span class="nt">-d</span> ui/web <span class="nt">--pascalCaseFiles</span>
+nx g @nrwl/next:lib elements <span class="nt">-d</span> ui/native <span class="nt">--pascalCaseFiles</span>
 
-<p>How to Uninstall powerlevel10k:</p>
+nx g @nrwl/next:component Button <span class="nt">-p</span> ui-web-elements <span class="nt">-e</span>
+nx g @nrwl/next:component Button <span class="nt">-p</span> ui-native-elements <span class="nt">-e</span>
+</code></pre></div><h3 id='4-deleting-a-library'>4. Deleting a library</h3>
+<blockquote>
+<p>4. Deleting a library</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nx g @nrwl/node:remove service <span class="nt">--forceRemove</span>
+</code></pre></div><h3 id='5-display-dependency-graph'>5. Display Dependency Graph</h3>
+<blockquote>
+<p>5. Display Dependency Graph</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>nx dep-graph
+</code></pre></div><h3 id='6-nx-commands'>6. NX Commands</h3>
+<p>You can run Nx workspace commands from the Nx Console VS Code extension or from the command line. <br>
+These commands are managed, configured and customized under <code><code>project.&lt;PROJECT_NAME&gt;.architect</code></code> key in <code><code>workspace.json</code></code> file located in the root of your Nx monorepo workspace.</p>
 
-<p>rm -rf -- ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</p>
-<h3 id='5-visual-studio-code-shortcuts'>5. Visual Studio Code shortcuts</h3>
-<p>Delete line: CTRL + SHIFT + K<br>
-Move line up/down: ALT + UP/DOWN
-Multicursor: search a substring and then click on 1 instance and press CTRL + SHIFT + L
-open Command Panel: CTRL + SHIFT + P</p>
-<h2 id='setup-document-container'>Setup Document container</h2><h3 id='1-login-to-your-github-account-where-you-want-to-host-the-repository-for-your-documentation'>1. Login to your <a href="https://github.com/">GitHub</a> account where you want to host the repository for your documentation.</h3><h3 id='2-open-https-github-com-slatedocs-slate-repository-in-that-github-account'>2. Open <a href="https://github.com/slatedocs/slate">https://github.com/slatedocs/slate</a> repository in that GitHub account.</h3><h3 id='3-fork-the-repository-to-that-github-account'>3. Fork the repository to that GitHub account.</h3>
+<p><a href="images/vscode-nx-commands-d4059130.png" title="Click to enlarge"><img src="images/vscode-nx-commands-d4059130.png" width="550"/></a></p>
+
+<blockquote>
+<p>6. NX Commands</p>
+</blockquote>
+<h4 id='6-1-biokube-docs'>6.1. biokube-docs</h4>
+<p><code><code>develop-docker-image</code></code> : create a docker image named <code><code>biokube-docs:v1.0.0-develop</code></code> for local development<br></p>
+
+<p><code><code>develop-docker-run</code></code> : run a docker container from image <code><code>biokube-docs:v1.0.0-develop</code></code> and serve it at <a href="http://localhost:4567">http://localhost:4567</a><br></p>
+
+<p><code><code>production-docker-image</code></code> : create a docker image named <code><code>biokube-docs:v1.0.0-production</code></code> for production with static content stored inside the docker image.<br></p>
+
+<p><code><code>production-docker-run</code></code> : run a docker container from image <code><code>biokube-docs:v1.0.0-production</code></code> for production with static content stored inside the docker image and serve it at <a href="http://localhost:3003">http://localhost:3003</a>.<br></p>
+
+<p><code><code>production-build-inject</code></code> : From a running <code><code>biokube-docs:latest</code></code> development container build static site from src and inject the static site in <code><code>biokube-web</code></code> inside <code><code>/public/docs</code></code> folder.<br></p>
+<h2 id='setup-documentation-container'>Setup Documentation container</h2><h3 id='1-login-to-your-github-account-where-you-want-to-host-the-repository-for-your-documentation'>1. Login to your <a href="https://github.com/">GitHub</a> account where you want to host the repository for your documentation.</h3><h3 id='2-open-https-github-com-slatedocs-slate-repository-in-that-github-account'>2. Open <a href="https://github.com/slatedocs/slate">https://github.com/slatedocs/slate</a> repository in that GitHub account.</h3><h3 id='3-fork-the-repository-to-that-github-account'>3. Fork the repository to that GitHub account.</h3>
 <p>Click on <b>Use this template</b> button.
 Click on <b>Create repository from template</b> button.</p>
 
@@ -915,97 +1043,66 @@ Click on <b>Manage access</b> menu item.</p>
 <blockquote>
 <p>5. Clone the newly created repo to your local IDE</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>git clone git@github.com:YOUR-GITHUB-ACCOUNT/biokube-docs.git
+<div class="highlight"><pre class="highlight shell tab-shell"><code>git clone git@github.com:&lt;YOUR_GITHUB_ACCOUNT&gt;/biokube-docs.git
 </code></pre></div><h3 id='6-change-origin-of-your-git-repository-optional'>6. Change <code>origin</code> of your GIT repository (optional)</h3>
 <p>In case you want to commit to another remote repository than the one you originally cloned from, you need to change the origin of your local GIT repository.
-You can do this with this set of <code>git</code> commands. (replace <b>bio8</b> with your own GitHub account)</p>
+You can do this with this set of <code>git</code> commands.</p>
 
 <blockquote>
 <p>6. Change <code>origin</code> of your GIT repository (optional)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>git remote <span class="nb">rm </span>origin
-git remote add origin git@github.com:bio8/biokube-docs.git
+git remote add origin git@github.com:&lt;YOUR_GITHUB_ACCOUNT&gt;/biokube-docs.git
 git config master.remote origin
 git config master.merge refs/heads/master
 git branch <span class="nt">--set-upstream-to</span><span class="o">=</span>origin/main main
 git pull origin main <span class="nt">--allow-unrelated-histories</span>
 </code></pre></div><h3 id='7-create-docker-container-image'>7. Create docker container image</h3>
-<p>Make sure to run <code>docker build</code> command in the root directory of the project in your IDE where your <code>Dockerfile</code> is located.</p>
+<p>Make sure to run <code>docker build</code> command in the root directory of the project in your IDE where your <code><code>Dockerfile</code></code> is located. The image will be created on the local docker host.</p>
 
 <blockquote>
 <p>7. Create docker container image</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>docker build <span class="nb">.</span> <span class="nt">-t</span> biokube-docs:latest
-docker images
+docker image list
 </code></pre></div><h3 id='8-run-docker-container'>8. Run docker container</h3>
-<p>Once the <code>biokube-docs</code> Docker image is created, you can launch a container from it using <code>docker run</code>. <br>
-An empty build folder will also be created in the root of your project directory in your IDE. The build directory will be used for static site generation. (see step 9.)</p>
+<p>Once the <code>biokube-docs</code> Docker image is created, you can launch a container from it using <code><code>docker run</code></code>. <br>
+An existing empty build folder is also mounted as hostmount directory <code><code>-v $(pwd)/../biokube-web/public/docs:/srv/docs/build</code></code>. The empty build directory will later be used as output directory for static site generation. (see step 9.)</p>
 
 <blockquote>
 <p>8. Run docker container</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>docker run <span class="nt">-d</span> <span class="nt">--rm</span> <span class="nt">--name</span> biokube-docs <span class="nt">-p</span> 4567:4567 <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/build:/srv/slate/build <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/source:/srv/slate/source biokube-docs
+<div class="highlight"><pre class="highlight shell tab-shell"><code>docker run <span class="nt">-d</span> <span class="nt">--rm</span> <span class="nt">--name</span> biokube-docs <span class="nt">-p</span> 4567:4567 <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/../biokube-web/public/docs:/srv/docs/build <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/src:/srv/docs/src biokube-docs
 docker ps
 </code></pre></div>
 <p>Now you can make changes to your documentation content and styles.</p>
 
 <p>Documentation pages are stored as Markdown files located at:</p>
 
-<p>&emsp;&emsp;<b>source/index.html.md</b> <br>
-&emsp;&emsp;<b>source/includes/_YOUR-DOCUMENTATION-PAGES.md</b></p>
+<p>&emsp;&emsp;<b>src/index.html.md</b> <br>
+&emsp;&emsp;<b>src/includes/_&lt;YOUR_DOCUMENTATION_PAGES&gt;.md</b></p>
 
 <p>Images for your Documentation pages are stored in:</p>
 
-<p>&emsp;&emsp;<b>source/images</b></p>
+<p>&emsp;&emsp;<b>src/images</b></p>
 
 <p>You can edit styling in the following SASS stylesheets:</p>
 
-<p>&emsp;&emsp;<b>source/stylesheets/_variables.scss</b> <br>
-&emsp;&emsp;<b>source/stylesheets/screen.css.scss</b></p>
+<p>&emsp;&emsp;<b>src/stylesheets/_variables.scss</b> <br>
+&emsp;&emsp;<b>src/stylesheets/screen.css.scss</b></p>
 
 <p>Navigate to <a href="http://localhost:4567/">http://localhost:4567/</a> and Refresh your browser to see the changes.</p>
 <h3 id='9-production-build'>9. Production Build</h3>
 <p>You can run a <code>bundle exec</code> command (from within the Docker container), that will generate a production deployable static site version of your documentation. <br>
-This command will output the static assets to this <code>build</code> folder. The static assets can be hosted on your favorite cloud provider.</p>
+This command will output the static assets to the <code>build</code> folder that is mounted on the running container.
+<code><code>-v $(pwd)/../biokube-web/public/docs:/srv/docs/build</code></code>
+The static assets can be hosted on your favorite cloud provider.</p>
 
 <blockquote>
 <p>9. Production Build</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> biokube-docs /bin/bash <span class="nt">-c</span> <span class="s2">"bundle exec middleman build"</span>
-</code></pre></div><h2 id='setup-nx-workspace'>Setup Nx Workspace</h2>
-<p>sudo npm i -g @nrwl/cli</p>
-
-<p>npx create-nx-workspace@latest biokube --preset=empty --cli=nx --skipGit=false --npm-scope=scope --nx-cloud=false</p>
-
-<p>yarn add -D @nrwl/nest @nrwl/next</p>
-
-<p>nx g @nrwl/next:app biokube-web --style=&quot;styled-components&quot;</p>
-
-<p>nx g @nrwl/nest:app biokube-api</p>
-
-<p>nx g @nrwl/node:lib types
-nx g @nrwl/node:lib cloud
-nx g @nrwl/node:lib container
-nx g @nrwl/node:lib data
-nx g @nrwl/node:lib integration
-nx g @nrwl/node:lib service</p>
-
-<p>nx g @nrwl/next:lib blocks -d ui/web --pascalCaseFiles
-nx g @nrwl/next:lib blocks -d ui/native --pascalCaseFiles</p>
-
-<p>nx g @nrwl/next:lib elements -d ui/web --pascalCaseFiles
-nx g @nrwl/next:lib elements -d ui/native --pascalCaseFiles
-nx g @nrwl/next:component Button -p ui-web-elements -e
-nx g @nrwl/next:component Button -p ui-native-elements -e</p>
-
-<p>How to Delete a library:</p>
-
-<p>nx g @nrwl/node:remove service --forceRemove</p>
-
-<p>How to Display Dependency Graph</p>
-
-<p>nx dep-graph</p>
-<h2 id='setup-api-container'>Setup API container</h2>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> biokube-docs /bin/sh <span class="nt">-c</span> <span class="s2">"bundle exec middleman build"</span>
+</code></pre></div><h2 id='setup-api-container'>Setup API container</h2>
 <p>Biokube is setup as a Nest.js Monorepo</p>
 <h2 id='setup-react-native'>Setup React Native</h2>
 <p>Android Studio Setup</p>
@@ -1066,17 +1163,17 @@ Next, select the &quot;SDK Tools&quot; tab and check the box next to &quot;Show 
 
 <p>nano ~/.zhsrc</p>
 
-<p>export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:\$ANDROID_HOME/platform-tools</p>
+<p><code>export ANDROID_HOME=$HOME/Android/Sdk</code>
+<code>export PATH=$PATH:$ANDROID_HOME/emulator</code>
+<code>export PATH=$PATH:$ANDROID_HOME/tools</code>
+<code>export PATH=$PATH:$ANDROID_HOME/tools/bin</code>
+<code>export PATH=$PATH:$ANDROID_HOME/platform-tools</code></p>
 
-<p>source \$HOME/.zhsrc</p>
+<p><code>source $HOME/.zhsrc</code></p>
 
 <p>Verify that ANDROID_HOME has been added to your path by running</p>
 
-<p>echo \$PATH.</p>
+<p><code>echo $PATH</code></p>
 
 <p>Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio &quot;Preferences&quot; dialog, under Appearance &amp; Behavior → System Settings → Android SDK.</p>
 
@@ -1128,7 +1225,7 @@ nx g @jbuijgers/nx-react-native:remove biokube-native</p>
 <p>kubectl version --client</p>
 
 <p>kubectl config view --minify --raw
-cat \$HOME/.kube/config</p>
+<code>cat $HOME/.kube/config</code></p>
 
 <p>1.1 Setup kubectl autocompletion:</p>
 
@@ -1186,7 +1283,15 @@ k exec -it <POD_NAME> -- /usr/bin/killall <PROCESS_NAME> (Use the process COMMAN
 
 <p>Show Environment Variables inside Container</p>
 
-<p>k exec -it <POD_NAME> -- /bin/sh -c &quot;printenv | sort&quot;</p>
+<p>k exec -it <POD_NAME> -- /bin/sh -c &quot;printenv | sort&quot;
+k exec -it <POD_NAME> -- env | sort&quot;</p>
+
+<p>Hit Ingress</p>
+
+<p>curl http://<INGRESS_IP>/<PATH> --header &#39;Host: <HOST.example.com>&#39;
+curl https://<INGRESS_HOST>:443 --resolve <INGRESS_HOST>:443:<INGRESS_IP> --insecure --verbose (use --insecure for selfsigned certs)</p>
+
+<p>k run -it --rm curl --restart=Never --image=nbrown/curl -- <SERVICE_NAME or SERVICE_IP>:<SERVICE_PORT></p>
 
 <p>1.2.2 Kubernetes Resources</p>
 
@@ -1223,11 +1328,22 @@ curl http://localhost:<LOCAL_PORT></p>
 
 <p>k scale deployment <DEPLOYMENT_NAME> --replicas=2</p>
 
+<p>k get endpoints <SERVICE_NAME>
+<code>PODIP=$(kubectl get endpoints &lt;SERVICE_NAME&gt; -o jsonpath=&#39;{.subsets[].addresses[].ip }&#39;)</code></p>
+
+<p>Kubernetes Cluster DNS Service</p>
+
+<p><SERVICE_NAME>.<NAMESPACE>.svc.cluster.local
+nslookup <SERVICE_NAME>.<NAMESPACE>.svc.cluster.local <kube-dns_CLUSTER-IP></p>
+
+<p>k delete -f ./<INGRESS_CONTROLLER.yaml></p>
+
 <p>1.2.3 Kubernetes Helpers</p>
 
 <p>GetServiceIpByServiceName:</p>
 
-<p>SERVICEIP=$(kubectl get service | grep <SERVICE_NAME> | awk &#39;{ print $3 }&#39;)</p>
+<p>SERVICEIP=$(kubectl get service | grep <SERVICE_NAME> | awk &#39;{ print $3 }&#39;)
+<code>SERVICEIP=$(kubectl get service &lt;SERVICE_NAME&gt; -o jsonpath=&#39;{ .spec.clusterIP }&#39;)</code></p>
 
 <p>GetFirstPodNameFromDeployment</p>
 
@@ -1235,7 +1351,13 @@ curl http://localhost:<LOCAL_PORT></p>
 
 <p>GetSecretValue</p>
 
-<p>echo \$(kubectl get secret <SECRET_NAME> --template={{.data.<KEY_NAME>}} | base64 --decode)</p>
+<p><code>echo $(kubectl get secret &lt;SECRET_NAME&gt; --template={{.data.&lt;KEY_NAME&gt;}} | base64 --decode)</code></p>
+
+<p>GetIngressIP</p>
+
+<p><code>INGRESSIP=$(kubectl get ingress -o jsonpath=&#39;{ .items[].status.loadBalancer.ingress[].ip }&#39;)</code></p>
+
+<p>k create secret tls tls-secret --key tls.key --cert tls.crt</p>
 
 <p>1.2.4 docker-registry secret</p>
 

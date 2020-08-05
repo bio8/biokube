@@ -221,49 +221,61 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
-        "build-docker": {
+        "develop-docker-image": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "docker build . -t biokube-docs:latest",
-            "cwd": "apps/biokube-docs"
+            "commands": ["docker build . -t biokube-docs:v1.0.0-develop"],
+            "cwd": "apps/biokube-docs",
+            "parallel": false
           }
         },
-        "build-docker-prod": {
+        "develop-docker-run": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "mkdir -p container/docker/build || : ",
-              "docker rm -f biokube-docs || : ",
-              "docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/container/docker/build:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs",
-              "docker exec -u 1000 -it biokube-docs /bin/sh -c 'bundle exec middleman build'",
-              "docker build -f $(pwd)/container/docker/Dockerfile ./container/docker/build -t biokube-docs-prod:latest"
+              "docker rm -f biokube-docs-develop || : ",
+              "docker run -d --rm --name biokube-docs-develop -p 4567:4567 -v $(pwd)/../biokube-web/public/docs:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs:v1.0.0-develop",
+              "echo Navigate to http://localhost:4567"
             ],
             "cwd": "apps/biokube-docs",
             "parallel": false
           }
         },
-        "serve-prod": {
+        "production-docker-image": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "docker run -d -p 3003:80 --name biokube-docs-prod biokube-docs-prod:latest",
-            "cwd": "apps/biokube-docs"
+            "commands": [
+              "mkdir -p container/docker/build || : ",
+              "docker rm -f biokube-docs-develop || : ",
+              "docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/container/docker/build:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs:v1.0.0-develop",
+              "docker exec -u 1000 -it biokube-docs /bin/sh -c 'bundle exec middleman build'",
+              "docker build -f $(pwd)/container/docker/Dockerfile ./container/docker/build -t biokube-docs:v1.0.0-production"
+            ],
+            "cwd": "apps/biokube-docs",
+            "parallel": false
           }
         },
-        "serve": {
+        "production-docker-run": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/../biokube-web/public/docs:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs",
-            "cwd": "apps/biokube-docs"
+            "commands": [
+              "docker rm -f biokube-docs-production || : ",
+              "docker run -d -p 3003:80 --name biokube-docs-production biokube-docs:v1.0.0-production",
+              "echo Navigate to http://localhost:3003"
+            ],
+            "cwd": "apps/biokube-docs",
+            "parallel": false
           }
         },
-        "build-web": {
+        "production-build-inject": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               "mkdir $(pwd)/../biokube-web/public/docs || : ",
-              "docker rm -f biokube-docs || : ",
-              "docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/../biokube-web/public/docs:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs",
-              "docker exec -u 1000 -it biokube-docs /bin/sh -c 'bundle exec middleman build'"
+              "docker rm -f biokube-docs-develop || : ",
+              "docker run -d --rm --name biokube-docs-develop -p 4567:4567 -v $(pwd)/../biokube-web/public/docs:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs:v1.0.0-develop",
+              "echo Inject static site into /biokube-web/public/docs",
+              "docker exec -u 1000 -it biokube-docs-develop /bin/sh -c 'bundle exec middleman build'"
             ],
             "cwd": "apps/biokube-docs",
             "parallel": false

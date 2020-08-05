@@ -327,122 +327,62 @@ Move line up/down: <code>`ALT + UP/DOWN`</code><br>
 Multicursor: Search a substring and then click on 1 instance and press <code>`CTRL + SHIFT + L`</code><br>
 Open Command Panel: <code>`CTRL + SHIFT + P`</code><br>
 
-## Setup Document container
+## Setup Nx Monorepo Workspace
 
-### 1\. Login to your [GitHub](https://github.com/) account where you want to host the repository for your documentation.
+Biokube is organized as a convenient Nx Monorepo Workspace. This enables a clean professional organized development codebase.
 
-### 2\. Open [https://github.com/slatedocs/slate](https://github.com/slatedocs/slate) repository in that GitHub account.
+### 1\. Install Nx CLI
 
-### 3\. Fork the repository to that GitHub account.
-
-Click on <b>Use this template</b> button.
-Click on <b>Create repository from template</b> button.
-
-[<img src="../images/biokube-docs-github-create-new-repo-from-slate.png" width="550"/>](../images/biokube-docs-github-create-new-repo-from-slate.png 'Click to enlarge')
-
-### 4\. GitHub invite Collaborator
-
-In order to be able to commit to a remote GitHub repository, you need to be the creator/owner or a valid collaborator for this repository.
-If you manage multiple Github accounts you can still commit and collaborate with one and the same GitHub user account to multiple repositories over multiple GitHub accounts, by inviting the GitHub user account as a collaborator for that repository.<br>
-Just login to the GitHub account that hosts the repository you like to collaborate to and invite your own Github user account to collaborate to that repository.
-Click on <b>Settings</b> tab.
-Click on <b>Manage access</b> menu item.
-
-[<img src="../images/github-invite-collaborator.png" width="550"/>](../images/github-invite-collaborator.png 'Click to enlarge')
-
-An Email will be sent to the mailbox associated with your own GitHub account. Clicking on the <b>accept</b> link in the email will open a consent screen in GitHub where you can accept the invite.
-
-[<img src="../images/github-invite-collaborator-consent.png" width="550"/>](../images/github-invite-collaborator-consent.png 'Click to enlarge')
-
-### 5\. Clone the newly created repo to your local IDE
-
-> 5\. Clone the newly created repo to your local IDE
+> 1\. Install Nx CLI
 
 ```shell
-git clone git@github.com:<YOUR_GITHUB_ACCOUNT>/biokube-docs.git
-```
-
-### 6\. Change <code>origin</code> of your GIT repository (optional)
-
-In case you want to commit to another remote repository than the one you originally cloned from, you need to change the origin of your local GIT repository.
-You can do this with this set of <code>git</code> commands.
-
-> 6\. Change <code>origin</code> of your GIT repository (optional)
-
-```shell
-git remote rm origin
-git remote add origin git@github.com:<YOUR_GITHUB_ACCOUNT>/biokube-docs.git
-git config master.remote origin
-git config master.merge refs/heads/master
-git branch --set-upstream-to=origin/main main
-git pull origin main --allow-unrelated-histories
-```
-
-### 7\. Create docker container image
-
-Make sure to run <code>docker build</code> command in the root directory of the project in your IDE where your <code>`Dockerfile`</code> is located. The image will be created on the local docker host.
-
-> 7\. Create docker container image
-
-```shell
-docker build . -t biokube-docs:latest
-docker image list
-```
-
-### 8\. Run docker container
-
-Once the <code>biokube-docs</code> Docker image is created, you can launch a container from it using <code>`docker run`</code>. <br>
-An existing empty build folder is also mounted as hostmount directory <code>`-v $(pwd)/../biokube-web/public/docs:/srv/docs/build`</code>. The empty build directory will later be used as output directory for static site generation. (see step 9.)
-
-> 8\. Run docker container
-
-```shell
-docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/../biokube-web/public/docs:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs
-docker ps
-```
-
-Now you can make changes to your documentation content and styles.
-
-Documentation pages are stored as Markdown files located at:
-
-&emsp;&emsp;<b>src/index.html.md</b> <br>
-&emsp;&emsp;<b>src/includes/\_\<YOUR_DOCUMENTATION_PAGES>.md</b>
-
-Images for your Documentation pages are stored in:
-
-&emsp;&emsp;<b>src/images</b>
-
-You can edit styling in the following SASS stylesheets:
-
-&emsp;&emsp;<b>src/stylesheets/\_variables.scss</b> <br>
-&emsp;&emsp;<b>src/stylesheets/screen.css.scss</b>
-
-Navigate to [http://localhost:4567/](http://localhost:4567/) and Refresh your browser to see the changes.
-
-### 9\. Production Build
-
-You can run a <code>bundle exec</code> command (from within the Docker container), that will generate a production deployable static site version of your documentation. <br>
-This command will output the static assets to the <code>build</code> folder that is mounted on the running container.
-<code>`-v $(pwd)/../biokube-web/public/docs:/srv/docs/build`</code>
-The static assets can be hosted on your favorite cloud provider.
-
-> 9\. Production Build
-
-```shell
-docker exec -it biokube-docs /bin/sh -c "bundle exec middleman build"
-```
-
-## Setup Nx Workspace
-
 sudo npm i -g @nrwl/cli
+```
 
+### 2\. Create Nx Biokube Monorepo Workspace
+
+First create an empty Nx Monorepo Workspace named <code>`biokube`</code>. Then we add support for Next.js and Nest.js applications
+
+> 2\. Create Nx Biokube Monorepo Workspace
+
+```shell
 npx create-nx-workspace@latest biokube --preset=empty --cli=nx --skipGit=false --npm-scope=scope --nx-cloud=false
-
 yarn add -D @nrwl/nest @nrwl/next
+```
 
-nx g @nrwl/next:app biokube-web --style="styled-components"
+### 3\. Create Nx Biokube Applications and Libraries
 
+Nx can manage multiple projects in a single git repository. This is called a monorepo. <br>
+The Biokube monorepo consists of multiple projects divided between apps and libs.
+
+apps:
+
+- biokube-api
+- biokube-data
+- biokube-docs
+- biokube-native
+- biokube-web
+
+libs:
+
+- cloud
+- container
+- data
+- integration
+- service
+- types
+
+libs UI:
+
+- web
+- native
+
+> 3\. Create Nx Biokube Applications and Libraries
+
+```shell
 nx g @nrwl/nest:app biokube-api
+nx g @nrwl/nest:app biokube-data
+nx g @nrwl/next:app biokube-web --style="styled-components"
 
 nx g @nrwl/node:lib types
 nx g @nrwl/node:lib cloud
@@ -456,133 +396,41 @@ nx g @nrwl/next:lib blocks -d ui/native --pascalCaseFiles
 
 nx g @nrwl/next:lib elements -d ui/web --pascalCaseFiles
 nx g @nrwl/next:lib elements -d ui/native --pascalCaseFiles
+
 nx g @nrwl/next:component Button -p ui-web-elements -e
 nx g @nrwl/next:component Button -p ui-native-elements -e
+```
 
-How to Delete a library:
+### 4\. Deleting a library
 
+> 4\. Deleting a library
+
+```shell
 nx g @nrwl/node:remove service --forceRemove
+```
 
-How to Display Dependency Graph
+### 5\. Display Dependency Graph
 
+> 5\. Display Dependency Graph
+
+```shell
 nx dep-graph
+```
 
-### NX Commands
+### 6\. NX Commands
 
-- biokube-docs
-  build-docker : create a docker image for biokube-docs
-  serve : run a docker container for biokube-docs served at http://localhost:4567
-  build-web : publish static site to biokube-web in plublic/docs folder
+You can run Nx workspace commands from the Nx Console VS Code extension or from the command line. <br>
+These commands are managed, configured and customized under <code>`project.<PROJECT_NAME>.architect`</code> key in <code>`workspace.json`</code> file located in the root of your Nx monorepo workspace.
 
-## Setup API container
-
-Biokube is setup as a Nest.js Monorepo
-
-## Setup React Native
-
-Android Studio Setup
-
-Make sure VT or SVM CPU Virtualization is Enabled in BIOS
-check KVM support (An outcome greater than 0 implies that virtualization is supported)
-
-egrep -c '(vmx|svm)' /proc/cpuinfo
-
-sudo apt install cpu-checker
-sudo kvm-ok
-
-sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
-sudo systemctl status libvirtd
-
-Install JAVA 8 JDK
-
-sudo apt update
-sudo apt install openjdk-8-jdk openjdk-8-jre
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
-1. Install Android Studio
-
-[install Android Studio](https://reactnative.dev/docs/environment-setup)
-
-Unpack the contents of the zip archive to ~/Applications/android-studio
-
-To install Open a console and cd into "~/Applications/android-studio/bin" and type:
-./studio.sh
-
-Choose a "Custom" setup when prompted to select an installation type. Make sure the boxes next to all of the following are checked:
-
-Android SDK
-Android SDK Platform
-Android Virtual Device
-Then, click "Next" to install all of these components.
-
-2. Install the Android SDK
-   Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the Android 10 (Q) SDK in particular.
-
-The SDK Manager can be found within the Android Studio "Preferences" dialog, under Appearance & Behavior → System Settings → Android SDK.
-
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the Android 10 (Q) entry, then make sure the following items are checked:
-
-Android SDK Platform 29
-Intel x86 Atom_64 System Image AND Google APIs Intel x86 Atom System Image
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that 29.0.2 is selected.
-
-Finally, click "Apply" to download and install the Android SDK and related build tools.
-
-3. Configure the ANDROID_HOME environment variable
-
-nano ~/.zhsrc
-
-`export ANDROID_HOME=$HOME/Android/Sdk`
-`export PATH=$PATH:$ANDROID_HOME/emulator`
-`export PATH=$PATH:$ANDROID_HOME/tools`
-`export PATH=$PATH:$ANDROID_HOME/tools/bin`
-`export PATH=$PATH:$ANDROID_HOME/platform-tools`
-
-`source $HOME/.zhsrc`
-
-Verify that ANDROID_HOME has been added to your path by running
-
-`echo $PATH`
-
-Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under Appearance & Behavior → System Settings → Android SDK.
-
-4. Install Watchman
-
-[Watchman](https://github.com/facebook/watchman/releases/latest)
-
-unzip and navigate into the folder
-
-sudo mkdir -p /usr/local/{bin,lib} /usr/local/var/run/watchman
-sudo cp bin/_ /usr/local/bin
-sudo cp lib/_ /usr/local/lib
-sudo chmod 755 /usr/local/bin/watchman
-sudo chmod 2777 /usr/local/var/run/watchman
-
-5. Run Android Studio:
-
-cd ~/Applications/android-studio/bin && ./studio.sh
-
-## NX Setup for React-Native:
-
-sudo npm i -g @react-native-community/cli@next
-
-yarn add --dev @jbuijgers/nx-react-native
-nx g @jbuijgers/nx-react-native:app biokube-native io.biokube.app
-chmod a+x apps/biokube-native/android/gradlew
-
-nx serve biokube-native
-nx build biokube-native
-
-Open AVD Manager from Android Studio (AVD Manager icon)
-Open and Run (Run icon) Android Project (apps/biokube-app/android folder) from Android Studio
-
-How to delete Nx React-Native project:
-nx g @jbuijgers/nx-react-native:remove biokube-native
+[<img src="../images/vscode-nx-commands.png" width="550"/>](../images/vscode-nx-commands.png 'Click to enlarge')
 
 ## Setup K3D
 
-1. Install kubectl
+### 1\. Install kubectl
 
+> 1\. Install kubectl
+
+```shell
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
 chmod +x ./kubectl
@@ -593,9 +441,13 @@ kubectl version --client
 
 kubectl config view --minify --raw
 `cat $HOME/.kube/config`
+```
 
-1.1 Setup kubectl autocompletion:
+#### 1.1\. Setup kubectl autocompletion:
 
+> 1.1\. Setup kubectl autocompletion:
+
+```shell
 sudo apt-get install bash-completion
 
 Add the following lines to the beginning of ~/.zshrc
@@ -608,8 +460,57 @@ echo 'alias k=kubectl' >>~/.zshrc
 echo 'complete -F \_\_start_kubectl k' >>~/.zshrc
 
 source ~/.zshrc
+```
 
-1.2 Common kubectl commands:
+### 2\. Install K3D
+
+> 2\. Install K3D
+
+```shell
+curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+
+k3d version
+k3d cluster list
+k3d cluster create biokube --api-port 6550 -s 1 -a 3 -p 8080:80@loadbalancer -v /home/pmualaba/Development/bio8/biokube:/src@all
+k3d kubeconfig merge biokube --switch-context
+kubectl cluster-info
+kubectl get nodes
+```
+
+Import Docker image from local Docker host to K3D containerd (In order to make the Container Runtime Images available for helm, this command imports a specified Docker image to every node in the specified K3D cluster(s) and is executed behind the scenes using a special purpose k3d-tools container)
+
+k3d image import biokube-docs:latest -c biokube
+
+helm upgrade --install biokube-docs libs/container/helm/charts/biokube-docs --namespace biokube --set app.image=biokube-docs:latest
+
+k3d cluster delete biokube
+
+### 3\. Install K3X
+
+> 3\. Install K3X
+
+```shell
+flatpak install flathub com.github.inercia.k3x
+flatpak run com.github.inercia.k3x
+```
+
+### 4\. Install helm
+
+> 4\. Install helm
+
+```shell
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+rm get_helm.sh
+
+helm version
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo update
+helm search repo stable
+```
+
+### 5\. Common kubernetes commands
 
 1.2.1 Kubernetes Cluster Context
 k config get-contexts (show current context)
@@ -737,38 +638,266 @@ k create secret docker-registry docker-hub-login
 --docker-password=<PASSWORD>
 --docker-email=<EMAIL>
 
-2. Install K3D
+## Setup Biokube Docs
 
-curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+Since every application development project needs some form of public facing documentation, Biokube includes a dedicated Nx app project which does just that.
+<code>`biokube-docs`</code> is based on the popular [https://github.com/slatedocs/slate](https://github.com/slatedocs/slate). Several Nx custom run commands are pre-configured already for you. You con run them from terminal inside the root of the monorepo or launch them from NX Console inside VS Code.
 
-k3d version
-k3d cluster list
-k3d cluster create biokube --api-port 6550 -s 1 -a 3 -p 8080:80@loadbalancer -v /home/pmualaba/Development/bio8/biokube:/src@all
-k3d kubeconfig merge biokube --switch-context
-kubectl cluster-info
-kubectl get nodes
+### 1\. Create development docker container
 
-Import Docker image from local Docker host to K3D containerd (In order to make the Container Runtime Images available for helm, this command imports a specified Docker image to every node in the specified K3D cluster(s) and is executed behind the scenes using a special purpose k3d-tools container)
+To create a local development container for authoring and editing your public facing documentation using Markdown, just run <code>`nx run biokube-docs:develop-docker-image`</code> and when the development image has finished building, run a development container with the following command: <code>`nx run biokube-docs:develop-docker-run`</code>.
 
-k3d image import biokube-docs:latest -c biokube
+Behind the scenes <code>`nx run biokube-docs:develop-docker-run`</code> executes a <code>`docker run`</code> command with a hostmount volume param <code>`-v $(pwd)/../biokube-web/public/docs:/srv/docs/build`</code> that links to an existing empty build folder on the Docker host. This empty build directory will later be used as output directory for static site generation from within the container. (see step 3.)
 
-helm upgrade --install biokube-docs libs/container/helm/charts/biokube-docs --namespace biokube --set app.image=biokube-docs:latest
+The documentation project will be served for development at [http://localhost:4567](http://localhost:4567)
 
-k3d cluster delete biokube
+Now you can make changes to your documentation content and styles.
 
-3. Install K3X
+Documentation pages are stored as Markdown files located at:
 
-flatpak install flathub com.github.inercia.k3x
-flatpak run com.github.inercia.k3x
+&emsp;&emsp;<b>src/index.html.md</b> <br>
+&emsp;&emsp;<b>src/includes/\_\<YOUR_DOCUMENTATION_PAGES>.md</b>
 
-4. Install helm
+Images for your Documentation pages are stored in:
 
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
-rm get_helm.sh
+&emsp;&emsp;<b>src/images</b>
 
-helm version
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-helm repo update
-helm search repo stable
+You can edit styling in the following SASS stylesheets:
+
+&emsp;&emsp;<b>src/stylesheets/\_variables.scss</b> <br>
+&emsp;&emsp;<b>src/stylesheets/screen.css.scss</b>
+
+Navigate to [http://localhost:4567/](http://localhost:4567/) and Refresh your browser to see the changes.
+
+> 1\. Create docker container image
+
+```shell
+nx run biokube-docs:develop-docker-image
+docker image list
+
+nx run biokube-docs:develop-docker-run
+docker container list
+```
+
+### 2\. Create production docker container
+
+To create a stand-alone production container for serving the public facing documentation, first run <code>`nx run biokube-docs:production-docker-image`</code>.
+Behind the scenes this command first runs the developer Docker container (see step 1) but with a different hostmount volume param <code>`-v $(pwd)/container/docker/build:/srv/docs/build`</code>. This build directory is used as output directory for the static site generation from within the development container.
+
+Next, a <code>`docker build`</code> command is executed, to persist the static site that was generated (<code>`COPY`</code> from biokube-docs/container/docker/build) into the production Docker image.
+
+Now you can run a production container from this production image locally with the following command <code>`nx run biokube-docs:production-docker-run`</code>
+
+The production documentation container will be served at [http://localhost:3003](http://localhost:3003)
+
+This image can also be used to be deployed in your production kubernetes cluster.
+
+> 2\. Run docker container
+
+```shell
+nx run biokube-docs:production-docker-image
+docker image list
+
+nx run biokube-docs:production-docker-run
+docker container list
+```
+
+### 3\. Create production build
+
+If you don't want to run a separate stand-alone container to serve the public facing documentation, you can opt to inject the generated static site into the <code>`biokube-web`</code> container inside <code>`/public/docs`</code> folder. This is done by running <code>`nx run biokube-docs:production-build-inject`</code>
+
+Behind the scenes <code>`nx run biokube-docs:production-build-inject`</code> executes a <code>`docker run`</code> command from the developer container image with a hostmount volume param <code>`-v $(pwd)/../biokube-web/public/docs:/srv/docs/build`</code> that links to <code>`biokube-web/public/docs`</code>. This build directory is used as output directory for static site generation from within the development container.<br>
+This results in injecting the static site into <code>`/public/docs`</code> folder inside the <code>`biokube-web`</code> Nx app project.
+
+The generated static assets can also be hosted on your favorite cloud provider.
+
+> 3\. Inject production build
+
+```shell
+nx run biokube-docs:production-build-inject
+docker container list
+```
+
+### 4\. Nx Commands
+
+<code>`develop-docker-image`</code> <br>
+&emsp;Creates a docker image named <code>`biokube-docs:v1.0.0-develop`</code> for local development<br>
+
+<code>`develop-docker-run`</code> <br>
+&emsp;Runs a docker container from image <code>`biokube-docs:v1.0.0-develop`</code> and serves it at [http://localhost:4567](http://localhost:4567)<br>
+
+<code>`production-docker-image`</code> <br>
+&emsp;Creates a docker image named <code>`biokube-docs:v1.0.0-production`</code> for production with static content persisted inside the docker image.<br>
+
+<code>`production-docker-run`</code> <br>
+&emsp;Runs a docker container from image <code>`biokube-docs:v1.0.0-production`</code> for production with static content persisted inside the docker image and serves it at [http://localhost:3003](http://localhost:3003).<br>
+
+<code>`production-build-inject`</code> <br>
+&emsp;From a running <code>`biokube-docs:v1.0.0-develop`</code> development container builds a static site from src and injects the generated static site in <code>`biokube-web`</code> app inside <code>`/public/docs`</code> folder.<br>
+
+> 4\. Nx Commands
+
+```shell
+nx run biokube-docs:develop-docker-image
+nx run biokube-docs:develop-docker-run
+nx run biokube-docs:production-docker-image
+nx run biokube-docs:production-docker-run
+nx run biokube-docs:production-build-inject
+```
+
+## Setup Biokube API
+
+<code>`biokube-api`</code> is setup as a Nx app inside the Biokube Nx monorepo workspace. It runs as a docker container and consolidates all backend API libraries into a unified stateless scalable API
+
+## Setup Biokube Native
+
+<code>`biokube-native`</code> is setup as a Nx app inside the Biokube Nx monorepo workspace. It contains the directory structure recommended for React Native mobile development. If you want to develop Apple iOS apps you will need to run Biokube on a Mac. If you run Biokube on Linux you will only be able to build Android Apps
+
+### 1\. Enable CPU Virtualization on Linux
+
+Make sure VT or SVM CPU Virtualization is Enabled in BIOS
+check KVM support with <code>`egrep -c '(vmx|svm)' /proc/cpuinfo`</code> (An outcome greater than 0 implies that virtualization is supported)
+
+> 1\. Enable CPU Virtualization on Linux
+
+```shell
+egrep -c '(vmx|svm)' /proc/cpuinfo
+
+sudo apt install cpu-checker
+sudo kvm-ok
+
+sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+sudo systemctl status libvirtd
+```
+
+### 2\. Install JAVA 8 JDK
+
+> 2\. Install JAVA 8 JDK
+
+```shell
+sudo apt update
+sudo apt install openjdk-8-jdk openjdk-8-jre
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
+
+### 3\. Install Android Studio
+
+[install Android Studio](https://reactnative.dev/docs/environment-setup)
+
+Unpack the contents of the zip archive to <code>`~/Applications/android-studio`</code>
+
+To install Open a console and cd into <code>`~/Applications/android-studio/bin`</code> and type:
+
+<code>./studio.sh</code>
+
+Choose a <code>Custom</code> setup when prompted to select an installation type. Make sure the boxes next to all of the following are checked:
+
+- <code>Android SDK</code>
+- <code>Android SDK Platform</code>
+- <code>Android Virtual Device</code>
+
+Then, click <code>Next</code> to install all of these components.
+
+### 4\. Install Android SDK
+
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the <code>`Android 10 (Q) SDK`</code> in particular.
+
+The SDK Manager can be found within the Android Studio <code>`Preferences`</code> dialog, under <code>Appearance & Behavior → System Settings → Android SDK</code>
+
+Select the <code>`SDK Platforms`</code> tab from within the SDK Manager, then check the box next to <code>`Show Package Details`</code> in the bottom right corner. Look for and expand the <code>Android 10 (Q)</code> entry, then make sure the following items are checked:
+
+- <code>Android SDK Platform 29</code>
+- <code>Intel x86 Atom_64 System Image</code>
+- <code>Google APIs Intel x86 Atom System Image</code>
+
+Next, select the <code>`SDK Tools`</code> tab and check the box next to <code>`Show Package Details`</code> here as well. Look for and expand the <code>`Android SDK Build-Tools`</code> entry, then make sure that <code>`29.0.2`</code> is selected.
+
+Finally, click <code>Apply</code> to download and install the Android SDK and related build tools.
+
+### 5\. Configure the ANDROID_HOME environment variable
+
+> 5\. Configure the ANDROID_HOME environment variable
+
+```shell
+nano ~/.zhsrc
+
+`export ANDROID_HOME=$HOME/Android/Sdk`
+`export PATH=$PATH:$ANDROID_HOME/emulator`
+`export PATH=$PATH:$ANDROID_HOME/tools`
+`export PATH=$PATH:$ANDROID_HOME/tools/bin`
+`export PATH=$PATH:$ANDROID_HOME/platform-tools`
+
+`source $HOME/.zhsrc`
+```
+
+Verify that <code>`ANDROID_HOME`</code> has been added to your path by running
+
+```shell
+`echo $PATH`
+```
+
+Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio <code>`Preferences`</code> dialog, under <code>`Appearance & Behavior → System Settings → Android SDK`</code>
+
+### 6\. Install Watchman
+
+Download [Watchman](https://github.com/facebook/watchman/releases/latest)
+
+Unzip and navigate into the unzipped folder
+
+Then run the following commands:
+
+<code>sudo mkdir -p /usr/local/{bin,lib} /usr/local/var/run/watchman</code>
+<code>sudo cp bin/_ /usr/local/bin</code><br>
+<code>sudo cp lib/_ /usr/local/lib</code><br>
+<code>sudo chmod 755 /usr/local/bin/watchman</code><br>
+<code>sudo chmod 2777 /usr/local/var/run/watchman</code><br>
+
+> 6\. Install Watchman
+
+```shell
+sudo mkdir -p /usr/local/{bin,lib} /usr/local/var/run/watchman
+sudo cp bin/_ /usr/local/bin
+sudo cp lib/_ /usr/local/lib
+sudo chmod 755 /usr/local/bin/watchman
+sudo chmod 2777 /usr/local/var/run/watchman
+```
+
+### 7\. Run Android Studio:
+
+<code>`cd ~/Applications/android-studio/bin && ./studio.sh`</code>
+
+> 7\. Run Android Studio:
+
+```shell
+cd ~/Applications/android-studio/bin && ./studio.sh
+```
+
+### 8\. Setup NX app project for React-Native:
+
+> 8\. Setup NX app project for React-Native:
+
+```shell
+sudo npm i -g @react-native-community/cli@next
+
+yarn add --dev @jbuijgers/nx-react-native
+nx g @jbuijgers/nx-react-native:app biokube-native io.biokube.app
+chmod a+x apps/biokube-native/android/gradlew
+
+nx serve biokube-native
+nx build biokube-native
+```
+
+### 9\. Run on Android Simulator
+
+Open <code>`AVD Manager`</code> from Android Studio (<code>AVD Manager</code> icon)<br>
+Open and Run (<code>Run</code> icon) Android Project (<code>`apps/biokube-app/android`</code> folder) from Android Studio
+
+### 10\. How to delete Nx React Native project
+
+<code>`nx g @jbuijgers/nx-react-native:remove biokube-native`</code>
+
+> 10\. How to delete Nx React Native project
+
+```shell
+nx g @jbuijgers/nx-react-native:remove biokube-native
+```
