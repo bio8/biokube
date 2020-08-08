@@ -22,7 +22,7 @@ Great examples of such initiatives are [Next.js](https://nextjs.org/) by Vercel,
 Using <b>Biokube</b> must alleviate the pain of writing and configuring tedious and repetitive application features that are foundational components and features of any full stack web application platform. <br>
 <b>Biokube</b> sets the stage for designers to directly start designing and prototyping the end-user application and for developers to directly start implementing the crucial business domain features as Pluggable services on top of <b>Biokube</b> application Factory platform.
 
-<b>Status:</b> <b style="color: red;">in early development</b>
+<b>Status:</b> <b style="color: #f73071;">in early development</b>
 
 <b>Technologies:</b>
 

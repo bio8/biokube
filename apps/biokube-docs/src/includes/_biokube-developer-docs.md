@@ -36,25 +36,35 @@ Second generation Virtualization Technology not only virtualizes the hardware la
 
 ### 1\. Install Docker
 
-<code>`sudo apt update`</code>
+<code>`sudo apt update`</code><br>
+Downloads package information on updated versions of packages or their dependencies from all configured `sources` (defined in `/etc/apt/sources.list` and `/etc/apt/sources.list.d/`)
 
-<code>`sudo apt install apt-transport-https ca-certificates curl software-properties-common`</code>
+<code>`sudo apt install apt-transport-https ca-certificates curl software-properties-common`</code><br>
+Installs these packages from any "known" configured `sources`
 
-<code>`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`</code>
+<code>`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`</code><br>
+Download PGP public key and add it to the list of trusted keys (`apt-key list`) used by `apt` to authenticate packages from this hosted package repository.
 
-<code>`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"`</code>
+<code>`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"`</code><br>
+Adds this hosted package repository to `/etc/apt/sources.list` or `/etc/apt/sources.list.d`
 
-<code>`sudo apt update`</code>
+<code>`sudo apt update`</code><br>
+Since we just added a new package repository we need to get the latest information for updated package versions and dependencies
 
-<code>`apt-cache policy docker-ce`</code>
+<code>`apt-cache policy docker-ce`</code><br>
+Shows which versions of this package are available from which repo at which priority.
 
-<code>`sudo apt install docker-ce`</code>
+<code>`sudo apt install docker-ce`</code><br>
+Installs `docker` on your system
 
-<code>`sudo systemctl status docker`</code>
+<code>`sudo systemctl status docker`</code><br>
+Shows `systemd docker.service` status information. Docker is installed as a `systemd service`. The fundamental purpose of an init system like `systemd` is to initialize the components that must be started after the Linux kernel is booted (traditionally known as “userland” components). The init system is also used to manage services and daemons for the server at any point while the system is running.
 
-<code>`sudo usermod -aG docker ${USER}`</code>
+<code>`sudo usermod -aG docker ${USER}`</code><br>
+Adds the current user to the `docker` group
 
-<code>`docker ps`</code>
+<code>`docker ps`</code><br>
+Shows the list of running docker containers
 
 > 1\. Install Docker
 
@@ -73,9 +83,9 @@ docker ps
 
 ### 2\. Login current user and show group membership for current user
 
-<code>`su - ${USER}`</code>
+<code>`su - ${USER}`</code><br>
 
-<code>`id -nG`</code>
+<code>`id -nG`</code><br>
 
 > 2\. Login current user and show group membership for current user
 
@@ -86,9 +96,9 @@ id -nG
 
 ### 3\. Install Portainer
 
-<code>`docker volume create portainer_data`</code>
+<code>`docker volume create portainer_data`</code><br>
 
-<code>`docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer`</code>
+<code>`docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer`</code><br>
 
 > 3\. Install Portainer
 
@@ -110,7 +120,7 @@ Most of the build, test, lint, compile and bundle tooling required for TypeScrip
 
 ### 1\. Install NVM
 
-<code>`curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash`</code>
+<code>`curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash`</code><br>
 
 > 1\. Install NVM
 
@@ -122,10 +132,10 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 <code>.zshrc</code> is a shell script that <code>`zsh`</code> runs EVERY time it is started interactively. It initializes an interactive shell session by running the commands in this file.
 
-<code>`nano ~/.zshrc`</code>
+<code>`nano ~/.zshrc`</code><br>
+Opens `~/.zshrc` file in `nano` texteditor.
 
-Append the following lines to the end of this file:
-
+Append the following lines to the end of this file:<br>
 <code>export NVM_DIR="\$HOME/.nvm"</code><br>
 <code>[ -s "$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh" # This loads nvm</code>
 
@@ -685,6 +695,12 @@ nx dep-graph
 You can execute <code>nx run</code> commands directly from the command line or from the <b>Nx Console</b> Visual Studio Code Extension.<br>
 These commands are managed, configured and customized under <code>`project.<PROJECT_NAME>.architect`</code> keys in <code>`workspace.json`</code>. This file is located in the root of your Nx monorepo workspace.
 
+Example workspace.json
+
+[<img src="../images/nx-workspace-json.png" width="550"/>](../images/nx-workspace-json.png 'Click to enlarge')
+
+To execute Nx run commands from the Nx Console just click on the triangular arrow next to command you want to run
+
 [<img src="../images/vscode-nx-commands.png" width="550"/>](../images/vscode-nx-commands.png 'Click to enlarge')
 
 To execute Nx run commands from the command line you can follow the following pattern:
@@ -693,10 +709,14 @@ To execute Nx run commands from the command line you can follow the following pa
 
 Examples:
 
-<code>`nx run biokube-docs:develop-docker-image`</code><br>
-<code>`nx run biokube-docs:develop-docker-run`</code><br>
-<code>`nx run biokube-docs:production-docker-image`</code><br>
-<code>`nx run biokube-docs:production-docker-run`</code><br>
+<code>`nx run biokube-docs:develop-docker-image`</code>
+
+<code>`nx run biokube-docs:develop-docker-run`</code>
+
+<code>`nx run biokube-docs:production-docker-image`</code>
+
+<code>`nx run biokube-docs:production-docker-run`</code>
+
 <code>`nx run biokube-docs:production-build-inject`</code>
 
 > 6\. Nx Run Commands Examples
@@ -711,10 +731,30 @@ nx run biokube-docs:production-build-inject
 
 ## Setup Kubernetes
 
-To easyly spin up and tear down kubernetes clusters locally we will use Rancher K3D.<br>
-Production workloads are deployed on K3S or K8S
+Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.
+
+The name [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) originates from Greek, meaning helmsman or pilot. Google open-sourced the Kubernetes project in 2014. Kubernetes combines over 15 years of Google's experience running production workloads at scale with best-of-breed ideas and practices from the community.
+
+To easyly spin up and tear down kubernetes clusters locally <b>Biokube</b> will use [K3D](https://k3d.io/).<br>
+Production workloads are deployed on lightweight [K3S](https://k3s.io/) or on classic full blown [K8S](https://kubernetes.io/). To interact from the command line with any kubernetes cluster - be it a local cluster on K3D or a lightweight K3S cluster or a classic K8S on-prem or on any of the cloud based managed kubernetes services like Google GKE, Amazon EKS or Microsoft AKS - you will always need to have the <code>kubectl</code> go binary installed on your system to interact with any of them.
 
 ### 1\. Install kubectl
+
+<code>`curl -LO https://storage.googleapis.com/kubernetes-release/release/`\``curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`\``/bin/linux/amd64/kubectl`</code> Downloads linux version of latest stable release of `kubectl` binary
+
+<code>`chmod +x ./kubectl`</code> Makes `kubectl` binary executable
+
+<code>`sudo mv ./kubectl /usr/local/bin/kubectl`</code>
+Moves the `kubectl` go binary to `/usr/local/bin/` so that it can be executed from any directory on the system (since `/usr/local/bin/` always belongs to the `$PATH` variable)
+
+<code>`kubectl version -o json`</code>
+Shows client (kubectl) and server (kubernetes api) version information of the current cluster context
+
+<code>`kubectl config view --minify --raw`</code>
+Shows the contents of `$HOME/.kube/config`
+
+<code>`cat $HOME/.kube/config`</code>
+Shows the contents of `$HOME/.kube/config`
 
 > 1\. Install kubectl
 
@@ -723,32 +763,148 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
 
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
-kubectl version --client
+kubectl version -o json
 kubectl config view --minify --raw
 cat $HOME/.kube/config
 ```
 
 ### 2\. Setup kubectl autocompletion
 
+<code>`sudo apt-get install bash-completion`</code> Installs `bash-completion` package
+
+Add the following lines to the beginning of <code>~/.zshrc</code>
+
+&emsp;<code>`autoload -Uz compinit`</code>
+Marks `compinit` function as autoloadable<br>
+&emsp;<code>`compinit`</code>
+compinit is the function that initializes the zsh completion system
+
+Then run the following commands:
+
+<code>`echo 'source <(kubectl completion zsh)' >>~/.zshrc`</code>
+Appends this line to `~/.zshrc`
+
+<code>`echo 'alias k=kubectl' >>~/.zshrc`</code>
+Appends this line to `~/.zshrc`
+
+<code>`echo 'complete -F \_\_start_kubectl k' >>~/.zshrc`</code>
+Appends this line to `~/.zshrc`
+
+<code>`source ~/.zshrc`</code>
+Reads and executes the content of `~/.zshrc`
+
 > 2\. Setup kubectl autocompletion
 
 ```shell
 sudo apt-get install bash-completion
 
-Add the following lines to the beginning of ~/.zshrc
+# Add the following lines to the beginning of ~/.zshrc :
 autoload -Uz compinit
 compinit
 
-Then run the following commands:
+# Then run the following commands :
 echo 'source <(kubectl completion zsh)' >>~/.zshrc
 echo 'alias k=kubectl' >>~/.zshrc
 echo 'complete -F \_\_start_kubectl k' >>~/.zshrc
 source ~/.zshrc
 ```
 
-### 3\. Install K3D
+### 3\. Setup kubectx and kubens
 
-> 3\. Install K3D
+<code>`sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx`</code>
+Downloads `kubectx` to `/opt/kubectx`
+
+<code>`sudo chmod +x /opt/kubectx/kubectx`</code>
+Makes `kubectx` executable
+
+<code>`sudo chmod +x /opt/kubectx/kubens`</code>
+Makes `kubens` executable
+
+<code>`sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx`</code>
+Creates symbolic link `/usr/local/bin/kubectx` so that `kubectx` can be executed from any directory on your system<br>
+(since `/usr/local/bin/` always belongs to your `$PATH` variable)
+
+<code>`sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens`</code>
+Creates symbolic link `/usr/local/bin/kubens` so that `kubens` can be executed from any directory on your system.
+
+<code>`mkdir -p ~/.oh-my-zsh/completions`</code>
+Creates folder where `oh-my-zsh` will look for the auto-complete scripts for `kubectx` and `kubens`
+
+<code>`chmod -R 755 ~/.oh-my-zsh/completions`</code>
+Set executable permissions for all files in this folder
+
+<code>`ln -s /opt/kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/\_kubectx.zsh`</code>
+Creates symbolic link `~/.oh-my-zsh/completions/\_kubectx.zsh`
+
+<code>`ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/\_kubens.zsh`</code>
+Creates symbolic link `~/.oh-my-zsh/completions/\_kubens.zsh`
+
+<code>`git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install`</code>
+Download and install `fzf`. `fzf` enables `kubectx` and `kubens` commands to present you an interactive menu with fuzzy searching.
+
+<code>`source ~/.zshrc`</code>
+Reads and executes the content of `~/.zshrc`
+
+> 3\. Setup kubectx and kubens
+
+```shell
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo chmod +x /opt/kubectx/kubectx
+sudo chmod +x /opt/kubectx/kubens
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+
+mkdir -p ~/.oh-my-zsh/completions
+chmod -R 755 ~/.oh-my-zsh/completions
+ln -s /opt/kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
+ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+source ~/.zshrc
+```
+
+### 4\. Install K3D
+
+<code>`curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash`</code><br>
+Downloads and executes the K3D installation script
+
+<code>`k3d version`</code><br>
+Shows installed K3D version
+
+<code>`k3d cluster list`</code><br>
+Shows a list of all kubernetes clusters inside K3D
+
+<code>`k3d cluster create biokube --api-port 6550 --servers 1 --agents 3 --port 8080:80@loadbalancer --volume /home/pmualaba/Development/bio8/biokube:/src@all`</code><br>
+Creates a new kubernetes cluster inside K3D named `biokube` with 1 server (Master node) and 3 agents (Worker nodes). <br>
+The kubernetes API for this cluster listens at `https://0.0.0.0:6550/`<br>
+The deployed workload services will be reachable via the built in Traefik loadbalancer listening at `http://0.0.0.0:8080/`
+
+<code>`k3d kubeconfig merge biokube --switch-context`</code><br>
+
+<code>`kubectl cluster-info`</code><br>
+
+<code>`kubectl get nodes`</code><br>
+
+#### Install K3X (Optional Linux Compatible Only)
+
+[K3X](https://github.com/inercia/k3x) is a graphical user interface for K3D, making it trivial to create and destroy your own local Kubernetes cluster(s).
+
+<code>`flatpak install flathub com.github.inercia.k3x`</code> Installs K3X on your local system
+
+<code>`flatpak run com.github.inercia.k3x`</code> Launches K3X
+
+#### K3D Commands
+
+K3D uses <code>`containerd`</code> as Container Runtime in stead of <code>`docker`</code>. So to import Docker images from your local Docker host to K3D containerd, you need to run <code>`k3d image import`</code>. In order to make the Container Runtime images available for helm, this command imports the specified Docker image to every node in the specified K3D cluster(s) and is executed behind the scenes using a special purpose <code>`k3d-tools`</code> container
+
+<code>`k3d image import biokube-docs:v1.0.0-production --cluster biokube`</code>
+Imports this image into the K3D cluster named biokube.
+
+<code>`k3d cluster delete biokube`</code>
+Deletes the K3D cluster named biokube
+
+> 4\. Install K3D
 
 ```shell
 curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
@@ -759,21 +915,71 @@ k3d cluster create biokube --api-port 6550 --servers 1 --agents 3 --port 8080:80
 k3d kubeconfig merge biokube --switch-context
 kubectl cluster-info
 kubectl get nodes
-```
 
-### 4\. Import Docker image to K3D
+# Install K3X (Optional Linux Compatible Only)
+flatpak install flathub com.github.inercia.k3x
+flatpak run com.github.inercia.k3x
 
-K3D uses <code>`containerd`</code> as Container Runtime in stead of <code>`Docker`</code>. So to import Docker images from your local Docker host to K3D containerd, you need to run <code>`k3d image import`</code>. In order to make the Container Runtime Images available for helm, this command imports a specified Docker image to every node in the specified K3D cluster(s) and is executed behind the scenes using a special purpose <code>`k3d-tools`</code> container
-
-> 4\. Import Docker images to K3D
-
-```shell
+# K3D Commands
 k3d image import biokube-docs:v1.0.0-production --cluster biokube
+k3d cluster delete biokube
 ```
 
-### 5\. Install helm
+### 5\. Install Kubernetes IDE Lens
 
-> 5\. Install helm
+[Lens](https://k8slens.dev/) is an IDE for people who need to deal with Kubernetes clusters on a daily basis. It is a standalone application for MacOS, Windows and Linux operating systems. Ensure your clusters are properly setup and configured. Enjoy increased visibility, real time statistics, log streams and hands-on troubleshooting capabilities. With Lens, you can work with your clusters more easily and fast, radically improving productivity and the speed of business.
+
+Download Lens form their [releases](https://github.com/lensapp/lens/releases/) page.
+
+For Linux users download the <code>AppImage</code> file.
+
+<code>`mkdir ~/Applications`</code>
+Creates Application folder inside your home directory. (optional)
+
+<code>`cd ~/Applications`</code>
+Sets the directory where you want to download the AppImage file to.
+
+<code>`curl -LO https://github.com/lensapp/lens/releases/download/v3.5.2/Lens-3.5.2.AppImage`</code>
+Downloads the AppImage file.
+
+<code>`chmod +x Lens-3.5.2.AppImage`</code>
+Makes the AppImage file executable
+
+<code>`./Lens-3.5.2.AppImage`</code>
+Launches Lens
+
+[<img src="../images/kubernetes-lens.png" width="550"/>](../images/kubernetes-lens.png 'Click to enlarge')
+
+Click on the + button to add a cluster you want to manage in Lens. Then on the next screen select a kubernetes cluster context from the dropdown list. <br>
+By default Lens will list all the cluster contexts that are defined in the default kubeconfig file which is located at `$HOME/.kube/config`. Select the cluster you want to manage in Lens from the dropdown. You can repeat this step if you want to manage multiple clusters.
+
+[<img src="../images/kubernetes-lens-add-cluster.png" width="550"/>](../images/kubernetes-lens-add-cluster.png 'Click to enlarge')
+
+Now you can easily switch between multiple kubernetes clusters using the buttons on the side.
+
+[<img src="../images/kubernetes-lens-cluster-management.png" width="550"/>](../images/kubernetes-lens-cluster-management.png 'Click to enlarge')
+
+### 6\. Install helm
+
+[Helm](https://helm.sh/) is a package manager for kubernetes applications. The purpose of using Helm is to easily deploy, upgrade, rollback or destroy multi-container kubernetes applications. Helm manages Kubernetes resource packages through Charts. A chart is nothing but a set of information necessary to create a Kubernetes application. A running instance of a chart with a specific config is called a release. <b>Biokube</b> uses Helm 3.
+
+<code>`curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3`</code>
+
+<code>`chmod 700 get_helm.sh`</code>
+
+<code>`./get_helm.sh`</code>
+
+<code>`rm get_helm.sh`</code>
+
+<code>`helm version`</code>
+
+<code>`helm repo add stable https://kubernetes-charts.storage.googleapis.com/`</code>
+
+<code>`helm repo update`</code>
+
+<code>`helm search repo stable`</code>
+
+> 6\. Install helm
 
 ```shell
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
@@ -787,32 +993,19 @@ helm repo update
 helm search repo stable
 ```
 
-### 6\. Install Helm Chart to a K3D cluster
+### 7\. Helm Commands
 
-> 6\. Install Helm Chart to K3D cluster
+<code>`helm upgrade --install biokube-docs apps/biokube-docs/container/helm/v1.0.0-production --namespace biokube --set app.image=biokube-docs:v1.0.0-production`</code>
+
+> 7\. Install Helm Chart to K3D cluster
 
 ```shell
 helm upgrade --install biokube-docs apps/biokube-docs/container/helm/v1.0.0-production --namespace biokube --set app.image=biokube-docs:v1.0.0-production
 ```
 
-### 7\. Delete a K3D cluster
-
-> 7\. Delete a K3D cluster
-
-```shell
-k3d cluster delete biokube
-```
-
-### 8\. Install K3X
-
-> 8\. Install K3X
-
-```shell
-flatpak install flathub com.github.inercia.k3x
-flatpak run com.github.inercia.k3x
-```
-
 ### 9\. Kubernetes Commands
+
+The following sections contains a list of the most used <code>kubectl</code> commands and techniques to interact with your kubernetes clusters on a day-to-day basis.
 
 #### 9.1\. Kubernetes Cluster
 

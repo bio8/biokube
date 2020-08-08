@@ -155,7 +155,7 @@ body {
   // This is the currently selected ToC entry
   .toc-link.active {
     background-color: $nav-active-bg;
-    color: #ff2929;
+    color: #f73071;
     font-weight: bold;
   }
 
@@ -432,7 +432,7 @@ body {
 
   a:link,
   a:visited {
-    color: #ff0000;
+    color: #f73071;
     font-size: 80%;
   }
 
@@ -500,12 +500,17 @@ body {
   }
 
   code {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(117, 66, 66, 0.05);
     font-weight: bold;
     padding: 3px;
+    margin-left: -3px;
     border-radius: 3px;
     @extend %break-words;
     @extend %code-font;
+
+    code {
+      color: #f73071;
+    }
   }
 
   pre > code {
