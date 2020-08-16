@@ -1,0 +1,26 @@
+{
+  "['package.core.global'].web.global": {
+    "ui": {
+      "theme.style.css": {}
+    },
+    "set": {
+      "defaultSkin": "bio",
+      "defaultSkinVariant": "default",
+      "backgroundImage": "/domains/my-react-bio-app.org/package.core.cms/img/bio.jpg",
+      "fonts": {
+        "google": ["Roboto:300,700", "Space+Mono:400,700"],
+        "edge": null,
+        "link": null,
+        "script": null,
+        "family": {
+          "SpaceMono": "'Space Mono', monospace",
+          "Roboto": "'Roboto', sans-serif"
+        }
+      },
+      "i18n": {
+        "dictionaries": ["cms", "commerce", "crm"],
+        "locales": ["nlNL", "frFR"]
+      }
+    }
+  }
+}

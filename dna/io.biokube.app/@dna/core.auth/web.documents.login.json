@@ -1,0 +1,78 @@
+{
+  "['core.auth'].web.documents.login": {
+    "actions": [
+      {
+        "type": "GET_DOMAIN",
+        "payload": {},
+        "error": false,
+        "meta": {
+          "package": "package.core.cms",
+          "endpoint": "/api/package.core.cms/web"
+        }
+      }
+    ],
+    "data": {
+      "accessors": {
+        "domain": "actions.GET_DOMAIN.response"
+      }
+    },
+    "set": {
+      "viewport": "scroll",
+      "enable.stripe": true
+    },
+    "ui": {
+      "theme.variant": "default",
+      "theme.model.variant": "scrollContainer",
+      "theme.design.variant": "login",
+      "theme.motion.variant": "login",
+      "theme.skin.variant": "themeVariantDefault",
+      "theme.skin.tone": "dimensionVariantDefault",
+      "theme.skin.typography": "sans",
+      "theme.skin.spacial": "compact",
+      "theme.skin.motion": "smooth",
+      "theme.style.variant": "home",
+      "theme.style.class": "home",
+      "theme.style.css": {}
+    }
+  },
+  "['core.auth'].web.documents.login.layouts[0:DocumentLayout]": {
+    "set": {
+      "collapse": false
+    },
+    "ui": {
+      "theme.design.variant": "login"
+    }
+  },
+  "['core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main]": {
+    "data": {
+      "accessors": {
+        "domain": "document.domain"
+      }
+    },
+    "set": {
+      "position": "center",
+      "actions": {},
+      "controls": {},
+      "layout": {
+        "display": "flex"
+      }
+    },
+    "ui": {},
+    "a11y": {
+      "role": "region",
+      "label": "header"
+    }
+  },
+  "['core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]": {
+    "data": {
+      "accessors": {
+        "logo": "region.domain.hasFeaturedImage",
+        "title": "region.domain.title"
+      }
+    },
+    "set": {},
+    "ui": {
+      "theme.context.variant": "material"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "app": {},
+  "web": {
+    "global": {
+      "meta": {
+        "@dna": "['core.global'].web.global",
+        "@component": "['core.global'].web.Global",
+        "@theme": "['core.global'].web.global.Global",
+        "name": "global",
+        "class": "Global",
+        "kind": "global"
+      }
+    }
+  }
+}

@@ -159,18 +159,18 @@ use</code>
 
 ### 1\. Install Google Cloud SDK
 
-# Add the Cloud SDK distribution URI as a package source
+Add the Cloud SDK distribution URI as a package source
 
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg]
 http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a
 /etc/apt/sources.list.d/google-cloud-sdk.list
 
-# Import the Google Cloud Platform public key
+Import the Google Cloud Platform public key
 
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key
 --keyring /usr/share/keyrings/cloud.google.gpg add -
 
-# Update the package list and install the Cloud SDK
+Update the package list and install the Cloud SDK
 
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 
@@ -964,9 +964,9 @@ package
 
 Add the following lines to the beginning of <code>~/.zshrc</code>
 
-&emsp;<code>`autoload -Uz compinit`</code> Marks `compinit` function as
-autoloadable<br> &emsp;<code>`compinit`</code> compinit is the function that
-initializes the zsh completion system
+&emsp;`autoload -Uz compinit` # Marks `compinit` function as autoloadable<br>
+&emsp;`compinit` # compinit is the function that initializes the zsh completion
+system
 
 Then run the following commands:
 
@@ -1183,7 +1183,7 @@ release of K9S. Then move the binary to a location in your `$PATH`.
 
 <code>`tar xzvf k9s_Linux_x86_64.tar.gz --one-top-level`</code>
 
-<code>`sudo mv k9s_Linux_x86_64/k9s /usr/local/bin</code>
+<code>`sudo mv k9s_Linux_x86_64/k9s /usr/local/bin`</code>
 
 <code>`rm -rf k9s_Linux_x86_64`</code>
 

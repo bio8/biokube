@@ -1,0 +1,561 @@
+{
+  "meta": {
+    "file": "dna/io.biokube.app/ui.pages.json",
+    "extends": "dna/base/ui.json",
+    "baseUrl": "https://app.biokube.io",
+    "description": "Page DNA"
+  },
+  "documents": {
+    "login": {
+      "meta": {
+        "@dna": "['core.auth'].web.documents.login",
+        "@component": "['core.ui'].web.documents.Document",
+        "@route": {
+          "match": "/login",
+          "template": "web/package.core.auth.login",
+          "private": false
+        },
+        "name": "login",
+        "kind": "Document",
+        "labels": {
+          "class": "Document"
+        }
+      },
+      "layouts": [
+        {
+          "meta": {
+            "@dna": "['core.auth'].web.documents.login.layouts[0:DocumentLayout]",
+            "@component": "['core.ui'].web.layouts.RenderLayout",
+            "@theme": "['core.ui'].web.layouts.PositionLayout",
+            "@layout": "PositionLayout",
+            "name": "DocumentLayout",
+            "kind": "Layout",
+            "labels": {
+              "class": "RenderLayout"
+            }
+          },
+          "regions": [
+            {
+              "meta": {
+                "@dna": "['core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main]",
+                "name": "main",
+                "kind": "Region",
+                "labels": {
+                  "class": "Region"
+                }
+              },
+              "blocks": [
+                {
+                  "meta": {
+                    "@dna": "['core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]",
+                    "@component": "['core.auth'].web.blocks.LoginForm",
+                    "name": "LoginForm",
+                    "kind": "Block",
+                    "labels": {
+                      "class": "LoginForm"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "mutations": {
+        "static": {},
+        "scheduled": {
+          "2020-08-28T06:55:21+00:00": {
+            "meta": {
+              "@component": "['package.core.ui'].web.documents.Document",
+              "@theme": "['package.core.cms'].web.documents.Document",
+              "kind": "document"
+            },
+            "genes": {
+              "ui": {
+                "theme.model.variant": {
+                  "param": "value"
+                },
+                "theme.design.variant": "asImageSlider",
+                "theme.skin.variant": "themeVariantDefault",
+                "theme.skin.tone": "dimensionVariantDefault",
+                "theme.skin.typography": "sans",
+                "theme.skin.spacial": "compact",
+                "theme.skin.motion": "smooth"
+              }
+            },
+            "layouts": []
+          }
+        }
+      }
+    }
+  },
+  "1999": {
+    "description": "Application DNA - SITE 1999 - https://my-react-bio-app.org",
+
+    "package.core.auth": {
+      "package": {
+        "meta": {
+          "@dna": "['package.core.auth']",
+          "name": "package.core.auth",
+          "kind": "package"
+        }
+      },
+      "api": {},
+      "app": {},
+      "web": {
+        "documents": {
+          "login": {
+            "meta": {
+              "@dna": "['package.core.auth'].web.documents.login",
+              "@component": "['package.core.ui'].web.documents.Document",
+              "@route": {
+                "match": "/login",
+                "params": {},
+                "template": "web/package.core.auth.login",
+                "authenticated": false
+              },
+              "name": "login",
+              "class": "Document",
+              "kind": "document"
+            },
+            "layouts": [
+              {
+                "meta": {
+                  "@dna": "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout]",
+                  "@component": "['package.core.ui'].web.layouts.RenderLayout",
+                  "@theme": "['package.core.ui'].web.layouts.PositionLayout",
+                  "@layout": "PositionLayout",
+                  "name": "DocumentLayout",
+                  "class": "RenderLayout",
+                  "kind": "layout"
+                },
+                "regions": [
+                  {
+                    "meta": {
+                      "@dna": "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main]",
+                      "name": "main",
+                      "class": "Region",
+                      "kind": "region"
+                    },
+                    "blocks": [
+                      {
+                        "meta": {
+                          "@dna": "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]",
+                          "@component": "['package.core.auth'].web.blocks.LoginForm",
+                          "name": "LoginForm",
+                          "class": "LoginForm",
+                          "kind": "block"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "mutations": {
+              "static": {},
+              "scheduled": {
+                "2020-08-28T06:55:21+00:00": {
+                  "meta": {
+                    "@component": "['package.core.ui'].web.documents.Document",
+                    "@theme": "['package.core.cms'].web.documents.Document",
+                    "kind": "document"
+                  },
+                  "genes": {
+                    "ui": {
+                      "theme.model.variant": {
+                        "param": "value"
+                      },
+                      "theme.design.variant": "asImageSlider",
+                      "theme.skin.variant": "themeVariantDefault",
+                      "theme.skin.tone": "dimensionVariantDefault",
+                      "theme.skin.typography": "sans",
+                      "theme.skin.spacial": "compact",
+                      "theme.skin.motion": "smooth"
+                    }
+                  },
+                  "layouts": []
+                }
+              }
+            },
+            "dna": {
+              "['package.core.auth'].web.documents.login": {
+                "actions": [
+                  {
+                    "type": "GET_DOMAIN",
+                    "payload": {},
+                    "error": false,
+                    "meta": {
+                      "package": "package.core.cms",
+                      "endpoint": "/api/package.core.cms/web"
+                    }
+                  }
+                ],
+                "data": {
+                  "accessors": {
+                    "domain": "actions.GET_DOMAIN.response"
+                  }
+                },
+                "set": {
+                  "viewport": "scroll",
+                  "enable.stripe": true
+                },
+                "ui": {
+                  "theme.variant": "default",
+                  "theme.model.variant": "scrollContainer",
+                  "theme.design.variant": "login",
+                  "theme.motion.variant": "login",
+                  "theme.skin.variant": "themeVariantDefault",
+                  "theme.skin.tone": "dimensionVariantDefault",
+                  "theme.skin.typography": "sans",
+                  "theme.skin.spacial": "compact",
+                  "theme.skin.motion": "smooth",
+                  "theme.style.variant": "home",
+                  "theme.style.class": "home",
+                  "theme.style.css": {}
+                }
+              },
+              "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout]": {
+                "set": {
+                  "collapse": false
+                },
+                "ui": {
+                  "theme.design.variant": "login"
+                }
+              },
+              "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main]": {
+                "data": {
+                  "accessors": {
+                    "domain": "document.domain"
+                  }
+                },
+                "set": {
+                  "position": "center",
+                  "actions": {},
+                  "controls": {},
+                  "layout": {
+                    "display": "flex"
+                  }
+                },
+                "ui": {},
+                "a11y": {
+                  "role": "region",
+                  "label": "header"
+                }
+              },
+              "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]": {
+                "data": {
+                  "accessors": {
+                    "logo": "region.domain.hasFeaturedImage",
+                    "title": "region.domain.title"
+                  }
+                },
+                "set": {},
+                "ui": {
+                  "theme.context.variant": "material"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "package.core.cms": {
+      "package": {
+        "meta": {
+          "@dna": "['package.core.cms']",
+          "name": "package.core.cms",
+          "kind": "package"
+        }
+      },
+      "api": {},
+      "app": {},
+      "web": {
+        "documents": {
+          "home": {
+            "meta": {
+              "@dna": "['package.core.cms'].web.documents.home",
+              "@component": "['package.core.ui'].web.documents.Document",
+              "@theme": "['package.core.ui'].web.documents.Document",
+              "@route": {
+                "match": "/",
+                "params": {},
+                "template": "web/package.core.cms.home",
+                "authenticated": false,
+                "cacheTime": 5
+              },
+              "kind": "document",
+              "class": "Document",
+              "name": "home"
+            },
+            "layouts": [
+              {
+                "meta": {
+                  "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout]",
+                  "@component": "['package.core.ui'].web.layouts.RenderLayout",
+                  "@layout": "WebPageLayout",
+                  "kind": "layout",
+                  "class": "RenderLayout",
+                  "name": "DocumentLayout"
+                },
+                "regions": [
+                  {
+                    "meta": {
+                      "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header]",
+                      "name": "header",
+                      "class": "Region",
+                      "kind": "region"
+                    },
+                    "blocks": [
+                      {
+                        "meta": {
+                          "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header].blocks[0:PageHeader]",
+                          "@component": "['package.core.ui'].web.blocks.PageHeader",
+                          "name": "PageHeader",
+                          "class": "PageHeader",
+                          "kind": "block"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "meta": {
+                      "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body]",
+                      "name": "body",
+                      "class": "Region",
+                      "kind": "region"
+                    },
+                    "blocks": [
+                      {
+                        "meta": {
+                          "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body].blocks[0:WebPageBody]",
+                          "@component": "['package.core.ui'].web.blocks.WebPageBody",
+                          "name": "WebPageBody",
+                          "class": "WebPageBody",
+                          "kind": "block"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "meta": {
+                      "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:footer]",
+                      "name": "footer",
+                      "class": "Region",
+                      "kind": "region"
+                    },
+                    "blocks": [
+                      {
+                        "meta": {
+                          "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:main].blocks[0:PageFooter]",
+                          "@component": "['package.core.ui'].web.blocks.PageFooter",
+                          "name": "PageFooter",
+                          "class": "PageFooter",
+                          "kind": "block"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "mutations": {
+              "static": {},
+              "scheduled": {
+                "2020-08-28T06:55:21+00:00": {
+                  "meta": {
+                    "@component": "['package.core.ui'].web.documents.Document",
+                    "@theme": "['package.core.cms'].web.documents.Document",
+                    "kind": "document"
+                  },
+                  "genes": {
+                    "ui": {
+                      "theme.model.variant": {
+                        "param": "value"
+                      },
+                      "theme.design.variant": "asImageSlider",
+                      "theme.skin.variant": "themeVariantDefault",
+                      "theme.skin.tone": "dimensionVariantDefault",
+                      "theme.skin.typography": "sans",
+                      "theme.skin.spacial": "compact",
+                      "theme.skin.motion": "smooth"
+                    }
+                  },
+                  "layouts": []
+                }
+              }
+            },
+            "dna": {
+              "['package.core.cms'].web.documents.home": {
+                "actions": [
+                  {
+                    "type": "GET_DOMAIN",
+                    "payload": {},
+                    "error": false,
+                    "meta": {
+                      "package": "package.core.cms",
+                      "endpoint": "/api/package.core.cms/web"
+                    }
+                  },
+                  {
+                    "type": "GET_CONTENT_PAGE",
+                    "payload": {
+                      "params": {
+                        "url": "ctx.query"
+                      }
+                    },
+                    "error": false,
+                    "meta": {
+                      "package": "package.core.cms",
+                      "endpoint": "/api/package.core.cms/web"
+                    }
+                  },
+                  {
+                    "type": "GET_ARTICLES",
+                    "payload": {
+                      "params": {}
+                    },
+                    "error": false,
+                    "meta": {
+                      "package": "package.core.cms",
+                      "endpoint": "/api/package.core.cms/web"
+                    }
+                  },
+                  {
+                    "type": "GET_FACEBOOK_ALBUMS",
+                    "payload": {
+                      "params": {
+                        "id": "1"
+                      }
+                    },
+                    "error": false,
+                    "meta": {
+                      "package": "package.apis.facebook",
+                      "endpoint": "/api/package.apis.facebook/web"
+                    }
+                  }
+                ],
+                "data": {
+                  "accessors": {
+                    "body": "actions.GET_CONTENT_PAGE.response",
+                    "articles": "actions.GET_ARTICLES.response",
+                    "videos": "actions.GET_FACEBOOK_ALBUMS.response"
+                  }
+                },
+                "set": {
+                  "viewport": "scroll",
+                  "enable.stripe": true
+                },
+                "ui": {
+                  "theme.variant": "default",
+                  "theme.model.variant": "scrollContainer",
+                  "theme.design.variant": "default",
+                  "theme.motion.variant": "default",
+                  "theme.skin.variant": "themeVariantDefault",
+                  "theme.skin.tone": "dimensionVariantDefault",
+                  "theme.skin.typography": "sans",
+                  "theme.skin.spacial": "compact",
+                  "theme.skin.motion": "smooth",
+                  "theme.style.variant": "home",
+                  "theme.style.class": "home",
+                  "theme.style.css": {}
+                }
+              },
+              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout]": {
+                "set": {
+                  "collapse": false
+                },
+                "ui": {}
+              },
+              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header]": {
+                "data": {
+                  "accessors": {
+                    "articles": "document.articles"
+                  }
+                },
+                "set": {
+                  "position": "center",
+                  "actions": {},
+                  "controls": {},
+                  "layout": {
+                    "display": "flex"
+                  }
+                },
+                "ui": {},
+                "a11y": {
+                  "role": "region",
+                  "label": "header"
+                }
+              },
+              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header].blocks[0:PageHeader]": {
+                "data": {
+                  "accessors": {
+                    "header": "region.stories"
+                  }
+                },
+                "set": {},
+                "ui": {}
+              },
+              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body]": {
+                "data": {
+                  "accessors": {
+                    "body": "document.body"
+                  }
+                },
+                "set": {
+                  "position": "center",
+                  "actions": {},
+                  "controls": {},
+                  "layout": {
+                    "display": "flex"
+                  }
+                },
+                "a11y": {
+                  "role": "main",
+                  "label": "main"
+                }
+              },
+              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body].blocks[0:WebPageBody]": {
+                "data": {
+                  "accessors": {
+                    "body": "region.body"
+                  }
+                },
+                "set": {},
+                "ui": {}
+              },
+              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:footer]": {
+                "data": {
+                  "selectors": "Links",
+                  "accessors": {
+                    "videos": "document.links"
+                  }
+                },
+                "set": {
+                  "position": "center",
+                  "actions": {},
+                  "controls": {},
+                  "layout": {
+                    "display": "flex"
+                  }
+                },
+                "a11y": {
+                  "role": "region",
+                  "label": "footer"
+                }
+              },
+              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:footer].blocks[0:PageFooter]": {
+                "data": {
+                  "accessors": {
+                    "videos": "region.links"
+                  }
+                },
+                "ui": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

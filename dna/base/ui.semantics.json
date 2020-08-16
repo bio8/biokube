@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "file": "dna/base/semantics.json",
+    "extends": "",
+    "description": "Application UI DNA - domain:1874623:app.biokube.io",
+    "domain": {
+      "id": "1874623",
+      "name": "app.biokube.io"
+    }
+  },
+  "roles": {
+    "common": {
+      "page": {
+        "home": "common.page.home",
+        "link": "common.page.link"
+      },
+      "content": {
+        "video": "common.content.video",
+        "text": "common.content.text",
+        "image": "common.content.image"
+      },
+      "navigation": {
+        "main": "common.navigation.main",
+        "secondary": "common.navigation.secondary",
+        "doormat": "common.navigation.doormat",
+        "link": "common.navigation.link"
+      },
+      "header": {
+        "top": "common.header.top",
+        "secondary": "common.hero.secondary"
+      },
+      "hero": {
+        "primary": "common.hero.primary",
+        "cutout": "common.hero.cutout",
+        "overlay": "common.hero.overlay",
+        "secondary": "common.hero.secondary",
+        "slider": "common.hero.slider",
+        "image": "common.hero.image",
+        "link": "common.hero.link"
+      },
+      "highlight": {
+        "topTopical": "common.highlight.topTopical",
+        "video": "highlight.video"
+      },
+      "footer": {
+        "doormat": "common.footer.doormat",
+        "bottom": "common.footer.bottom"
+      },
+      "legal": {
+        "gdpr": "common.legal.gdpr"
+      },
+      "media": {
+        "photoGallery": "common.media.photoGallery",
+        "videoGallery": "common.media.videoGallery",
+        "mediaGallery": "common.media.mediaGallery",
+        "masonryGallery": "common.media.masonryGallery"
+      }
+    },
+    "widget": {
+      "timer": {
+        "countdown": "widget.timer.countdown",
+        "clock": "widget.timer.clock"
+      }
+    },
+    "presentation": {},
+    "decoration": {
+      "logo": "decoration.logo"
+    },
+    "engagement": {
+      "stories": {
+        "slider": "engagement.stories.slider",
+        "story": "engagement.stories.story"
+      },
+      "cta": {
+        "newsletterSubscription": "engagement.cta.newsletterSubscription",
+        "button": "engagement.cta.button"
+      }
+    },
+    "personalization": {
+      "recommended": {
+        "products": "personalization.recommended.products",
+        "videos": "personalization.recommended.videos",
+        "content": "personalization.recommended.content"
+      }
+    },
+    "commercial": {},
+    "interaction": {},
+    "tracking": {
+      "google": {
+        "gtm": "tracking.google.gtm"
+      }
+    }
+  }
+}
