@@ -5,10 +5,10 @@
     "baseUrl": "https://app.biokube.io",
     "description": "Page DNA"
   },
-  "documents": {
+  "pages": {
     "login": {
       "meta": {
-        "@dna": "['core.auth'].web.documents.login",
+        "@dna": "['core.auth'].web.pages.login",
         "@component": "['core.ui'].web.documents.Document",
         "@route": {
           "match": "/login",
@@ -24,7 +24,7 @@
       "layouts": [
         {
           "meta": {
-            "@dna": "['core.auth'].web.documents.login.layouts[0:DocumentLayout]",
+            "@dna": "['core.auth'].web.pages.login.layouts[0:DocumentLayout]",
             "@component": "['core.ui'].web.layouts.RenderLayout",
             "@theme": "['core.ui'].web.layouts.PositionLayout",
             "@layout": "PositionLayout",
@@ -47,7 +47,7 @@
               "blocks": [
                 {
                   "meta": {
-                    "@dna": "['core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]",
+                    "@dna": "['core.auth'].web.pages.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]",
                     "@component": "['core.auth'].web.blocks.LoginForm",
                     "name": "LoginForm",
                     "kind": "Block",
@@ -103,10 +103,10 @@
       "api": {},
       "app": {},
       "web": {
-        "documents": {
+        "pages": {
           "login": {
             "meta": {
-              "@dna": "['package.core.auth'].web.documents.login",
+              "@dna": "['package.core.auth'].web.pages.login",
               "@component": "['package.core.ui'].web.documents.Document",
               "@route": {
                 "match": "/login",
@@ -121,7 +121,7 @@
             "layouts": [
               {
                 "meta": {
-                  "@dna": "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout]",
+                  "@dna": "['package.core.auth'].web.pages.login.layouts[0:DocumentLayout]",
                   "@component": "['package.core.ui'].web.layouts.RenderLayout",
                   "@theme": "['package.core.ui'].web.layouts.PositionLayout",
                   "@layout": "PositionLayout",
@@ -132,7 +132,7 @@
                 "regions": [
                   {
                     "meta": {
-                      "@dna": "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main]",
+                      "@dna": "['package.core.auth'].web.pages.login.layouts[0:DocumentLayout].regions[0:main]",
                       "name": "main",
                       "class": "Region",
                       "kind": "region"
@@ -140,7 +140,7 @@
                     "blocks": [
                       {
                         "meta": {
-                          "@dna": "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]",
+                          "@dna": "['package.core.auth'].web.pages.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]",
                           "@component": "['package.core.auth'].web.blocks.LoginForm",
                           "name": "LoginForm",
                           "class": "LoginForm",
@@ -179,7 +179,7 @@
               }
             },
             "dna": {
-              "['package.core.auth'].web.documents.login": {
+              "['package.core.auth'].web.pages.login": {
                 "actions": [
                   {
                     "type": "GET_DOMAIN",
@@ -215,7 +215,7 @@
                   "theme.style.css": {}
                 }
               },
-              "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout]": {
+              "['package.core.auth'].web.pages.login.layouts[0:DocumentLayout]": {
                 "set": {
                   "collapse": false
                 },
@@ -223,7 +223,7 @@
                   "theme.design.variant": "login"
                 }
               },
-              "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main]": {
+              "['package.core.auth'].web.pages.login.layouts[0:DocumentLayout].regions[0:main]": {
                 "data": {
                   "accessors": {
                     "domain": "document.domain"
@@ -243,7 +243,7 @@
                   "label": "header"
                 }
               },
-              "['package.core.auth'].web.documents.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]": {
+              "['package.core.auth'].web.pages.login.layouts[0:DocumentLayout].regions[0:main].blocks[0:LoginForm]": {
                 "data": {
                   "accessors": {
                     "logo": "region.domain.hasFeaturedImage",
@@ -271,10 +271,10 @@
       "api": {},
       "app": {},
       "web": {
-        "documents": {
+        "pages": {
           "home": {
             "meta": {
-              "@dna": "['package.core.cms'].web.documents.home",
+              "@dna": "['package.core.cms'].web.pages.home",
               "@component": "['package.core.ui'].web.documents.Document",
               "@theme": "['package.core.ui'].web.documents.Document",
               "@route": {
@@ -291,7 +291,7 @@
             "layouts": [
               {
                 "meta": {
-                  "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout]",
+                  "@dna": "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout]",
                   "@component": "['package.core.ui'].web.layouts.RenderLayout",
                   "@layout": "WebPageLayout",
                   "kind": "layout",
@@ -301,7 +301,7 @@
                 "regions": [
                   {
                     "meta": {
-                      "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header]",
+                      "@dna": "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[0:header]",
                       "name": "header",
                       "class": "Region",
                       "kind": "region"
@@ -309,7 +309,7 @@
                     "blocks": [
                       {
                         "meta": {
-                          "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header].blocks[0:PageHeader]",
+                          "@dna": "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[0:header].blocks[0:PageHeader]",
                           "@component": "['package.core.ui'].web.blocks.PageHeader",
                           "name": "PageHeader",
                           "class": "PageHeader",
@@ -320,7 +320,7 @@
                   },
                   {
                     "meta": {
-                      "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body]",
+                      "@dna": "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[1:body]",
                       "name": "body",
                       "class": "Region",
                       "kind": "region"
@@ -328,7 +328,7 @@
                     "blocks": [
                       {
                         "meta": {
-                          "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body].blocks[0:WebPageBody]",
+                          "@dna": "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[1:body].blocks[0:WebPageBody]",
                           "@component": "['package.core.ui'].web.blocks.WebPageBody",
                           "name": "WebPageBody",
                           "class": "WebPageBody",
@@ -339,7 +339,7 @@
                   },
                   {
                     "meta": {
-                      "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:footer]",
+                      "@dna": "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[2:footer]",
                       "name": "footer",
                       "class": "Region",
                       "kind": "region"
@@ -347,7 +347,7 @@
                     "blocks": [
                       {
                         "meta": {
-                          "@dna": "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:main].blocks[0:PageFooter]",
+                          "@dna": "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[2:main].blocks[0:PageFooter]",
                           "@component": "['package.core.ui'].web.blocks.PageFooter",
                           "name": "PageFooter",
                           "class": "PageFooter",
@@ -461,13 +461,13 @@
                   "theme.style.css": {}
                 }
               },
-              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout]": {
+              "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout]": {
                 "set": {
                   "collapse": false
                 },
                 "ui": {}
               },
-              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header]": {
+              "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[0:header]": {
                 "data": {
                   "accessors": {
                     "articles": "document.articles"
@@ -487,7 +487,7 @@
                   "label": "header"
                 }
               },
-              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[0:header].blocks[0:PageHeader]": {
+              "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[0:header].blocks[0:PageHeader]": {
                 "data": {
                   "accessors": {
                     "header": "region.stories"
@@ -496,7 +496,7 @@
                 "set": {},
                 "ui": {}
               },
-              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body]": {
+              "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[1:body]": {
                 "data": {
                   "accessors": {
                     "body": "document.body"
@@ -515,7 +515,7 @@
                   "label": "main"
                 }
               },
-              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[1:body].blocks[0:WebPageBody]": {
+              "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[1:body].blocks[0:WebPageBody]": {
                 "data": {
                   "accessors": {
                     "body": "region.body"
@@ -524,7 +524,7 @@
                 "set": {},
                 "ui": {}
               },
-              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:footer]": {
+              "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[2:footer]": {
                 "data": {
                   "selectors": "Links",
                   "accessors": {
@@ -544,7 +544,7 @@
                   "label": "footer"
                 }
               },
-              "['package.core.cms'].web.documents.home.layouts[0:DocumentLayout].regions[2:footer].blocks[0:PageFooter]": {
+              "['package.core.cms'].web.pages.home.layouts[0:DocumentLayout].regions[2:footer].blocks[0:PageFooter]": {
                 "data": {
                   "accessors": {
                     "videos": "region.links"
