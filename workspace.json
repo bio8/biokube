@@ -245,11 +245,11 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "mkdir -p container/docker/build || : ",
+              "mkdir -p $(pwd)/../../k8s/docker/biokube-docs/build || : ",
               "docker rm -f biokube-docs-develop || : ",
-              "docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/container/docker/build:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs:v1.0.0-develop",
+              "docker run -d --rm --name biokube-docs -p 4567:4567 -v $(pwd)/../../k8s/docker/biokube-docs/build:/srv/docs/build -v $(pwd)/src:/srv/docs/src biokube-docs:v1.0.0-develop",
               "docker exec -u 1000 -it biokube-docs /bin/sh -c 'bundle exec middleman build'",
-              "docker build -f $(pwd)/container/docker/Dockerfile ./container/docker/build -t biokube-docs:v1.0.0-production"
+              "docker build -f $(pwd)/../../k8s/docker/biokube-docs/Dockerfile $(pwd)/../../k8s/docker/biokube-docs/build -t biokube-docs:v1.0.0-production"
             ],
             "cwd": "apps/biokube-docs",
             "parallel": false
