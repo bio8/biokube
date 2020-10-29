@@ -1242,7 +1242,7 @@ helm search repo stable
 helm plugin install https://github.com/chartmuseum/helm-push
 helm plugin install https://github.com/databus23/helm-diff
 
-curl -fSL -o helmfile https://github.com/roboll/helmfile/releases/download/v0.125.6/helmfile_linux_amd64
+curl -fSL -o helmfile https://github.com/roboll/helmfile/releases/download/v0.132.1/helmfile_linux_amd64
 chmod +x helmfile
 sudo mv helmfile /usr/local/bin
 
