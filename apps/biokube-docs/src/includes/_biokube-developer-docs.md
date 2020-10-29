@@ -1206,7 +1206,7 @@ specific config is called a release. <b>Biokube</b> uses Helm 3.
 
 <code>`helm version`</code>
 
-<code>`helm repo add stable https://kubernetes-charts.storage.googleapis.com/`</code>
+<code>`helm repo add stable https://charts.helm.sh/stable/`</code>
 
 <code>`helm repo update`</code>
 
@@ -1235,7 +1235,7 @@ chmod 700 get_helm.sh
 rm get_helm.sh
 
 helm version
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable/
 helm repo update
 helm search repo stable
 
