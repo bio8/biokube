@@ -626,7 +626,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 <code>`nano ~/.zshrc`</code>
 
-Append the following lines to this file:
+Edit the following settings:
 
 <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code><br> <code>plugins=(git
 zsh-autosuggestions)</code>
