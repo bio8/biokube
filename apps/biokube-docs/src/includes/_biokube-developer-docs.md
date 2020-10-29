@@ -113,7 +113,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce
-sudo systemctl status docker
+sudo systemctl enable docker && sudo systemctl status docker
 sudo usermod -aG docker ${USER}
 docker ps
 ```
@@ -224,7 +224,7 @@ line to `~/.zshrc` <br> This line Creates an environment variable `NVM_DIR` and
 sets it's value to `~/.nvm` and exports the variable to the environment of all
 the child processes running in the current shell.
 
-<code>`echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh" # This loads nvm' >>~/.zshrc`</code><br>
+<code>`echo '[ -s "$NVM_DIR/nvm.sh" ] && . $NVM_DIR/nvm.sh # This loads nvm' >>~/.zshrc`</code><br>
 Appends this line to `~/.zshrc`
 
 > 1\. Install NVM
@@ -243,7 +243,7 @@ the commands in this file.
 
 Append the following lines to the end of this file:<br>
 <code>`echo 'export NVM_DIR="$HOME/.nvm"' >>~/.zshrc`</code><br>
-<code>`echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh" # This loads nvm' >>~/.zshrc`</code>
+<code>`echo '[ -s "$NVM_DIR/nvm.sh" ] && . $NVM_DIR/nvm.sh # This loads nvm' >>~/.zshrc`</code>
 
 > 2\. Edit ~/.zshrc
 
@@ -593,13 +593,13 @@ default Terminal into something like this:
 
 <code>`sudo apt install zsh`</code>
 
-<code>`sh -c "\$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`</code>
+<code>`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`</code>
 
 > 4.1\. Install Oh My Zsh
 
 ```shell
 sudo apt install zsh
-sh -c "\$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 #### 4.2\. Install Oh My Zsh powerlevel10k theme
