@@ -640,7 +640,7 @@ plugins=(git zsh-autosuggestions)
 ```
 
 Now Reboot to load the Fonts we installed (in Step 2).<br> Now when you open a
-new terminal session the Oh My Zsh configuration wizard will be launched
+new terminal session the Oh My Zsh configuration wizard will be launched. If not you are still in bash and you need to execute zsh first.
 
 #### 4.5\. Run the configuration wizard
 
